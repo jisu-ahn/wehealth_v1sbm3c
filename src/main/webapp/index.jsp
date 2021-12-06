@@ -12,6 +12,9 @@
 <body>
   <DIV style="margin: 50px;">
       <H1>깃 테스트</H1>
+      <OL>
+          <LI>첫번째 변경 진행함.</LI>
+      </OL>
   </DIV> 
 </body>
 </html>
