@@ -35,7 +35,10 @@ INSERT INTO category(category_no, categorygrp_no, category_name, cdate, product_
 VALUES(category_seq.nextval, 1, '워킹 머신', sysdate, 0);
 
 INSERT INTO category(category_no, categorygrp_no, category_name, cdate, product_cnt)
-VALUES(category_seq.nextval, 1, '실내 자전거', sysdate, 0);
+VALUES(category_seq.nextval, 7, '실내 자전거', sysdate, 0);
+
+INSERT INTO category(category_no, categorygrp_no, category_name, cdate, product_cnt)
+VALUES(category_seq.nextval, 5, '윗몸 일으키기', sysdate, 0);
 
 -- 조회
 SELECT category_no, categorygrp_no, category_name, cdate, product_cnt
@@ -54,3 +57,9 @@ DELETE FROM category
 WHERE category_no = 1;
 
 commit;
+
+SELECT r.categorygrp_no as r_categorygrp_no, r.categorygrp_name as r_name,
+           c.category_no, c.categorygrp_no, c.category_name, c.cdate, c.product_cnt
+FROM categorygrp r, category c
+WHERE r.categorygrp_no = c.categorygrp_no
+ORDER BY categorygrp_no ASC, category_no ASC;

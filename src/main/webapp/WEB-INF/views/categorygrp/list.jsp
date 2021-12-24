@@ -81,7 +81,7 @@
       <c:set var="categorygrp_no" value="${categorygrpVO.categorygrp_no }" />
       <TR>
         <TD class="td_bs">${categorygrpVO.seq_no }</TD>
-        <TD class="td_bs_left">${categorygrpVO.categorygrp_name }</TD>
+        <TD class="td_bs_left"><A href="../category/list_by_categorygrpno.do?categorygrp_no=${categorygrp_no }" >${categorygrpVO.categorygrp_name }</A></TD>
         <TD class="td_bs">${categorygrpVO.cdate.substring(0, 10) }</TD>
         <TD class="td_bs">
           <c:choose>

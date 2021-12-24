@@ -47,3 +47,5 @@ UPDATE categorygrp
 SET categorygrp_name='부속품'
 WHERE categorygrp_no=1;
 commit;
+
+
