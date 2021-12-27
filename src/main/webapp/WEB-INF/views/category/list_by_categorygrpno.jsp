@@ -67,6 +67,10 @@
     <tbody>
     <c:forEach var="categoryVO" items="${list}">
       <c:set var="category_no" value="${categoryVO.category_no }" />
+      <c:set var="categorygrp_no" value="${categoryVO.categorygrp_no }" />
+      <c:set var="category_name" value="${categoryVO.category_name }" />
+      <c:set var="cdate" value="${categoryVO.cdate.substring(0, 10) }" />
+      <c:set var="product_cnt" value="${categoryVO.product_cnt }" />
       <TR>
         <TD class="td_bs">${categoryVO.category_no }</TD>
         <TD class="td_bs">${categorygrpVO.categorygrp_no }</TD>

@@ -1,6 +1,9 @@
 /**********************************/
 /* Table Name: 상품 */
 /**********************************/
+DROP TABLE attachfile;
+DROP TABLE items CASCADE CONSTRAINTS;
+
 CREATE TABLE items(
 		itemsno NUMERIC(10) NOT NULL PRIMARY KEY,
 		ADMINNO NUMERIC(10) NOT NULL,
@@ -24,39 +27,6 @@ CREATE TABLE items(
 		item_cnt NUMERIC(10) NOT NULL,
   FOREIGN KEY (category_no) REFERENCES category (category_no),
   FOREIGN KEY (ADMINNO) REFERENCES ADMIN (ADMINNO)
-);
-
-/**********************************/
-/* Table Name: 상품 */
-/**********************************/
-DROP TABLE attachfile;
-DROP TABLE items CASCADE CONSTRAINTS;
-/**********************************/
-/* Table Name: 상품 */
-/**********************************/
-CREATE TABLE items(
-		itemsno                    		NUMBER(10)		 NOT NULL		 PRIMARY KEY,
-		ADMINNO                       		NUMBER(10)		 NOT NULL,
-		category_no                        	NUMBER(10)		 NOT NULL,
-		ITEM_NAME                  		VARCHAR2(50)		 NOT NULL,
-		content                       		VARCHAR2(4000)		 NOT NULL,
-		RECOM_CNT                                 NUMBER(7)         DEFAULT 0         NOT NULL,
-		VIEW_CNT                                   NUMBER(7)         DEFAULT 0         NOT NULL,
-		COMMENT_CNT                     	NUMBER(7)         DEFAULT 0         NOT NULL,
-		PASSWORD                      	VARCHAR2(20)		 NOT NULL,
-		SEARCH_WORD                             VARCHAR2(300)         NULL ,
-		CDATE                                 	DATE               NOT NULL,
-		file1                                 	VARCHAR(100)          NULL,
-		file1saved                          	VARCHAR(100)          NULL,
-		thumb1                            	VARCHAR(100)          NULL,
-		size1                              	NUMBER(10)      DEFAULT 0 NULL,  
-		ITEM_PRICE                 		NUMBER(10)      DEFAULT 0 NOT NULL,  
-		DISCOUNT                       	NUMBER(10)      DEFAULT 0 NOT NULL,  
-		TOTAL_PRICE                   		NUMBER(10)      DEFAULT 0 NOT NULL,  
-		ITEM_POINT                                 NUMBER(10)      DEFAULT 0 NOT NULL,  
-		ITEM_CNT                                   NUMBER(10)      DEFAULT 0 NOT NULL,  
-  FOREIGN KEY (category_no) REFERENCES category (category_no),
-  FOREIGN KEY (adminno) REFERENCES admin (adminno)
 );
 
 COMMENT ON TABLE items is '상품';
@@ -95,16 +65,16 @@ INSERT INTO items(itemsno, adminno, category_no, ITEM_NAME, content, RECOM_CNT, 
                               file1, file1saved, thumb1, size1, ITEM_PRICE, DISCOUNT, TOTAL_PRICE, ITEM_POINT, ITEM_CNT)
 VALUES(items_seq.nextval, 1, 1, '런닝머신 X1', '머신', 0, 0, 0, '1234', '런닝', sysdate,
             'run1.jpg', 'run1_1.jpg', 'run1_t.jpg', 1000, 2000, 10, 1800, 100, 500);
-
-INSERT INTO items(itemsno, adminno, category_no, ITEM_NAME, content, RECOM_CNT, VIEW_CNT, COMMENT_CNT, PASSWORD, SEARCH_WORD, CDATE,
-                              file1, file1saved, thumb1, size1, ITEM_PRICE, DISCOUNT, TOTAL_PRICE, ITEM_POINT, ITEM_CNT)
-VALUES(item_seq.nextval, 1, 1, '런닝머신 X2', '머신', 0, 0, 0, '1234', '런닝', sysdate,
-            'run2.jpg', 'run2_1.jpg', 'run2_t.jpg', 1000, 2000, 10, 1800, 100, 500);
             
 INSERT INTO items(itemsno, adminno, category_no, ITEM_NAME, content, RECOM_CNT, VIEW_CNT, COMMENT_CNT, PASSWORD, SEARCH_WORD, CDATE,
                               file1, file1saved, thumb1, size1, ITEM_PRICE, DISCOUNT, TOTAL_PRICE, ITEM_POINT, ITEM_CNT)
-VALUES(item_seq.nextval, 1, 1, '런닝머신 X3', '런닝 머신', 0, 0, 0, '1234', '런닝', sysdate,
-            'run3.jpg', 'run3_1.jpg', 'run3_t.jpg', 1000, 2000, 10, 1800, 100, 500);
+VALUES(items_seq.nextval, 1, 1, '런닝머신 X2', '머신', 0, 0, 0, '1234', '런닝', sysdate,
+            'run1.jpg', 'run1_1.jpg', 'run1_t.jpg', 1000, 2000, 10, 1800, 100, 500);            
+            
+INSERT INTO items(itemsno, adminno, category_no, ITEM_NAME, content, RECOM_CNT, VIEW_CNT, COMMENT_CNT, PASSWORD, SEARCH_WORD, CDATE,
+                              file1, file1saved, thumb1, size1, ITEM_PRICE, DISCOUNT, TOTAL_PRICE, ITEM_POINT, ITEM_CNT)
+VALUES(items_seq.nextval, 1, 1, '런닝머신 X3', '머신', 0, 0, 0, '1234', '런닝', sysdate,
+            'run1.jpg', 'run1_1.jpg', 'run1_t.jpg', 1000, 2000, 10, 1800, 100, 500);                   
             
 -- 조회          
 SELECT itemsno, adminno, category_no, ITEM_NAME, content, RECOM_CNT, VIEW_CNT, COMMENT_CNT, PASSWORD, SEARCH_WORD, CDATE,
