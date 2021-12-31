@@ -5,6 +5,7 @@ import java.util.List;
 public interface CategorygrpProcInter {
     /**
      * 등록
+     * 
      * @param categorygrpVO
      * @return 등록된 레코드 갯수
      */
@@ -12,9 +13,17 @@ public interface CategorygrpProcInter {
     
     /**
      * 등록 순서별 목록
+     * 
      * @return
      */
     public List<CategorygrpVO> list_categorygrpno_asc();
+    
+    /**
+     * 출력 순서별 목록
+     * 
+     * @return
+     */
+    public List<CategorygrpVO> list_seqno_asc();
     
     /**
      * 조회, 수정폼
@@ -26,6 +35,7 @@ public interface CategorygrpProcInter {
     
     /**
      * 수정 처리
+     * 
      * @param categorygrpVO
      * @return 처리된 레코드 갯수
      */
@@ -33,19 +43,15 @@ public interface CategorygrpProcInter {
     
     /**
      * 삭제 처리
+     * 
      * @param categorygrp_no
      * @return 처리된 레코드 갯수
      */
     public int delete(int categorygrp_no);
     
     /**
-     * 출력 순서별 목록
-     * @return
-     */
-    public List<CategorygrpVO> list_seqno_asc();
-    
-    /**
      * 출력 순서 상향
+     * 
      * @param categorygrp_no
      * @return 처리된 레코드 갯수
      */
@@ -53,6 +59,7 @@ public interface CategorygrpProcInter {
    
     /**
      * 출력 순서 하향
+     * 
      * @param categorygrp_no
      * @return 처리된 레코드 갯수
      */
@@ -60,6 +67,7 @@ public interface CategorygrpProcInter {
     
     /**
      * visible 수정
+     * 
      * @param categorygrpVO
      * @return
      */

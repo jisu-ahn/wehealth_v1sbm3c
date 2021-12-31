@@ -24,7 +24,7 @@
   <fieldset class='fieldset_basic'>
     <UL>
       <c:choose>
-        <c:when test="${param.code == 'passwd_fail'}">
+        <c:when test="${param.code == 'password_fail'}">
           <LI class='li_none'>
             <span class="span_fail">패스워드가 일치하지 않습니다.</span>
           </LI> 

@@ -69,5 +69,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     WHERE category_no = #{category_no}
   </delete> 
 
+      <!-- 특정 그룹에 속한 레코드 갯수 산출 -->
+  <select id="count_by_categorygrpno" resultType="int" parameterType="int">
+    SELECT COUNT(*) as product_cnt 
+    FROM category 
+    WHERE categorygrp_no=#{categorygrp_no}
+  </select>   
+  
+  <!-- categorygrp_no가 같은 모든 레코드 삭제 -->
+  <delete id="delete_by_categorygrpno" parameterType="int">
+    DELETE FROM category
+    WHERE categorygrp_no=#{categorygrp_no}
+  </delete>
   
 </mapper>

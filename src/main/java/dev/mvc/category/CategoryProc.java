@@ -57,5 +57,17 @@ public class CategoryProc implements CategoryProcInter {
       return cnt;
     }
     
+    @Override
+    public int count_by_categorygrp_no(int categorygrp_no) {
+      int cnt = this.categoryDAO.count_by_categorygrp_no(categorygrp_no);
+      return cnt;
+    }
+    
+    @Override
+    public int delete_by_categorygrp_no(int categorygrp_no) {
+      int cnt = this.categoryDAO.delete_by_categorygrp_no(categorygrp_no);
+      return cnt;
+    }
+    
     
 }

@@ -5,6 +5,7 @@ import java.util.List;
 public interface CategoryProcInter {
     /**
      * 등록
+     * insert id="create" parameterType="dev.mvc.category.CategoryVO"
      * @param categoryVO
      * @return 등록된 갯수
      */
@@ -49,5 +50,18 @@ public interface CategoryProcInter {
      */
     public int delete(int category_no);
     
+    /**
+     * 특정 그룹에 속한 레코드 갯수 산출
+     * @param categorygrp_no
+     * @return
+     */
+    public int count_by_categorygrp_no(int categorygrp_no);
+    
+    /**
+     * categorygrp_no가 같은 모든 레코드 삭제
+     * @param categorygrp_no
+     * @return
+     */
+    public int delete_by_categorygrp_no(int categorygrp_no);
     
 }

@@ -5,6 +5,7 @@ import java.util.List;
 public interface CategoryDAOInter {
     /**
     * 등록
+     * insert id="create" parameterType="dev.mvc.category.CategpryVO"
     * @param categoryVO
     * @return 등록된 갯수
     */
@@ -49,5 +50,17 @@ public interface CategoryDAOInter {
     */
    public int delete(int category_no);
    
-
+   /**
+    * 특정 그룹에 속한 레코드 갯수 산출
+    * @param categrpno
+    * @return
+    */
+   public int count_by_categorygrp_no(int categorygrp_no);
+   
+   /**
+    * categrpno가 같은 모든 레코드 삭제
+    * @param categrpno
+    * @return
+    */
+   public int delete_by_categorygrp_no(int categorygrp_no);
 }

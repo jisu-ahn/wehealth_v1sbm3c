@@ -2,11 +2,13 @@ package dev.mvc.category;
 
 import java.util.List;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import dev.mvc.categorygrp.CategorygrpProcInter;
@@ -55,6 +57,13 @@ public class CategoryCont {
     /**
      * 등록처리
      * http://localhost:9091/category/create.do?categorygrp_no=2
+     * Exception: FK 전달이 안됨.
+     * Field error in object 'cateVO' on field 'categrpno': rejected value [];
+     * codes [typeMismatch.cateVO.categrpno,typeMismatch.categrpno,typeMismatch.int,typeMismatch]; 
+     * arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [cateVO.categrpno,categrpno];
+     * arguments []; default message [categrpno]]; 
+     * default message [Failed to convert property value of type 'java.lang.String' to required type 'int' for property 'categrpno';
+     * nested exception is java.lang.NumberFormatException: For input string: ""]]
      * @return
      */
     @RequestMapping(value = "/category/create.do", method = RequestMethod.POST)
@@ -72,8 +81,10 @@ public class CategoryCont {
       mav.addObject("category_name", categoryVO.getCategory_name());
       mav.addObject("url", "/category/msg");  // /category/msg -> /category/msg.jsp
       
-      mav.setViewName("redirect:/category/msg.do");
+      // mav.setViewName("redirect:/category/msg.do");
       // response.sendRedirect("/category/msg.do");
+      
+      mav.setViewName("redirect:/category/list_by_categorygrpno.do");
       
       return mav;
     }
@@ -224,6 +235,7 @@ public class CategoryCont {
     @RequestMapping(value = "/category/delete.do", method = RequestMethod.POST)
     public ModelAndView delete(int category_no) {
       ModelAndView mav = new ModelAndView();
+      
       // 삭제될 레코드 정보를 삭제하기전에 읽음
       CategoryVO categoryVO = this.categoryProc.read(category_no); 
       
@@ -247,6 +259,28 @@ public class CategoryCont {
       return mav;
     }
  
-
+    /**
+     * categorygrp_no가 같은 모든 레코드 삭제
+     * http://localhost:9091/category/delete_by_categorygrp_no.do
+     * @param categoryVO
+     * @return
+     */
+    @RequestMapping(value = "/category/delete_by_categorygrp_no.do", method = RequestMethod.POST)
+    @ResponseBody
+    public String delete_by_categorygrp_no(int categorygrp_no) {
+      
+      int cnt = 0;
+      try {
+        cnt = this.categoryProc.delete_by_categorygrp_no(categorygrp_no);  
+      } catch (Exception e) {
+        // pass  
+      }
+      
+      JSONObject json = new JSONObject();
+      json.put("cnt", cnt);
+      
+      return json.toString();
+      
+    }
     
 }
