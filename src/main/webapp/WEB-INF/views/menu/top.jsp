@@ -22,7 +22,7 @@
       <A class='menu_link'  href='/category/list_all.do'>카테고리 전체 목록</A><span class='top_menu_sep'> </span>
       <A class='menu_link'  href='/category/list_all_join.do'>카테고리 전체 목록 Join</A><span class='top_menu_sep'> </span>              
       <A class='menu_link'  href='/cart/list_by_memberno.do'>쇼핑카트</A><span class='top_menu_sep'> </span>
-      <A class='menu_link'  href='/order_pay/list_by_memberno.do'>주문결재</A><span class='top_menu_sep'> </span> 
+      <A class='menu_link'  href='/order_pay/list_by_memberno.do'>주문결제</A><span class='top_menu_sep'> </span> 
       <A class='menu_link'  href='/member/create.do'>회원가입</A><span class='top_menu_sep'> </span>
       <A class='menu_link'  href='/member/list.do'>회원목록</A><span class='top_menu_sep'> </span>    
        

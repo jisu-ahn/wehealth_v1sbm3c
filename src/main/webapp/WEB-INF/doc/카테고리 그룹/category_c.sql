@@ -1,4 +1,5 @@
 DROP TABLE categorygrp CASCADE CONSTRAINTS; 
+DROP TABLE categorygrp;
 
 CREATE TABLE categorygrp(
 categorygrp_no NUMERIC(10) NOT NULL PRIMARY KEY,

@@ -32,10 +32,10 @@ INSERT INTO category(category_no, categorygrp_no, category_name, cdate, product_
 VALUES(category_seq.nextval, 1, '런닝 머신', sysdate, 0);
 
 INSERT INTO category(category_no, categorygrp_no, category_name, cdate, product_cnt)
-VALUES(category_seq.nextval, 1, '워킹 머신', sysdate, 0);
+VALUES(category_seq.nextval, 2, '워킹 머신', sysdate, 0);
 
 INSERT INTO category(category_no, categorygrp_no, category_name, cdate, product_cnt)
-VALUES(category_seq.nextval, 7, '실내 자전거', sysdate, 0);
+VALUES(category_seq.nextval, 3, '실내 자전거', sysdate, 0);
 
 INSERT INTO category(category_no, categorygrp_no, category_name, cdate, product_cnt)
 VALUES(category_seq.nextval, 5, '윗몸 일으키기', sysdate, 0);
