@@ -41,9 +41,9 @@
       <LI class='li_none'>
         <br>
         <c:if test="${cnt != 1 }">
-          <button type='button' onclick="history.back()" class="btn btn-primary">다시 시도</button>
+          <button type='button' onclick="history.back()" class="btn btn-dark">다시 시도</button>
         </c:if>
-        <button type='button' onclick="location.href='./list.do'" class="btn btn-primary">목록</button>
+        <button type='button' onclick="location.href='./list.do'" class="btn btn-dark">목록</button>
       </LI>
     </UL>
   </fieldset>

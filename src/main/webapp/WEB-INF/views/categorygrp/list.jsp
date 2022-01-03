@@ -45,12 +45,12 @@
         <option value='N'>N</option>
       </select>
        
-      <button type="submit" id='submit'>등록</button>
-      <button type="button" onclick="cancel();">취소</button>
+      <button type="submit" id='submit' class="btn btn-dark">등록</button>
+      <button type="button" onclick="cancel();" class="btn btn-dark">취소</button>
     </FORM>
   </DIV>
     
-  <TABLE class='table table-striped'>
+  <TABLE class='table'>
     <colgroup>
       <col style='width: 10%;'/>
       <col style='width: 40%;'/>

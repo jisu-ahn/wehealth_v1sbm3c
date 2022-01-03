@@ -37,12 +37,12 @@
       <label>순서</label>: ${categorygrpVO.seq_no }   
       <label>출력 형식</label>: ${categorygrpVO.print_mode }  
        
-      <button type="submit" id='submit'>삭제</button>
-      <button type="button" onclick="location.href='./list.do'">취소</button>
+      <button type="submit" id='submit' class="btn btn-dark">삭제</button>
+      <button type="button" onclick="location.href='./list.do'" class='btn btn-dark'>취소</button>
     </FORM>
   </DIV>
    
-  <TABLE class='table table-striped'>
+  <TABLE class='table'>
     <colgroup>
       <col style='width: 10%;'/>
       <col style='width: 40%;'/>
