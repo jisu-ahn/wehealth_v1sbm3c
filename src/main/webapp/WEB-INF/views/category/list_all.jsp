@@ -27,7 +27,7 @@
 <DIV class='title_line'>카테고리 그룹 > 전체 카테고리</DIV>
 
 <DIV class='content_body'>
-  <TABLE class='table table-striped'>
+  <TABLE class='table'>
     <colgroup>
       <col style='width: 10%;'/>
       <col style='width: 10%;'/>

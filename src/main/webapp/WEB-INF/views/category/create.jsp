@@ -46,8 +46,8 @@
        </div>
     </div>
     <div class="content_body_bottom" style="padding-right: 20%;">
-      <button type="submit" class="btn btn-primary">등록</button>
-      <button type="button" onclick="location.href='./list_by_categrp.do'" class="btn btn-primary">목록</button>
+      <button type="submit" class="btn btn-dark">등록</button>
+      <button type="button" onclick="location.href='./list_by_categrp.do'" class="btn btn-dark">목록</button>
     </div>
   
   </FORM>

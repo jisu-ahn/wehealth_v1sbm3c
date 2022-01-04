@@ -16,6 +16,10 @@ public class CategorygrpProc implements CategorygrpProcInter {
     private CategorygrpDAOInter categorygrpDAO;
     // private CategorygrpDAOInter categorygrpDAO = new CategorygrpDAO();
 
+    public CategorygrpProc() {
+        System.out.println("-> categoryProc created.");
+    }
+    
     @Override
     public int create(CategorygrpVO categorygrpVO) {
       int cnt = categorygrpDAO.create(categorygrpVO);
@@ -25,45 +29,37 @@ public class CategorygrpProc implements CategorygrpProcInter {
 
     @Override
     public List<CategorygrpVO> list_categorygrpno_asc() {
-      List<CategorygrpVO> list = null;
-      list = this.categorygrpDAO.list_categorygrpno_asc();
+      List<CategorygrpVO> list = this.categorygrpDAO.list_categorygrpno_asc();
+      return list;
+    }
+    
+    @Override
+    public List<CategorygrpVO> list_seqno_asc() {
+      List<CategorygrpVO> list = this.categorygrpDAO.list_seqno_asc();
       return list;
     }
     
     @Override
     public CategorygrpVO read(int categorygrp_no) {
       CategorygrpVO categorygrpVO = this.categorygrpDAO.read(categorygrp_no);
-      
       return categorygrpVO;
     }
     
     @Override
     public int update(CategorygrpVO categorygrpVO) {
-      int cnt = 0;
-      cnt = this.categorygrpDAO.update(categorygrpVO);
-      
+      int cnt = this.categorygrpDAO.update(categorygrpVO);
       return cnt;
     }
     
     @Override
     public int delete(int categorygrp_no) {
-      int cnt = 0;
-      cnt = this.categorygrpDAO.delete(categorygrp_no);
-      
+      int cnt = this.categorygrpDAO.delete(categorygrp_no);
       return cnt;
-    }
-    
-    @Override
-    public List<CategorygrpVO> list_seqno_asc() {
-      List<CategorygrpVO> list = null;
-      list = this.categorygrpDAO.list_seqno_asc();
-      return list;
     }
     
     @Override
     public int update_seqno_up(int categorygrp_no) {
       int cnt = this.categorygrpDAO.update_seqno_up(categorygrp_no);
-      
       return cnt;
     }
 
@@ -76,15 +72,17 @@ public class CategorygrpProc implements CategorygrpProcInter {
     @Override
     public int update_visible(CategorygrpVO categorygrpVO) {
       int cnt = 0;
+      
       if (categorygrpVO.getPrint_mode().toUpperCase().equals("Y")) {
         categorygrpVO.setPrint_mode("N");
       } else {
         categorygrpVO.setPrint_mode("Y");
       }
+      
       cnt = this.categorygrpDAO.update_visible(categorygrpVO);
+      
       return cnt;
     }
-    
     
     
 }

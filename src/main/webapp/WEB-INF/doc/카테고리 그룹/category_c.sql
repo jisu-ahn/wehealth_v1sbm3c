@@ -1,4 +1,5 @@
 DROP TABLE categorygrp CASCADE CONSTRAINTS; 
+DROP TABLE categorygrp;
 
 CREATE TABLE categorygrp(
 categorygrp_no NUMERIC(10) NOT NULL PRIMARY KEY,
@@ -48,4 +49,7 @@ SET categorygrp_name='부속품'
 WHERE categorygrp_no=1;
 commit;
 
-
+-- Read, 조회, PK column 사용
+SELECT categorygrp_no, categorygrp_name, seq_no, print_mode, cdate 
+FROM categorygrp 
+WHERE categorygrp_no = 1;

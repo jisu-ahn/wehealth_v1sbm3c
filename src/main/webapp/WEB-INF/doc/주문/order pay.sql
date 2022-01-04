@@ -42,15 +42,15 @@ CREATE SEQUENCE order_pay_seq
 -- 결재 종류(paytype):  1: 신용 카드, 2: 모바일, 3: 포인트, 4: 계좌 이체, 5: 직접 입금  
 INSERT INTO order_pay(order_payno, memberno, rname, rtel, rzipcode,
                                  raddress1, raddress2, paytype, amount, rdate)
-VALUES (order_pay_seq.nextval, 1, '홍길순', '111-2222-3333', '12345',
+VALUES (order_pay_seq.nextval, 3, '왕눈이', '111-2222-3333', '12345',
              '서울시 종로구', '관철동', 1, 32000, sysdate);
 INSERT INTO order_pay(order_payno, memberno, rname, rtel, rzipcode,
                                  raddress1, raddress2, paytype, amount, rdate)
-VALUES (order_pay_seq.nextval, 1, '아로미', '111-2222-3333', '12345',
+VALUES (order_pay_seq.nextval, 4, '아로미', '111-2222-3333', '12345',
              '서울시 종로구', '관철동', 1, 15000, sysdate);
 INSERT INTO order_pay(order_payno, memberno, rname, rtel, rzipcode,
                                  raddress1, raddress2, paytype, amount, rdate)
-VALUES (order_pay_seq.nextval, 1, '왕눈이', '111-2222-3333', '12345',
+VALUES (order_pay_seq.nextval, 5, '투투투', '111-2222-3333', '12345',
              '서울시 종로구', '관철동', 1, 63000, sysdate);
 commit; 
 

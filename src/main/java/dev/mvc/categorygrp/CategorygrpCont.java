@@ -1,13 +1,19 @@
 package dev.mvc.categorygrp;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import dev.mvc.category.CategoryProcInter;
+import oracle.jdbc.OracleDatabaseException;
 
 @Controller
 public class CategorygrpCont {
@@ -15,6 +21,10 @@ public class CategorygrpCont {
     @Qualifier("dev.mvc.categorygrp.CategorygrpProc")
     private CategorygrpProcInter categorygrpProc;
 
+    @Autowired
+    @Qualifier("dev.mvc.category.CategoryProc")
+    private CategoryProcInter categoryProc;
+    
     public CategorygrpCont() {
         System.out.println("-> CategorygrpCont created.");
     }
@@ -51,8 +61,7 @@ public class CategorygrpCont {
         // cnt = 0; // error test
                 
         mav.addObject("cnt", cnt);
-        
-               
+                     
         if (cnt == 1) {
             // System.out.println("등록 성공");
             
@@ -69,31 +78,41 @@ public class CategorygrpCont {
         return mav; // forward
     }
     
+    
+//    // http://localhost:9091/categorygrp/list.do
+//     
+//    @RequestMapping(value="/categorygrp/list.do", method=RequestMethod.GET )
+//    public ModelAndView list() { ModelAndView mav = new ModelAndView();
+//
+//      // 등록 순서별 출력    // List<CategorygrpVO> list = this.categorygrpProc.list_seqno_asc();
+//
+//      // 출력 순서별 출력        List<CategorygrpVO> list = this.categorygrpProc.list_seqno_asc();
+//      mav.addObject("list", list); // request.setAttribute("list", list);
+//
+//      mav.setViewName("/categorygrp/list"); // /webapp/WEB-INF/views/categorygrp/list.jsp
+//      return mav;}
+//    
+
     // http://localhost:9091/categorygrp/list.do
-    /**
-     * 목록
-     * @return
-     */
-    @RequestMapping(value="/categorygrp/list.do", method=RequestMethod.GET )
-    public ModelAndView list() {
-      ModelAndView mav = new ModelAndView();
+    @RequestMapping(value = "/categorygrp/list.do", method = RequestMethod.GET)
+    public ModelAndView list_ajax() {
+        ModelAndView mav = new ModelAndView();
 
-      // 등록 순서별 출력    
-      // List<CategorygrpVO> list = this.categorygrpProc.list_seqno_asc();
+        // 등록 순서별 출력    
+        // List<CategorygrpVO> list = this.categorygrpProc.list_categorygrpno_asc();
 
-      // 출력 순서별 출력
-      List<CategorygrpVO> list = this.categorygrpProc.list_seqno_asc();
+        // 출력 순서별 출력
+        List<CategorygrpVO> list = this.categorygrpProc.list_seqno_asc();
+        mav.addObject("list", list); // request.setAttribute("list", list);
 
-      mav.addObject("list", list); // request.setAttribute("list", list);
-
-      mav.setViewName("/categorygrp/list"); // /webapp/WEB-INF/views/categorygrp/list.jsp
-      return mav;
+        mav.setViewName("/categorygrp/list_ajax"); // /webapp/WEB-INF/views/categorygrp/list_ajax.jsp
+        return mav;
     }
-
-
+    
     // http://localhost:9091/categorygrp/read_update.do?categorygrpno=1
     /**
      * 조회 + 수정폼
+     * 
      * @param categorygrp_no 조회할 카테고리 번호
      * @return
      */
@@ -111,6 +130,78 @@ public class CategorygrpCont {
 
       mav.setViewName("/categorygrp/read_update"); // /WEB-INF/views/categorygrp/read_update.jsp 
       return mav; // forward
+    }
+    
+    /**
+     * 조회 + 수정폼 + Ajax, , VO에서 각각의 필드를 JSON으로 변환하는경우
+     * http://localhost:9091/categorygrp/read_ajax.do?categorygrp_no=1
+     * {"categorygrp_no":1,"print_mode":"Y","seq_no":1,"cdate":"2021-04-08 17:01:28","categorygrp_name":"문화"}
+     * @param categorygrp_no 조회할 카테고리 번호
+     * @return
+     */
+    @RequestMapping(value="/categorygrp/read_ajax.do", 
+                                method=RequestMethod.GET )
+    @ResponseBody
+    public String read_ajax(int categorygrp_no) {
+      CategorygrpVO categorygrpVO = this.categorygrpProc.read(categorygrp_no);
+      
+      JSONObject json = new JSONObject();
+      json.put("categorygrp_no", categorygrpVO.getCategorygrp_no());
+      json.put("categorygrp_name", categorygrpVO.getCategorygrp_name());
+      json.put("seq_no", categorygrpVO.getSeq_no());
+      json.put("print_mode", categorygrpVO.getPrint_mode());
+      json.put("cdate", categorygrpVO.getCdate());
+      
+      return json.toString();
+      
+    }
+    
+    /**
+     * 조회 + 수정폼/삭제폼 + Ajax, , VO에서 각각의 필드를 JSON으로 변환하는경우
+     * http://localhost:9091/categorygrp/read_ajax.do?categorygrp_no=1
+     * {"categorygrpVO":"[categorygrp_no=1, categorygrp_name=문화, seq_no=1, print_mode=Y, cdate=2021-04-08 17:01:28]"}
+     * @param categorygrp_no 조회할 카테고리 번호
+     * @return
+     */
+    @RequestMapping(value="/categorygrp/read_ajax2.do", 
+                                method=RequestMethod.GET )
+    @ResponseBody
+    public String read_ajax2(int categorygrp_no) {
+      CategorygrpVO categorygrpVO = this.categorygrpProc.read(categorygrp_no);
+      
+      JSONObject json = new JSONObject();
+      json.put("categorygrpVO", categorygrpVO);
+      
+      return json.toString();
+
+    }
+
+    /**
+     * 조회 + 수정폼/삭제폼 + Ajax, , VO에서 각각의 필드를 JSON으로 변환하는경우
+     * http://localhost:9091/categorygrp/read_ajax3.do?categorygrp_no=1
+     * {"categorygrp_no":1,"print_mode":"Y","seq_no":1,"cdate":"2021-04-08 17:01:28","categorygrp_name":"문화"}
+     * @param categorygrp_no 조회할 카테고리 번호
+     * @return
+     */
+    @RequestMapping(value="/categorygrp/read_ajax3.do", 
+                                method=RequestMethod.GET )
+    @ResponseBody
+    public String read_ajax3(int categorygrp_no) {
+      CategorygrpVO categorygrpVO = this.categorygrpProc.read(categorygrp_no);
+      
+      JSONObject json = new JSONObject();
+      json.put("categorygrp_no", categorygrpVO.getCategorygrp_no());
+      json.put("categorygrp_name", categorygrpVO.getCategorygrp_name());
+      json.put("seq_no", categorygrpVO.getSeq_no());
+      json.put("print_mode", categorygrpVO.getPrint_mode());
+      json.put("cdate", categorygrpVO.getCdate());
+      
+      // 자식 레코드의 갯수 추가
+      int count_by_categorygrpno = this.categoryProc.count_by_categorygrpno(categorygrp_no);
+      json.put("count_by_categorygrpno", count_by_categorygrpno);
+      
+      return json.toString();
+
     }
     
     // http://localhost:9091/categorygrp/update.do
@@ -146,6 +237,7 @@ public class CategorygrpCont {
     // http://localhost:9091/categorygrp/read_delete.do
     /**
      * 조회 + 삭제폼
+     * 
      * @param categorygrpno 조회할 카테고리 번호
      * @return
      */
@@ -175,11 +267,23 @@ public class CategorygrpCont {
       
       CategorygrpVO categorygrpVO = this.categorygrpProc.read(categorygrp_no); // 삭제 정보
       mav.addObject("categorygrpVO", categorygrpVO);  // request 객체에 저장
+      int cnt = 0;
       
-      int cnt = this.categorygrpProc.delete(categorygrp_no); // 삭제 처리
+      try {
+          cnt = this.categorygrpProc.delete(categorygrp_no); // 삭제 처리  
+        } catch (Exception e) {
+          mav.addObject("msg", "child_record_found");
+        }
+      
       mav.addObject("cnt", cnt);  // request 객체에 저장
       
-      mav.setViewName("/categorygrp/delete_msg"); // delete_msg.jsp
+      if (cnt == 1) {
+          mav.addObject("code", "delete_success"); // request에 저장, request.setAttribute("code", "delete_success")
+      } else {
+          mav.addObject("code", "delete_fail"); // request에 저장, request.setAttribute("code", "delete_fail")
+      }
+      
+      mav.setViewName("/categorygrp/msg"); // msg.jsp
 
       return mav;
     }

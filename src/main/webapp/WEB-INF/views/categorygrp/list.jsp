@@ -79,17 +79,21 @@
     %>
     <c:forEach var="categorygrpVO" items="${list}">
       <c:set var="categorygrp_no" value="${categorygrpVO.categorygrp_no }" />
+      <c:set var="seq_no" value="${categorygrpVO.seq_no }" />
+      <c:set var="categorygrp_name" value="${categorygrpVO.categorygrp_name }" />
+      <c:set var="cdate" value="${categorygrpVO.cdate.substring(0, 10) }" />
+      <c:set var="print_mode" value="${categorygrpVO.print_mode }" />
       <TR>
-        <TD class="td_bs">${categorygrpVO.seq_no }</TD>
-        <TD class="td_bs_left"><A href="../category/list_by_categorygrpno.do?categorygrp_no=${categorygrp_no }" >${categorygrpVO.categorygrp_name }</A></TD>
-        <TD class="td_bs">${categorygrpVO.cdate.substring(0, 10) }</TD>
+        <TD class="td_bs">${seq_no }</TD>
+        <TD class="td_bs_left"><A href="../category/list_by_categorygrpno.do?categorygrp_no=${categorygrp_no }" >${categorygrp_name }</A></TD>
+        <TD class="td_bs">${cdate }</TD>
         <TD class="td_bs">
           <c:choose>
-            <c:when test="${categorygrpVO.print_mode == 'Y'}">
-              <A href="./update_visible.do?categorygrp_no=${categorygrp_no }&print_mode=${categorygrpVO.print_mode }"><IMG src="/categorygrp/images/open.png" style='width: 18px;'></A>
+            <c:when test="${print_mode == 'Y'}">
+              <A href="./update_visible.do?categorygrp_no=${categorygrp_no }&print_mode=${print_mode }"><IMG src="/categorygrp/images/open.png" style='width: 18px;'></A>
             </c:when>
             <c:otherwise>
-              <A href="./update_visible.do?categorygrp_no=${categorygrp_no }&print_mode=${categorygrpVO.print_mode }"><IMG src="/categorygrp/images/close.png" style='width: 18px;'></A>
+              <A href="./update_visible.do?categorygrp_no=${categorygrp_no }&print_mode=${print_mode }"><IMG src="/categorygrp/images/close.png" style='width: 18px;'></A>
             </c:otherwise>
           </c:choose>
         </TD>   
