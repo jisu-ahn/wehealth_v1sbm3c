@@ -67,12 +67,16 @@
     <tbody>
     <c:forEach var="categoryVO" items="${list}">
       <c:set var="category_no" value="${categoryVO.category_no }" />
+      <c:set var="categorygrp_no" value="${categoryVO.categorygrp_no }" />
+      <c:set var="category_name" value="${categoryVO.category_name }" />
+      <c:set var="cdate" value="${categoryVO.cdate.substring(0, 10) }" />
+      <c:set var="product_cnt" value="${categoryVO.product_cnt }" />
       <TR>
-        <TD class="td_bs">${categoryVO.category_no }</TD>
-        <TD class="td_bs">${categorygrpVO.categorygrp_no }</TD>
-        <TD class="td_bs_left">${categoryVO.category_name }</TD>
-        <TD class="td_bs">${categoryVO.cdate.substring(0, 10) }</TD>
-        <TD class="td_bs">${categoryVO.product_cnt }</TD>
+        <TD class="td_bs">${category_no }</TD>
+        <TD class="td_bs">${categorygrp_no }</TD>
+        <TD class="td_bs_left"><A href="../items/list_by_categoryno_search_paging.do?category_no=${category_no }">${category_name }</A></TD>
+        <TD class="td_bs">${cdate }</TD>
+        <TD class="td_bs">${product_cnt }</TD>
         <TD class="td_bs">
           <A href="./read_update.do?category_no=${category_no }" title="수정"><span class="glyphicon glyphicon-pencil"></span></A>
           <A href="./read_delete.do?category_no=${category_no }" title="삭제"><span class="glyphicon glyphicon-trash"></span></A>
