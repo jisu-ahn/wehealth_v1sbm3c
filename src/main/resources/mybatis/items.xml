@@ -24,9 +24,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                 #{file1}, #{file1saved}, #{thumb1}, #{size1}, sysdate)
   </insert>
   
-<<<<<<< HEAD
-
-=======
     <!-- 일반적인 조회 -->
   <select id="read" resultType="dev.mvc.items.ItemsVO" parameterType="int">
     SELECT itemsno, adminno, category_no, item_name, content, recom_cnt, view_cnt, comment_cnt, password, search_word, cdate,
@@ -174,7 +171,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       #{codeno}
     </foreach>
   </select>
->>>>>>> 90ab3d4fdcb98d0f53c3f53be1726f1390e30aa1
   
 </mapper> 
 

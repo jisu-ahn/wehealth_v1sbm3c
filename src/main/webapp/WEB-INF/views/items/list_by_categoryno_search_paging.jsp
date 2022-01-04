@@ -16,10 +16,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     
 <script type="text/javascript">
-<<<<<<< HEAD
 
-
-=======
 function recom_ajax(itemsno, status_count) {
     console.log("-> recom_" + status_count + ": " + $('#recom_' + status_count).html());  // A tag body      
     var params = "";
@@ -119,11 +116,9 @@ function recom_ajax(itemsno, status_count) {
         <c:set var="category_no" value="${itemsVO.category_no }" />
         <c:set var="item_name" value="${itemsVO.item_name }" />
         <c:set var="content" value="${itemsVO.content }" />
-<<<<<<< HEAD
-=======
+
         <c:set var="recom" value="${itemsVO.recom_cnt }" />
-        
->>>>>>> 90ab3d4fdcb98d0f53c3f53be1726f1390e30aa1
+
         <c:set var="file1" value="${itemsVO.file1 }" />
         <c:set var="thumb1" value="${itemsVO.thumb1 }" />
         
@@ -152,10 +147,9 @@ function recom_ajax(itemsno, status_count) {
             <span style="color: #FF0000; font-size: 1.2em;">${discount} %</span>
             <strong><fmt:formatNumber value="${total_price}" pattern="#,###" /></strong><br>
             <span style="font-size: 0.8em;">포인트: <fmt:formatNumber value="${item_point}" pattern="#,###" /></span>
-<<<<<<< HEAD
-=======
+
             <span><A id="recom_${status.count }" href="javascript:recom_ajax(${itemsno }, ${status.count })" class="recom_link">♥(${recom })</A></span>
->>>>>>> 90ab3d4fdcb98d0f53c3f53be1726f1390e30aa1
+
           </td>
           <td style='vertical-align: middle; text-align: center;'>
             <A href="./update_text.do?itemsno=${itemsno}&now_page=${now_page }"><span class="glyphicon glyphicon-pencil"></span></A>
