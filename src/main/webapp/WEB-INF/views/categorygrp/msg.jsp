@@ -65,7 +65,7 @@
             삭제하려는 카테고리 그룹에 속한 카테고리가 있습니다.<br>
             하위 카테고리를 모두 삭제해야 카테고리 그룹을 삭제할 수 있습니다.<br>
             카테고리를 모두 삭제해주세요.<br>
-            『<A href="../cate/list_by_categorygrpno.do?categorygrpno=${param.categorygrp_no }">소속된 카테고리 삭제</A>』
+            『<A href="../cate/list_by_categorygrpno.do?categorygrp_no=${param.categorygrp_no }">소속된 카테고리 삭제</A>』
           </c:when>
         </c:choose>
       </LI>
@@ -73,11 +73,11 @@
         <br>
         <c:choose>
             <c:when test="${cnt == 0 }">
-                <button type='button' onclick="history.back()" class="btn btn-dark">다시 시도</button>    
+                <button type='button' onclick="history.back()" class="btn">다시 시도</button>    
             </c:when>
         </c:choose>
         
-        <button type='button' onclick="location.href='./list.do'" class="btn btn-dark">목록</button>
+        <button type='button' onclick="location.href='./list.do'" class="btn">목록</button>
       </LI>
     </UL>
   </fieldset>

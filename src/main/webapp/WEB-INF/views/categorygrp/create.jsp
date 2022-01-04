@@ -58,8 +58,8 @@
     </div>   
   
     <div class="content_body_bottom" style="padding-right: 20%;">
-      <button type="submit" class="btn btn-dark">등록</button>
-      <button type="button" onclick="location.href='./list.do'" class="btn btn-dark">목록</button>
+      <button type="submit" class="btn">등록</button>
+      <button type="button" onclick="location.href='./list.do'" class="btn">목록</button>
     </div>
   
   </FORM>

@@ -45,12 +45,12 @@
         <option value='N' ${categorygrpVO.print_mode == 'N' ? "selected='selected'":""}>N</option>
       </select>
        
-      <button type="submit" id='submit' class='btn btn-dark'>저장</button>
-      <button type="button" onclick="location.href='./list.do'" class='btn btn-dark'>취소</button>
+      <button type="submit" id='submit'>저장</button>
+      <button type="button" onclick="location.href='./list.do'">취소</button>
     </FORM>
   </DIV>
    
-  <TABLE class='table'>
+  <TABLE class='table table-striped'>
     <colgroup>
       <col style='width: 10%;'/>
       <col style='width: 40%;'/>

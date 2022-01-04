@@ -89,7 +89,7 @@ function read_delete_ajax(categorygrp_no) {
   // console.log('-> categrpno:' + categrpno);
   var params = "";
   // params = $('#frm').serialize(); // 직렬화, 폼의 데이터를 키와 값의 구조로 조합
-  params = 'categorygrp_no=' + categorygrp_no; // 공백이 값으로 있으면 안됨.
+  params = 'categorygrp_no='+categorygrp_no; // 공백이 값으로 있으면 안됨.
   
   $.ajax(
     {
@@ -125,9 +125,9 @@ function read_delete_ajax(categorygrp_no) {
 
           // alert($('#a_list_by_categrpno').attr('href')); // ../cate/list_by_categrpno.do?categrpno=
           // $('#a_list_by_categrpno').attr('href', '../cate/list_by_categrpno.do?categrpno=' + categrpno); // A 태그 href 속성 변경
-          $('#a_list_by_categorygrpno').attr('data-pk', categorygrpno); // A 태그 data-pk 속성에 삭제할 categrpno pk 저장
-          $('#a_delete_category_by_categorygrpno').attr('data-pk', categorygrpno);
-          $('#a_delete_contents_by_all_categoryno').attr('data-pk', categorygrpno);
+          $('#a_list_by_categorygrpno').attr('data-pk', categorygrp_no); // A 태그 data-pk 속성에 삭제할 categrpno pk 저장
+          $('#a_delete_category_by_categorygrpno').attr('data-pk', categorygrp_no);
+          $('#a_delete_items_by_all_categoryno').attr('data-pk', categorygrp_no);
         } else {
           $('#frm_delete_count_by_categorygrpno').hide();
         }
@@ -146,7 +146,7 @@ function read_delete_ajax(categorygrp_no) {
   // 다수의 cateno를 전달하여 관련 contents 레코드 개수 산출
   $.ajax(
     {
-      url: '/items/count_by_all_categoryno.do',
+      url: '/items/count_by_all_category_no.do',
       type: 'get',  // get, post
       cache: false, // 응답 결과 임시 저장 취소
       async: true,  // true: 비동기 통신
@@ -156,9 +156,9 @@ function read_delete_ajax(categorygrp_no) {
         // alert(rdata.cnt);
 
         if (rdata.cnt > 0) { // 자식 레코드가 있다면
-        	$('#count_by_all_categoryno').show(); 
+            $('#count_by_all_category_no').show(); 
         } else {
-          $('#count_by_all_categoryno').hide();
+          $('#count_by_all_category_no').hide();
         }
       },
       // Ajax 통신 에러, 응답 코드가 200이 아닌경우, dataType이 다른경우 
@@ -171,8 +171,8 @@ function read_delete_ajax(categorygrp_no) {
 
 // 관련 카테고리 확인
 function list_by_categorygrpno() {
-  let categrpno = $('#a_list_by_categorygrpno').attr('data-pk')  // A 태그 data-pk 속성의 값을 categrpno에 저장
-  let url = '../category/list_by_categorygrpno.do?categorygrp_no=' + categorygrp_no;
+  let categorygrp_no = $('#a_list_by_categorygrpno').attr('data-pk')  // A 태그 data-pk 속성의 값을 categrpno에 저장
+  let url = '../category/list_by_categorygrpno.do?categorygrp_no='+categorygrp_no;
 
   let win = window.open(url, '카테고리 삭제', 'width=1000px, height=600px');
   let x = (screen.width - 1000) / 2;
@@ -184,36 +184,36 @@ function list_by_categorygrpno() {
 // 관련 카테고리 삭제(복구 안됨)
 function delete_category_by_categorygrpno() {
   let sw = confirm('관련된 모든 카테고리가 삭제됩니다. 삭제후 복구 할 수 없습니다.\n 삭제를 진행하시겠습니까?')
-	if (sw == true) {
-		  let categorygrpno = $('#a_delete_category_by_categorygrpno').attr('data-pk')  // A 태그 data-pk 속성의 값을 categrpno에 저장
-		  // console.log('-> categrpno:' + categrpno);
-		  var params = "";
-		  // params = $('#frm').serialize(); // 직렬화, 폼의 데이터를 키와 값의 구조로 조합
-		  params = 'categorygrpno=' + categorygrpno; // 공백이 값으로 있으면 안됨.
-		  
-		  $.ajax(
-		    {
-		      url: '/category/delete_by_categorygrpno.do',
-		      type: 'post',  // get, post
-		      cache: false, // 응답 결과 임시 저장 취소
-		      async: true,  // true: 비동기 통신
-		      dataType: 'json', // 응답 형식: json, html, xml...
-		      data: params,      // 데이터
-		      success: function(rdata) { // 응답이 온경우, Spring에서 하나의 객체를 전달한 경우 통문자열
-		        var cnt = parseInt(rdata.cnt);
+    if (sw == true) {
+          let categorygrp_no = $('#a_delete_category_by_categorygrpno').attr('data-pk')  // A 태그 data-pk 속성의 값을 categrpno에 저장
+          // console.log('-> categrpno:' + categrpno);
+          var params = "";
+          // params = $('#frm').serialize(); // 직렬화, 폼의 데이터를 키와 값의 구조로 조합
+          params = 'categorygrp_no=' + categorygrp_no; // 공백이 값으로 있으면 안됨.
+          
+          $.ajax(
+            {
+              url: '/category/delete_by_categorygrpno.do',
+              type: 'post',  // get, post
+              cache: false, // 응답 결과 임시 저장 취소
+              async: true,  // true: 비동기 통신
+              dataType: 'json', // 응답 형식: json, html, xml...
+              data: params,      // 데이터
+              success: function(rdata) { // 응답이 온경우, Spring에서 하나의 객체를 전달한 경우 통문자열
+                var cnt = parseInt(rdata.cnt);
             if (cnt > 0) {
               alert('관련 카테고리 ' + cnt + ' 건을 삭제했습니다.');  
-            	$('#a_delete_category_by_categorygrpno').hide();              
+                $('#a_delete_category_by_categorygrpno').hide();              
             } else {
-            	alert('관련 카테고리 삭제에 실패했습니다. \n관련 글이 존재하는 것 같습니다. \n관련 글을 모두 삭제해야 카테고리 그룹을 삭제 할 수 있습니다.');  
-		          // $('#a_list_by_categorygrpno_proc').show();
-		        }
-		      },
-		      error: function(request, status, error) { // callback 함수
-		        console.log(error);
-		      }
-		    }
-		  );  //  $.ajax END       
+                alert('관련 카테고리 삭제에 실패했습니다. \n관련 글이 존재하는 것 같습니다. \n관련 글을 모두 삭제해야 카테고리 그룹을 삭제 할 수 있습니다.');  
+                  // $('#a_list_by_categorygrpno_proc').show();
+                }
+              },
+              error: function(request, status, error) { // callback 함수
+                console.log(error);
+              }
+            }
+          );  //  $.ajax END       
   }    
 }
 
@@ -246,8 +246,8 @@ function delete_category_by_categorygrpno() {
         <option value='N'>N</option>
       </select>
        
-      <button type="submit" id='submit' class='btn btn-dark btn-xs' style="height: 22px; margin-bottom: 3px;">등록</button>
-      <button type="button" onclick="cancel();" class='btn btn-dark btn-xs' style="height: 22px; margin-bottom: 3px;">취소</button>
+      <button type="submit" id='submit' class='btn btn-primary btn-xs' style="height: 22px; margin-bottom: 3px;">등록</button>
+      <button type="button" onclick="cancel();" class='btn btn-primary btn-xs' style="height: 22px; margin-bottom: 3px;">취소</button>
     </FORM>
   </DIV>
    
@@ -273,8 +273,8 @@ function delete_category_by_categorygrpno() {
         <option value='N'>N</option>
       </select>
        
-      <button type="submit" id='submit' class='btn btn-dark btn-xs' style="height: 22px; margin-bottom: 3px;">저장</button>
-      <button type="button" id='btn_update_cancel' class='btn btn-dark btn-xs' style="height: 22px; margin-bottom: 3px;">취소</button>
+      <button type="submit" id='submit' class='btn btn-primary btn-xs' style="height: 22px; margin-bottom: 3px;">저장</button>
+      <button type="button" id='btn_update_cancel' class='btn btn-primary btn-xs' style="height: 22px; margin-bottom: 3px;">취소</button>
     </FORM>
   </DIV>
   
@@ -284,7 +284,7 @@ function delete_category_by_categorygrpno() {
     <div class="msg_warning">카테고리 그룹을 삭제하면 복구 할 수 없습니다.</div>
     <FORM name='frm_delete' id='frm_delete' method='POST' action='./delete.do'>
       <input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
-      <input type='hidden' name='categrpno' id='categrpno' value=''>
+      <input type='hidden' name='categorygrp_no' id='categorygrp_no' value=''>
         
       <label>그룹 이름</label>: <span id='frm_delete_categorygrp_name'></span>  
       <label>순서</label>: <span id='frm_delete_seq_no'></span>
@@ -298,20 +298,20 @@ function delete_category_by_categorygrpno() {
         <span id='count_by_all_categoryno'>『관련 카테고리의 글이 존재합니다 모두 삭제해주세요.』</span>
               
         <%-- 『<A id='a_list_by_categrpno' href="" target='_blank'>관련 자료 삭제하기</A>』 --%>
-        <A id='a_list_by_categorygrpno' href="javascript:list_by_categorygrp_no();" data-pk='' >『관련 카테고리 확인』</A>
+        <A id='a_list_by_categorygrpno' href="javascript:list_by_categorygrpno();" data-pk='' >『관련 카테고리 확인』</A>
         
         <A id='a_delete_category_by_categorygrpno' 
-              href="javascript:delete_category_by_categorygrp_no();" data-pk='' >『관련 카테고리 삭제(복구 안됨)』</A>
+              href="javascript:delete_category_by_categorygrpno();" data-pk='' >『관련 카테고리 삭제(복구 안됨)』</A>
         
 
       </div>
        
-      <button type="submit" id='submit' class='btn btn-dark btn-xs' style="height: 22px; margin-bottom: 3px;">삭제</button>
-      <button type="button" id='btn_delete_cancel' class='btn btn-dark btn-xs' style="height: 22px; margin-bottom: 3px;">취소</button>
+      <button type="submit" id='submit' class='btn btn-primary btn-xs' style="height: 22px; margin-bottom: 3px;">삭제</button>
+      <button type="button" id='btn_delete_cancel' class='btn btn-primary btn-xs' style="height: 22px; margin-bottom: 3px;">취소</button>
     </FORM>
   </DIV>
     
-  <TABLE class='table'>
+  <TABLE class='table table-striped'>
     <colgroup>
       <col style='width: 10%;'/>
       <col style='width: 40%;'/>

@@ -78,20 +78,20 @@ public class CategorygrpCont {
         return mav; // forward
     }
     
-    /*
-    // http://localhost:9091/categorygrp/list.do
-     *
-    @RequestMapping(value="/categorygrp/list.do", method=RequestMethod.GET )
-    public ModelAndView list() { ModelAndView mav = new ModelAndView();
-
-      // 등록 순서별 출력    // List<CategorygrpVO> list = this.categorygrpProc.list_seqno_asc();
-
-      // 출력 순서별 출력        List<CategorygrpVO> list = this.categorygrpProc.list_seqno_asc();
-      mav.addObject("list", list); // request.setAttribute("list", list);
-
-      mav.setViewName("/categorygrp/list"); // /webapp/WEB-INF/views/categorygrp/list.jsp
-      return mav;}
-    */
+    
+//    // http://localhost:9091/categorygrp/list.do
+//     
+//    @RequestMapping(value="/categorygrp/list.do", method=RequestMethod.GET )
+//    public ModelAndView list() { ModelAndView mav = new ModelAndView();
+//
+//      // 등록 순서별 출력    // List<CategorygrpVO> list = this.categorygrpProc.list_seqno_asc();
+//
+//      // 출력 순서별 출력        List<CategorygrpVO> list = this.categorygrpProc.list_seqno_asc();
+//      mav.addObject("list", list); // request.setAttribute("list", list);
+//
+//      mav.setViewName("/categorygrp/list"); // /webapp/WEB-INF/views/categorygrp/list.jsp
+//      return mav;}
+//    
 
     // http://localhost:9091/categorygrp/list.do
     @RequestMapping(value = "/categorygrp/list.do", method = RequestMethod.GET)
@@ -109,28 +109,28 @@ public class CategorygrpCont {
         return mav;
     }
     
-//    // http://localhost:9091/categorygrp/read_update.do?categorygrpno=1
-//    /**
-//     * 조회 + 수정폼
-//     * 
-//     * @param categorygrp_no 조회할 카테고리 번호
-//     * @return
-//     */
-//    @RequestMapping(value="/categorygrp/read_update.do", method=RequestMethod.GET )
-//    public ModelAndView read_update(int categorygrp_no) {
-//      // request.setAttribute("categorygrp_no", int categorygrp_no) 작동 안됨.
-//      
-//      ModelAndView mav = new ModelAndView();
-//      
-//      CategorygrpVO categorygrpVO = this.categorygrpProc.read(categorygrp_no);
-//      mav.addObject("categorygrpVO", categorygrpVO);  // request 객체에 저장
-//      
-//      List<CategorygrpVO> list = this.categorygrpProc.list_categorygrpno_asc();
-//      mav.addObject("list", list);  // request 객체에 저장
-//
-//      mav.setViewName("/categorygrp/read_update"); // /WEB-INF/views/categorygrp/read_update.jsp 
-//      return mav; // forward
-//    }
+    // http://localhost:9091/categorygrp/read_update.do?categorygrpno=1
+    /**
+     * 조회 + 수정폼
+     * 
+     * @param categorygrp_no 조회할 카테고리 번호
+     * @return
+     */
+    @RequestMapping(value="/categorygrp/read_update.do", method=RequestMethod.GET )
+    public ModelAndView read_update(int categorygrp_no) {
+      // request.setAttribute("categorygrp_no", int categorygrp_no) 작동 안됨.
+      
+      ModelAndView mav = new ModelAndView();
+      
+      CategorygrpVO categorygrpVO = this.categorygrpProc.read(categorygrp_no);
+      mav.addObject("categorygrpVO", categorygrpVO);  // request 객체에 저장
+      
+      List<CategorygrpVO> list = this.categorygrpProc.list_categorygrpno_asc();
+      mav.addObject("list", list);  // request 객체에 저장
+
+      mav.setViewName("/categorygrp/read_update"); // /WEB-INF/views/categorygrp/read_update.jsp 
+      return mav; // forward
+    }
     
     /**
      * 조회 + 수정폼 + Ajax, , VO에서 각각의 필드를 JSON으로 변환하는경우
@@ -197,8 +197,8 @@ public class CategorygrpCont {
       json.put("cdate", categorygrpVO.getCdate());
       
       // 자식 레코드의 갯수 추가
-      int count_by_categorygrpno = this.categoryProc.count_by_categorygrp_no(categorygrp_no);
-      json.put("count_by_categrpno", count_by_categorygrpno);
+      int count_by_categorygrpno = this.categoryProc.count_by_categorygrpno(categorygrp_no);
+      json.put("count_by_categorygrpno", count_by_categorygrpno);
       
       return json.toString();
 
@@ -283,7 +283,7 @@ public class CategorygrpCont {
           mav.addObject("code", "delete_fail"); // request에 저장, request.setAttribute("code", "delete_fail")
       }
       
-      mav.setViewName("/categorygrp/delete_msg"); // delete_msg.jsp
+      mav.setViewName("/categorygrp/msg"); // msg.jsp
 
       return mav;
     }

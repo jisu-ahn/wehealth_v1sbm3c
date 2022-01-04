@@ -55,12 +55,12 @@ public interface CategoryDAOInter {
     * @param categrpno
     * @return
     */
-   public int count_by_categorygrp_no(int categorygrp_no);
+   public int count_by_categorygrpno(int categorygrp_no);
    
    /**
     * categrpno가 같은 모든 레코드 삭제
     * @param categrpno
     * @return
     */
-   public int delete_by_categorygrp_no(int categorygrp_no);
+   public int delete_by_categorygrpno(int categorygrp_no);
 }

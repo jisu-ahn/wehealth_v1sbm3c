@@ -55,13 +55,13 @@ public interface CategoryProcInter {
      * @param categorygrp_no
      * @return
      */
-    public int count_by_categorygrp_no(int categorygrp_no);
+    public int count_by_categorygrpno(int categorygrp_no);
     
     /**
      * categorygrp_no가 같은 모든 레코드 삭제
      * @param categorygrp_no
      * @return
      */
-    public int delete_by_categorygrp_no(int categorygrp_no);
+    public int delete_by_categorygrpno(int categorygrp_no);
     
 }

@@ -265,13 +265,13 @@ public class CategoryCont {
      * @param categoryVO
      * @return
      */
-    @RequestMapping(value = "/category/delete_by_categorygrp_no.do", method = RequestMethod.POST)
+    @RequestMapping(value = "/category/delete_by_categorygrpno.do", method = RequestMethod.POST)
     @ResponseBody
     public String delete_by_categorygrp_no(int categorygrp_no) {
       
       int cnt = 0;
       try {
-        cnt = this.categoryProc.delete_by_categorygrp_no(categorygrp_no);  
+        cnt = this.categoryProc.delete_by_categorygrpno(categorygrp_no);  
       } catch (Exception e) {
         // pass  
       }
