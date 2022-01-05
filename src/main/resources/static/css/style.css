@@ -1,12 +1,17 @@
   /* ver 2.0 */
   /* 모든 태그에 적용 */
   *{
-     font-family: Malgun Gothic; 
+     font-family: SB_M;
      font-size: 16px; 
      margin: 0px;  /* top right bottom left */
      padding: 0px;
      color: #555555;
   }  
+  
+  @font-face { /* 폰트파일 적용 */
+    font-family: SB_M;
+    src: url('../font/SB_L.ttf') format('truetype');
+  }
   
   .container_main {
     width: 90%; 
@@ -23,20 +28,35 @@
     background-image: url('/css/images/top_image_1920.jpg');
   }
   
+  .top {
+    width: 100%;
+    height: 100px;
+  }
+  
+  .top_sec {
+    width: 100%;
+    height: 50px;
+    background-color: #202052;
+    border-radius: 5px; /* 모서리 둥근 정도 */ 
+    padding-top: 0.8%; /* 세로 정렬 */
+  }
+  
   .top_menu_label {
     position: relative; /* 속해 있는 부모 태그 기준 설정 */
-    top: 1%;
+    top: 80%;
     left: 0.5%;
-    color: #FFFFFF;
+    font-size: x-large;  /* 웹 브라우저에서 정한 기본 글자 크기(medium)에 대한 상대적인 크기 */
+    font-weight: bold;  /* 볼드체 */
+    letter-spacing: 3px; /* 글자간 간격*/
+    color: #424242;
   }
   
   .top_menu {
     position: relative; /* 부모 태그 기준, 화면 상단 기준*/
-    top: 50%; 
-    background-color: rgba(255, 255, 255, 0.3);  /* 0.3: Alpha, 투명도 */  
-    color: white;
+/*     background-color: rgba(255, 255, 255, 0.3);  0.3: Alpha, 투명도   */
+    color: red;
     padding-left: 10px; 
-    height: 25px;
+/*     height: 25px; */
   }
   
   /* 화면 상단 메뉴 세로 구분선
@@ -45,8 +65,8 @@
     background: url('/css/images/gray.jpg') center center no-repeat;
     background-size: 1px;
     width:1px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
   }
   
   .menu_line {
