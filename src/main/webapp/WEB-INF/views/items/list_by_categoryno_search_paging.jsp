@@ -54,7 +54,6 @@ function recom_ajax(itemsno, status_count) {
       
   }  
   
->>>>>>> 90ab3d4fdcb98d0f53c3f53be1726f1390e30aa1
 </script>
  
 </head> 

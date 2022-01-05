@@ -4,8 +4,8 @@ DROP TABLE categorygrp;
 CREATE TABLE categorygrp(
 categorygrp_no NUMERIC(10) NOT NULL PRIMARY KEY,
 categorygrp_name VARCHAR(50) NOT NULL,
-seq_no NUMERIC(7) DEFAULT 0 NOT NULL,
-print_mode CHAR(1) DEFAULT 'Y' NOT NULL,
+seq_no NUMERIC(7) NOT NULL,
+print_mode CHAR(1) NOT NULL,
 cdate DATE NOT NULL
 );
 
@@ -48,8 +48,3 @@ UPDATE categorygrp
 SET categorygrp_name='부속품'
 WHERE categorygrp_no=1;
 commit;
-
--- Read, 조회, PK column 사용
-SELECT categorygrp_no, categorygrp_name, seq_no, print_mode, cdate 
-FROM categorygrp 
-WHERE categorygrp_no = 1;
