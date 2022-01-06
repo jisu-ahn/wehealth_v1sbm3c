@@ -246,8 +246,8 @@ function delete_category_by_categorygrpno() {
         <option value='N'>N</option>
       </select>
        
-      <button type="submit" id='submit' class='btn btn-primary btn-xs' style="height: 22px; margin-bottom: 3px;">등록</button>
-      <button type="button" onclick="cancel();" class='btn btn-primary btn-xs' style="height: 22px; margin-bottom: 3px;">취소</button>
+      <button type="submit" id='submit' class='btn btn-xs' style="height: 22px; margin-bottom: 3px; background-color: #202052;color: white;">등록</button>
+      <button type="button" onclick="cancel();" class='btn btn-xs' style="height: 22px; margin-bottom: 3px; background-color: #202052;color: white;">취소</button>
     </FORM>
   </DIV>
    
@@ -273,8 +273,8 @@ function delete_category_by_categorygrpno() {
         <option value='N'>N</option>
       </select>
        
-      <button type="submit" id='submit' class='btn btn-primary btn-xs' style="height: 22px; margin-bottom: 3px;">저장</button>
-      <button type="button" id='btn_update_cancel' class='btn btn-primary btn-xs' style="height: 22px; margin-bottom: 3px;">취소</button>
+      <button type="submit" id='submit' class='btn btn-xs' style="height: 22px; margin-bottom: 3px; background-color: #202052;color: white;">저장</button>
+      <button type="button" id='btn_update_cancel' class='btn btn-xs' style="height: 22px; margin-bottom: 3px; background-color: #202052;color: white;">취소</button>
     </FORM>
   </DIV>
   
@@ -306,8 +306,8 @@ function delete_category_by_categorygrpno() {
 
       </div>
        
-      <button type="submit" id='submit' class='btn btn-primary btn-xs' style="height: 22px; margin-bottom: 3px;">삭제</button>
-      <button type="button" id='btn_delete_cancel' class='btn btn-primary btn-xs' style="height: 22px; margin-bottom: 3px;">취소</button>
+      <button type="submit" id='submit' class='btn btn-xs' style="height: 22px; margin-bottom: 3px; background-color: #202052;color: white;">삭제</button>
+      <button type="button" id='btn_delete_cancel' class='btn btn-xs' style="height: 22px; margin-bottom: 3px; background-color: #202052;color: white;">취소</button>
     </FORM>
   </DIV>
     

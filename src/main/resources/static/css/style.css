@@ -1,7 +1,7 @@
   /* ver 2.0 */
   /* 모든 태그에 적용 */
   *{
-     font-family: SB_M;
+     font-family: SB_M, SB_B;
      font-size: 16px; 
      margin: 0px;  /* top right bottom left */
      padding: 0px;
@@ -11,6 +11,11 @@
   @font-face { /* 폰트파일 적용 */
     font-family: SB_M;
     src: url('../font/SB_L.ttf') format('truetype');
+  }
+  
+  @font-face { /* 폰트파일 적용 */
+    font-family: SB_B;
+    src: url('../font/SB_B.ttf') format('truetype');
   }
   
   .container_main {
@@ -31,6 +36,7 @@
   .top {
     width: 100%;
     height: 100px;
+    font-family: SB_B;
   }
   
   .top_sec {
@@ -38,7 +44,7 @@
     height: 50px;
     background-color: #202052;
     border-radius: 5px; /* 모서리 둥근 정도 */ 
-    padding-top: 0.8%; /* 세로 정렬 */
+    padding-top: 1.3%; /* 세로 정렬 */
   }
   
   .top_menu_label {
@@ -55,7 +61,7 @@
     position: relative; /* 부모 태그 기준, 화면 상단 기준*/
 /*     background-color: rgba(255, 255, 255, 0.3);  0.3: Alpha, 투명도   */
     color: red;
-    padding-left: 10px; 
+    padding-left: 13px; 
 /*     height: 25px; */
   }
   
@@ -65,8 +71,8 @@
     background: url('/css/images/gray.jpg') center center no-repeat;
     background-size: 1px;
     width:1px;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin-left: 13px;
+    margin-right: 13px;
   }
   
   .menu_line {

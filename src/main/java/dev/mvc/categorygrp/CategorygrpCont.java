@@ -58,7 +58,7 @@ public class CategorygrpCont {
         ModelAndView mav = new ModelAndView();
         
         int cnt = this.categorygrpProc.create(categorygrpVO); // 등록 처리
-        // cnt = 0; // error test
+//         cnt = 0; // error test
                 
         mav.addObject("cnt", cnt);
                      

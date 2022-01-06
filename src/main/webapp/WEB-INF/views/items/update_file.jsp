@@ -98,8 +98,8 @@
             <input type='password' name='password' value='' required="required" style='width: 30%;'>
             <br>
             <div style='margin-top: 20px; clear: both;'>  
-              <button type="submit" class="btn btn-primary">파일 변경 처리</button>
-              <button type="button" onclick="history.back();" class="btn btn-primary">취소</button>
+              <button type="submit" class="btn btn-sm" style="background-color: #202052;color: white;">파일 변경 처리</button>
+              <button type="button" onclick="history.back();" class="btn btn-sm" style="background-color: #202052;color: white;">취소</button>
             </div>  
           </FORM>
         </DIV>

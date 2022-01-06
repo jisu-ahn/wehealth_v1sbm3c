@@ -41,8 +41,8 @@
         정말로 삭제하시겠습니까?<br><br>         
         <input type='hidden' name='memberno' value='${memberVO.memberno}'>     
             
-        <button type="submit" class="btn btn-primary">삭제</button>
-        <button type="button" onclick="location.href='./list.do'" class="btn btn-primary">취소(목록)</button>
+        <button type="submit" class="btn btn-primary" style="background-color: #202052;color: white;">삭제</button>
+        <button type="button" onclick="location.href='./list.do'" class="btn btn-primary" style="background-color: #202052;color: white;">취소(목록)</button>
      
       </FORM>
     </DIV>

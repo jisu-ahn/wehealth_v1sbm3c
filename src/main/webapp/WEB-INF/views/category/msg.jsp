@@ -61,11 +61,11 @@
         <br>
         <c:choose>
             <c:when test="${param.cnt == 0 }">
-                <button type='button' onclick="history.back()" class="btn btn-dark">다시 시도</button>    
+                <button type='button' onclick="history.back()" class="btn btn-sm" style="background-color: #202052;color: white;">다시 시도</button>    
             </c:when>
         </c:choose>
         
-        <button type='button' onclick="location.href='./list.do'" class="btn btn-dark">목록</button>
+        <button type='button' onclick="location.href='./list.do'" class="btn btn-sm" style="background-color: #202052;color: white;">목록</button>
       </LI>
     </UL>
   </fieldset>

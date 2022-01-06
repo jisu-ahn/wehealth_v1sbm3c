@@ -312,7 +312,7 @@ public class ItemsCont {
        * @return
        */
       @RequestMapping(value = "/items/list_by_categoryno_search_paging.do", method = RequestMethod.GET)
-      public ModelAndView list_by_cateno_search_paging(@RequestParam(value = "category_no", defaultValue = "1") int category_no,
+      public ModelAndView list_by_cateno_search_paging(@RequestParam(value = "category_no", defaultValue = "2") int category_no,
                                                                              @RequestParam(value = "search_word", defaultValue = "") String search_word,
                                                                              @RequestParam(value = "now_page", defaultValue = "1") int now_page) {
         System.out.println("-> now_page: " + now_page);

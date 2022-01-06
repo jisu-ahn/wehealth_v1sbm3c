@@ -193,8 +193,8 @@
       
       <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-          <button type="submit" class="btn btn-primary btn-md">저장</button>
-          <button type="button" onclick="history.go(-1);" class="btn btn-primary btn-md">취소</button>
+          <button type="submit" class="btn btn-primary btn-md" style="background-color: #202052;color: white;">저장</button>
+          <button type="button" onclick="history.go(-1);" class="btn btn-primary btn-md" style="background-color: #202052;color: white;">취소</button>
    
         </div>
       </div>   

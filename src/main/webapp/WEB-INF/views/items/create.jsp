@@ -106,8 +106,8 @@
        </div>
     </div>   
     <div class="content_body_bottom">
-      <button type="submit" class="btn btn-primary">등록</button>
-      <button type="button" onclick="location.href='./list_by_categoryno_search_paging.do?category_no=${categoryVO.category_no }&now_page=${param.now_page}&search_word=${param.search_word }'" class="btn btn-primary">목록</button>
+      <button type="submit" class="btn btn-sm" style="background-color: #202052;color: white;">등록</button>
+      <button type="button" onclick="location.href='./list_by_categoryno_search_paging.do?category_no=${categoryVO.category_no }&now_page=${param.now_page}&search_word=${param.search_word }'" class="btn btn-sm" style="background-color: #202052;color: white;">목록</button>
     </div>
   
   </FORM>

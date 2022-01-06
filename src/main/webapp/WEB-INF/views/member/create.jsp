@@ -309,8 +309,8 @@
     
     <div class="form-group">
       <div class="col-md-offset-2 col-md-10">
-        <button type="button" id='btn_send' class="btn btn-primary btn-md">가입</button>
-        <button type="button" onclick="history.back()" class="btn btn-primary btn-md">취소</button>
+        <button type="button" id='btn_send' class="btn btn-primary btn-md" style="background-color: #202052;color: white;">가입</button>
+        <button type="button" onclick="history.back()" class="btn btn-primary btn-md" style="background-color: #202052;color: white;">취소</button>
 
       </div>
     </div>   

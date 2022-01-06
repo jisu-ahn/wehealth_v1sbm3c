@@ -40,8 +40,8 @@
       <label>그룹 번호</label>: ${categoryVO.categorygrp_no }  
       <label>카테고리</label>: ${categoryVO.category_name}  
        
-      <button type="submit" id='submit' class="btn btn-dark">삭제</button>
-      <button type="button" class="btn btn-dark" onclick="location.href='./list_by_categorygrpno.do?categorygrp_no=${categoryVO.categorygrp_no}'">취소</button>
+      <button type="submit" id='submit' class="btn btn-xs" style="background-color: #202052;color: white;">삭제</button>
+      <button type="button" class="btn btn-xs" style="background-color: #202052;color: white;" onclick="location.href='./list_by_categorygrpno.do?categorygrp_no=${categoryVO.categorygrp_no}'">취소</button>
     </FORM>
   </DIV>
 

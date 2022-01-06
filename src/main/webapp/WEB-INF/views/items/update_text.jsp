@@ -144,8 +144,8 @@
     </div>
 
     <div class="content_body_bottom">
-      <button type="submit" class="btn btn-primary">저장</button>
-      <button type="button" onclick="history.back();" class="btn btn-primary">취소</button>
+      <button type="submit" class="btn btn-sm" style="background-color: #202052;color: white;">저장</button>
+      <button type="button" onclick="history.back();" class="btn btn-sm" style="background-color: #202052;color: white;">취소</button>
     </div>
   
   </FORM>

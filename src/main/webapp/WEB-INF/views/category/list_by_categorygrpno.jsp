@@ -38,8 +38,8 @@
       <input type='text' name='category_name' value='' required="required" style='width: 25%;'
                  autofocus="autofocus">
   
-      <button type="submit" id='submit' class="btn btn-dark">등록</button>
-      <button type="button" onclick="cancel();" class="btn btn-dark">취소</button>
+      <button type="submit" id='submit' class="btn btn-xs" style="background-color: #202052;color: white;">등록</button>
+      <button type="button" onclick="cancel();" class="btn btn-xs" style="background-color: #202052;color: white;">취소</button>
     </FORM>
   </DIV>
 

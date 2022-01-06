@@ -119,8 +119,8 @@
       
       <div class="form-group">
         <div class="col-md-offset-5 col-md-7">
-          <button type="button" id='btn_send' class="btn btn-primary btn-md">변경</button>
-          <button type="button" onclick="location.href='./list.do'" class="btn btn-primary btn-md">취소</button>
+          <button type="button" id='btn_send' class="btn btn-primary btn-md" style="background-color: #202052;color: white;">변경</button>
+          <button type="button" onclick="location.href='./list.do'" class="btn btn-primary btn-md" style="background-color: #202052;color: white;">취소</button>
    
         </div>
       </div>   

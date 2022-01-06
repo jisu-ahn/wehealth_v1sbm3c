@@ -36,7 +36,7 @@
           <LI class='li_none'>                                                   
             <button type='button' 
                          onclick="location.href='./product_update.do?cateno=${param.cateno}&categrpno=${param.categrpno }&contentsno=${param.contentsno }'"
-                         class="btn btn-primary">관련 상품 정보 재등록</button>
+                         class="btn btn-primary" style="background-color: #202052;color: white;">관련 상품 정보 재등록</button>
           </LI>
         </c:when>
         <c:when test="${param.code == 'product_fail'}"> <%-- Java if --%>
@@ -52,7 +52,7 @@
           <LI class='li_none'>
             <button type='button' 
                          onclick="location.href='./login.do?id=${param.id}'"
-                         class="btn btn-primary">로그인</button>
+                         class="btn btn-primary" style="background-color: #202052;color: white;">로그인</button>
           </LI> 
         </c:when>
         
@@ -69,7 +69,7 @@
           <LI class='li_none'>
             <button type='button' 
                          onclick="location.href='/'"
-                         class="btn btn-primary">확인</button>
+                         class="btn btn-primary" style="background-color: #202052;color: white;">확인</button>
           </LI>                                                                       
         </c:when>
                 
@@ -86,7 +86,7 @@
           <LI class='li_none'>
             <button type='button' 
                          onclick="location.href='/member/list.do'"
-                         class="btn btn-primary">회원 목록</button>
+                         class="btn btn-primary" style="background-color: #202052;color: white;">회원 목록</button>
           </LI>                                                                     
         </c:when>    
             
@@ -103,7 +103,7 @@
           <LI class='li_none'>
             <button type='button' 
                          onclick="location.href='/'"
-                         class="btn btn-primary">확인</button>
+                         class="btn btn-primary" style="background-color: #202052;color: white;">확인</button>
           </LI>                                                                     
         </c:when>   
         
@@ -127,7 +127,7 @@
         <br>
         <c:choose>
             <c:when test="${param.cnt == 0 }">
-                <button type='button' onclick="history.back()" class="btn btn-primary">다시 시도</button>    
+                <button type='button' onclick="history.back()" class="btn btn-primary" style="background-color: #202052;color: white;">다시 시도</button>    
             </c:when>
         </c:choose>
         

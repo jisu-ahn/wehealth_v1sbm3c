@@ -91,13 +91,13 @@
         <br>
         <c:choose>
             <c:when test="${param.cnt == 0 }">
-                <button type='button' onclick="history.back()" class="btn btn-primary">다시 시도</button>    
+                <button type='button' onclick="history.back()" class="btn btn-sm" style="background-color: #202052;color: white;">다시 시도</button>    
             </c:when>
         </c:choose>
         
         <%-- <a href="./list_by_cateno.do?cateno=${param.cateno}" class="btn btn-primary">목록</a> --%>
         <%-- <button type='button' onclick="location.href='./list_by_cateno_search.do?cateno=${param.cateno}'" class="btn btn-primary">목록</button> --%>
-        <button type='button' onclick="location.href='./list_by_categoryno_search_paging.do?category_no=${param.category_no}'" class="btn btn-primary">목록</button>
+        <button type='button' onclick="location.href='./list_by_categoryno_search_paging.do?category_no=${param.category_no}'" class="btn btn-sm" style="background-color: #202052;color: white;">목록</button>
 
       </LI>
     </UL>

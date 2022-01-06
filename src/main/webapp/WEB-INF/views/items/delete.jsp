@@ -97,8 +97,8 @@
                   <span style="color: #FF0000; font-weight: bold;">삭제를 진행 하시겠습니까? 삭제하시면 복구 할 수 없습니다.</span><br><br>
                   패스워드 <input type='password' name='password' value='1234' required="required" style='width: 30%;' autofocus="autofocus">
                   <br><br>
-                  <button type = "submit" class="btn btn-primary">삭제 진행</button>
-                  <button type = "button" onclick = "history.back()" class="btn btn-primary">취소</button>
+                  <button type = "submit" class="btn btn-sm" style="background-color: #202052;color: white;">삭제 진행</button>
+                  <button type = "button" onclick = "history.back()" class="btn btn-sm" style="background-color: #202052;color: white;">취소</button>
                 </div>
               </div>   
           </FORM>
