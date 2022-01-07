@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 import org.json.JSONObject;
@@ -242,28 +243,28 @@ public class ItemsCont {
         return mav; // forward
     }
     
-    // http://localhost:9091/items/read.do?itemsno=1
-    /**
-     * 조회
-     * @return
-     */
-    @RequestMapping(value="/items/read.do", method=RequestMethod.GET )
-    public ModelAndView read(int itemsno) {
-      ModelAndView mav = new ModelAndView();
-
-      ItemsVO itemsVO = this.itemsProc.read(itemsno);
-      mav.addObject("itemsVO", itemsVO); // request.setAttribute("itemsVO", itemsVO);
-
-      CategoryVO categoryVO = this.categoryProc.read(itemsVO.getCategory_no());
-      mav.addObject("categoryVO", categoryVO); 
-
-      CategorygrpVO categorygrpVO = this.categorygrpProc.read(categoryVO.getCategorygrp_no());
-      mav.addObject("categorygrpVO", categorygrpVO); 
-      
-      mav.setViewName("/items/read"); // /WEB-INF/views/items/read.jsp
-          
-      return mav;
-    }
+//    // http://localhost:9091/items/read.do?itemsno=1
+//    /**
+//     * 조회
+//     * @return
+//     */
+//    @RequestMapping(value="/items/read.do", method=RequestMethod.GET )
+//    public ModelAndView read(int itemsno) {
+//      ModelAndView mav = new ModelAndView();
+//
+//      ItemsVO itemsVO = this.itemsProc.read(itemsno);
+//      mav.addObject("itemsVO", itemsVO); // request.setAttribute("itemsVO", itemsVO);
+//
+//      CategoryVO categoryVO = this.categoryProc.read(itemsVO.getCategory_no());
+//      mav.addObject("categoryVO", categoryVO); 
+//
+//      CategorygrpVO categorygrpVO = this.categorygrpProc.read(categoryVO.getCategorygrp_no());
+//      mav.addObject("categorygrpVO", categorygrpVO); 
+//      
+//      mav.setViewName("/items/read"); // /WEB-INF/views/items/read.jsp
+//          
+//      return mav;
+//    }
     
     /**
      * 목록 + 검색 지원
@@ -302,62 +303,157 @@ public class ItemsCont {
       return mav; 
     }
      
-      /**
-       * 목록 + 검색 + 페이징 지원
-       * http://localhost:9090/items/list_by_categoryno_search_paging.do?category_no=1&search_word=런닝&now_page=1
-       * 
-       * @param category_no
-       * @param search_word
-       * @param now_page
-       * @return
-       */
-      @RequestMapping(value = "/items/list_by_categoryno_search_paging.do", method = RequestMethod.GET)
-      public ModelAndView list_by_cateno_search_paging(@RequestParam(value = "category_no", defaultValue = "2") int category_no,
-                                                                             @RequestParam(value = "search_word", defaultValue = "") String search_word,
-                                                                             @RequestParam(value = "now_page", defaultValue = "1") int now_page) {
-        System.out.println("-> now_page: " + now_page);
+//    /**
+//    * 목록 + 검색 + 페이징 지원
+//    * http://localhost:9090/items/list_by_categoryno_search_paging.do?category_no=1&search_word=런닝&now_page=1
+//    * 
+//    * @param category_no
+//    * @param search_word
+//    * @param now_page
+//    * @return
+//    */
+//   @RequestMapping(value = "/items/list_by_categoryno_search_paging.do", method = RequestMethod.GET)
+//   public ModelAndView list_by_cateno_search_paging(@RequestParam(value = "category_no", defaultValue = "2") int category_no,
+//                                                                          @RequestParam(value = "search_word", defaultValue = "") String search_word,
+//                                                                          @RequestParam(value = "now_page", defaultValue = "1") int now_page) {
+//     System.out.println("-> now_page: " + now_page);
+//
+//     ModelAndView mav = new ModelAndView();
+//
+//     // 숫자와 문자열 타입을 저장해야함으로 Obejct 사용
+//     HashMap<String, Object> map = new HashMap<String, Object>();
+//     map.put("category_no", category_no); // #{category_no}
+//     map.put("search_word", search_word); // #{search_word}
+//     map.put("now_page", now_page); // 페이지에 출력할 레코드의 범위를 산출하기위해 사용
+//
+//     // 검색 목록
+//     List<ItemsVO> list = itemsProc.list_by_categoryno_search_paging(map);
+//     mav.addObject("list", list);
+//
+//     // 검색된 레코드 갯수
+//     int search_count = itemsProc.search_count(map);
+//     mav.addObject("search_count", search_count);
+//
+//     CategoryVO categoryVO = categoryProc.read(category_no);
+//     mav.addObject("categoryVO", categoryVO);
+//
+//     CategorygrpVO categorygrpVO = categorygrpProc.read(categoryVO.getCategorygrp_no());
+//     mav.addObject("categorygrpVO", categorygrpVO);
+//
+//     /*
+//      * SPAN태그를 이용한 박스 모델의 지원, 1 페이지부터 시작 현재 페이지: 11 / 22 [이전] 11 12 13 14 15 16 17
+//      * 18 19 20 [다음]
+//      * @param category_no 카테고리번호
+//      * @param search_count 검색(전체) 레코드수
+//      * @param now_page 현재 페이지
+//      * @param search_word 검색어
+//      * @return 페이징 생성 문자열
+//      */
+//     String paging = itemsProc.pagingBox(category_no, search_count, now_page, search_word);
+//     mav.addObject("paging", paging);
+//
+//     mav.addObject("now_page", now_page);
+//
+//     // /items/list_by_categoryno_table_img1_search_paging.jsp
+//     mav.setViewName("/items/list_by_categoryno_search_paging");
+//
+//     return mav;
+//   }
+   
+   /**
+    * 목록 + 검색 + 페이징 + Cookie 지원
+    * http://localhost:9091/contents/list_by_categoryno_search_paging.do?cateno=1&word=스위스&now_page=1
+    * 
+    * @param category_no
+    * @param search_word
+    * @param now_page
+    * @return
+    */
+   @RequestMapping(value = "/items/list_by_categoryno_search_paging.do", method = RequestMethod.GET)
+   public ModelAndView list_by_categoryno_search_paging_cookie(
+       @RequestParam(value = "category_no", defaultValue = "1") int category_no,
+       @RequestParam(value = "search_word", defaultValue = "") String search_word,
+       @RequestParam(value = "now_page", defaultValue = "1") int now_page,
+       HttpServletRequest request) {
+     System.out.println("-> list_by_categoryno_search_paging now_page: " + now_page);
 
-        ModelAndView mav = new ModelAndView();
+     ModelAndView mav = new ModelAndView();
 
-        // 숫자와 문자열 타입을 저장해야함으로 Obejct 사용
-        HashMap<String, Object> map = new HashMap<String, Object>();
-        map.put("category_no", category_no); // #{category_no}
-        map.put("search_word", search_word); // #{search_word}
-        map.put("now_page", now_page); // 페이지에 출력할 레코드의 범위를 산출하기위해 사용
+     // 숫자와 문자열 타입을 저장해야함으로 Obejct 사용
+     HashMap<String, Object> map = new HashMap<String, Object>();
+     map.put("category_no", category_no); // #{category_no}
+     map.put("search_word", search_word); // #{search_word}
+     map.put("now_page", now_page); // 페이지에 출력할 레코드의 범위를 산출하기위해 사용
 
-        // 검색 목록
-        List<ItemsVO> list = itemsProc.list_by_categoryno_search_paging(map);
-        mav.addObject("list", list);
+     // 검색 목록
+     List<ItemsVO> list = itemsProc.list_by_categoryno_search_paging(map);
+     mav.addObject("list", list);
 
-        // 검색된 레코드 갯수
-        int search_count = itemsProc.search_count(map);
-        mav.addObject("search_count", search_count);
+     // 검색된 레코드 갯수
+     int search_count = itemsProc.search_count(map);
+     mav.addObject("search_count", search_count);
 
-        CategoryVO categoryVO = categoryProc.read(category_no);
-        mav.addObject("categoryVO", categoryVO);
+     CategoryVO categoryVO = categoryProc.read(category_no);
+     mav.addObject("categoryVO", categoryVO);
 
-        CategorygrpVO categorygrpVO = categorygrpProc.read(categoryVO.getCategorygrp_no());
-        mav.addObject("categorygrpVO", categorygrpVO);
+     CategorygrpVO categorygrpVO = categorygrpProc.read(categoryVO.getCategorygrp_no());
+     mav.addObject("categorygrpVO", categorygrpVO);
 
-        /*
-         * SPAN태그를 이용한 박스 모델의 지원, 1 페이지부터 시작 현재 페이지: 11 / 22 [이전] 11 12 13 14 15 16 17
-         * 18 19 20 [다음]
-         * @param category_no 카테고리번호
-         * @param search_count 검색(전체) 레코드수
-         * @param now_page 현재 페이지
-         * @param search_word 검색어
-         * @return 페이징 생성 문자열
-         */
-        String paging = itemsProc.pagingBox(category_no, search_count, now_page, search_word);
-        mav.addObject("paging", paging);
+     /*
+      * SPAN태그를 이용한 박스 모델의 지원, 1 페이지부터 시작 현재 페이지: 11 / 22 [이전] 11 12 13 14 15 16 17
+      * 18 19 20 [다음]
+      * @param categoryno 카테고리번호
+      * @param search_count 검색(전체) 레코드수
+      * @param now_page 현재 페이지
+      * @param search_word 검색어
+      * @return 페이징 생성 문자열
+      */
+     String paging = itemsProc.pagingBox(category_no, search_count, now_page, search_word);
+    
+     mav.addObject("paging", paging);
 
-        mav.addObject("now_page", now_page);
+     mav.addObject("now_page", now_page);
 
-        // /items/list_by_categoryno_table_img1_search_paging.jsp
-        mav.setViewName("/items/list_by_categoryno_search_paging");
+     // /views/contents/list_by_cateno_search_paging_cookie.jsp
+     mav.setViewName("/items/list_by_categoryno_search_paging_cookie");
 
-        return mav;
-      }
+     // -------------------------------------------------------------------------------
+     // 쇼핑 카트 장바구니에 상품 등록전 로그인 폼 출력 관련 쿠기  
+     // -------------------------------------------------------------------------------
+     Cookie[] cookies = request.getCookies();
+     Cookie cookie = null;
+
+     String ck_id = ""; // id 저장
+     String ck_id_save = ""; // id 저장 여부를 체크
+     String ck_passwd = ""; // passwd 저장
+     String ck_passwd_save = ""; // passwd 저장 여부를 체크
+
+     if (cookies != null) {  // Cookie 변수가 있다면
+       for (int i=0; i < cookies.length; i++){
+         cookie = cookies[i]; // 쿠키 객체 추출
+         
+         if (cookie.getName().equals("ck_id")){
+           ck_id = cookie.getValue();                                 // Cookie에 저장된 id
+         }else if(cookie.getName().equals("ck_id_save")){
+           ck_id_save = cookie.getValue();                          // Cookie에 id를 저장 할 것인지의 여부, Y, N
+         }else if (cookie.getName().equals("ck_passwd")){
+           ck_passwd = cookie.getValue();                          // Cookie에 저장된 password
+         }else if(cookie.getName().equals("ck_passwd_save")){
+           ck_passwd_save = cookie.getValue();                  // Cookie에 password를 저장 할 것인지의 여부, Y, N
+         }
+       }
+     }
+     
+     System.out.println("-> ck_id: " + ck_id);
+     
+     mav.addObject("ck_id", ck_id); 
+     mav.addObject("ck_id_save", ck_id_save);
+     mav.addObject("ck_passwd", ck_passwd);
+     mav.addObject("ck_passwd_save", ck_passwd_save);
+     // -------------------------------------------------------------------------------
+     
+     return mav;
+   }
       
       /**
        * Grid 형태의 화면 구성 http://localhost:9091/items/list_by_categoryno_grid.do
@@ -470,7 +566,8 @@ public class ItemsCont {
        * @return
        */
       @RequestMapping(value = "/items/update_file.do", method = RequestMethod.POST)
-      public ModelAndView update_file(HttpServletRequest request, ItemsVO itemsVO, int now_page) {
+      public ModelAndView update_file(HttpServletRequest request, ItemsVO itemsVO, 
+                                                      @RequestParam(value = "now_page", defaultValue = "1") int now_page) {
         ModelAndView mav = new ModelAndView();
         String uploadDir = this.uploadDir; // 파일 업로드 경로        
         
@@ -658,8 +755,8 @@ public class ItemsCont {
             mav.addObject("code", "password_fail");
             mav.setViewName("redirect:/items/msg.do");
         }
-        mav.addObject("categoryno", itemsVO.getCategory_no());
-        System.out.println("-> categoryno: " + itemsVO.getCategory_no());
+        mav.addObject("category_no", itemsVO.getCategory_no());
+        System.out.println("-> category_no: " + itemsVO.getCategory_no());
         
         return mav; // forward
       }   
@@ -716,6 +813,68 @@ public class ItemsCont {
         
         return json.toString(); 
       }
+      
+      //http://localhost:9091/items/read.do
+      /**
+       * 조회
+       * @return
+       */
+      @RequestMapping(value="/items/read.do", method=RequestMethod.GET )
+      public ModelAndView read_ajax(HttpServletRequest request, int itemsno) {
+        // public ModelAndView read(int itemsno, int now_page) {
+        // System.out.println("-> now_page: " + now_page);
+        
+        ModelAndView mav = new ModelAndView();
+
+        ItemsVO itemsVO = this.itemsProc.read(itemsno);
+        mav.addObject("itemsVO", itemsVO); // request.setAttribute("contentsVO", contentsVO);
+
+        CategoryVO categoryVO = this.categoryProc.read(itemsVO.getCategory_no());
+        mav.addObject("categoryVO", categoryVO); 
+
+        CategorygrpVO categorygrpVO = this.categorygrpProc.read(categoryVO.getCategorygrp_no());
+        mav.addObject("categorygrpVO", categorygrpVO); 
+        
+        mav.setViewName("/items/read_cookie"); // /WEB-INF/views/items/read_cookie.jsp
+        
+        // -------------------------------------------------------------------------------
+        // 쇼핑 카트 장바구니에 상품 등록전 로그인 폼 출력 관련 쿠기  
+        // -------------------------------------------------------------------------------
+        Cookie[] cookies = request.getCookies();
+        Cookie cookie = null;
+
+        String ck_id = ""; // id 저장
+        String ck_id_save = ""; // id 저장 여부를 체크
+        String ck_passwd = ""; // passwd 저장
+        String ck_passwd_save = ""; // passwd 저장 여부를 체크
+
+        if (cookies != null) {  // Cookie 변수가 있다면
+          for (int i=0; i < cookies.length; i++){
+            cookie = cookies[i]; // 쿠키 객체 추출
+            
+            if (cookie.getName().equals("ck_id")){
+              ck_id = cookie.getValue();                                 // Cookie에 저장된 id
+            }else if(cookie.getName().equals("ck_id_save")){
+              ck_id_save = cookie.getValue();                          // Cookie에 id를 저장 할 것인지의 여부, Y, N
+            }else if (cookie.getName().equals("ck_passwd")){
+              ck_passwd = cookie.getValue();                          // Cookie에 저장된 password
+            }else if(cookie.getName().equals("ck_passwd_save")){
+              ck_passwd_save = cookie.getValue();                  // Cookie에 password를 저장 할 것인지의 여부, Y, N
+            }
+          }
+        }
+        
+        System.out.println("-> ck_id: " + ck_id);
+        
+        mav.addObject("ck_id", ck_id); 
+        mav.addObject("ck_id_save", ck_id_save);
+        mav.addObject("ck_passwd", ck_passwd);
+        mav.addObject("ck_passwd_save", ck_passwd_save);
+        // -------------------------------------------------------------------------------
+        
+        return mav;
+      }
+      
       
 }
 

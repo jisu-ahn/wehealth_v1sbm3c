@@ -5,7 +5,7 @@
 <head> 
 <meta charset="UTF-8"> 
 <meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, width=device-width" /> 
-<title>Resort world</title>
+<title>Wehealth</title>
  
 <link href="/css/style.css" rel="Stylesheet" type="text/css">
  
@@ -31,8 +31,9 @@
 
 <DIV class='content_body'>  
   <DIV style='width: 80%; margin: 0px auto;'>
-    <FORM name='frm' method='POST' action='./login.do' class="form-horizontal">
-    
+    <FORM name='frm' method='POST' action='/member/login.do' class="form-horizontal">
+      <%-- 로그인 후 자동으로 이동할 페이지 전달 ★ --%>
+      <input type="hidden" name="return_url" value="${return_url}">
       <div class="form-group">
         <label class="col-md-4 control-label" style='font-size: 0.8em;'>아이디</label>    
         <div class="col-md-8">

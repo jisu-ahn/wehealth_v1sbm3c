@@ -32,9 +32,9 @@
 <jsp:include page="../menu/top.jsp" flush='false' />
  
 <DIV class='title_line'>
-  <A href="../categrp/list.do" class='title_link'>카테고리 그룹</A> > 
-  <A href="../cate/list_by_categrpno.do?categrpno=${categrpVO.categrpno }" class='title_link'>${categrpVO.name }</A> >
-  <A href="./list_by_cateno_search_paging.do?cateno=${cateVO.cateno }" class='title_link'>${cateVO.name }</A>
+  <A href="../categorygrp/list.do" class='title_link'>카테고리 그룹</A> > 
+  <A href="../category/list_by_categorygrpno.do?categorygrp_no=${categorygrpVO.categorygrp_no }" class='title_link'>${categorygrpVO.categorygrp_name }</A> >
+  <A href="./list_by_categoryno_search_paging.do?category_no=${categoryVO.category_no }" class='title_link'>${categoryVO.category_name }</A>
 </DIV>
 
 <DIV class='content_body'>
@@ -74,7 +74,7 @@
           <c:set var="thumb1" value="${itemsVO.thumb1 }" />
           <c:choose>
             <c:when test="${thumb1.endsWith('jpg') || thumb1.endsWith('png') || thumb1.endsWith('gif')}">
-              <IMG src="/itemsstorage/${file1saved }" style='width: 90%;'> 
+              <IMG src="/items/storage/${file1saved }" style='width: 90%;'> 
             </c:when>
             <c:otherwise> <!-- 이미지가 없는 경우 -->
               상품 관련 이미지가 없습니다.
@@ -83,7 +83,7 @@
         </DIV>
 
         <DIV style='text-align: left; width: 47%; float: left;'>
-          <span style='font-size: 1.5em;'>${title}</span>
+          <span style='font-size: 1.5em;'>${item_name}</span>
           <br>
           <FORM name='frm' method='POST' action='./delete.do'>
               <input type='hidden' name='itemsno' value='${param.itemsno}'>
@@ -94,7 +94,7 @@
                     
               <div class="form-group">   
                 <div class="col-md-12" style='text-align: center; margin: 10px auto;'>
-                  <span style="color: #FF0000; font-weight: bold;">삭제를 진행 하시겠습니까? 삭제하시면 복구 할 수 없습니다.</span><br><br>
+                  <span style="color: #FF0000; font-weight: bold;">삭제를 진행 하시겠습니까? 삭제하시면 복구할 수 없습니다.</span><br><br>
                   패스워드 <input type='password' name='password' value='1234' required="required" style='width: 30%;' autofocus="autofocus">
                   <br><br>
                   <button type = "submit" class="btn btn-sm" style="background-color: #202052;color: white;">삭제 진행</button>

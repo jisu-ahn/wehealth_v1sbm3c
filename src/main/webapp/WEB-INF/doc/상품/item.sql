@@ -118,7 +118,7 @@ WHERE itemsno = 1 OR itemsno = 2;
 
 -- 삭제
 DELETE FROM items
-WHERE itemsno = 1;
+WHERE itemsno = 12;
 
 -- 모든 레코드 삭제
 DELETE FROM items;

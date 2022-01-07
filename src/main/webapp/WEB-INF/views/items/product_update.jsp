@@ -86,7 +86,7 @@
     </div>
     <div class="content_body_bottom">
       <button type="submit" class="btn btn-sm" style="background-color: #202052;color: white;">저장</button>
-      <button type="button" onclick="location.href='./read.do?category_no=${param.category_no}&items=${param.itemsno }'" class="btn btn-sm" style="background-color: #202052;color: white;">취소</button>
+      <button type="button" onclick="location.href='./read.do?category_no=${param.category_no}&itemsno=${param.itemsno }'" class="btn btn-primary">취소</button>
     </div>
   
   </FORM>

@@ -84,7 +84,7 @@
 <DIV class='title_line'>
   <A href="../categorygrp/list.do" class='title_link'>카테고리 그룹</A> > 
   <A href="../category/list_by_categorygrpno.do?categorygrp_no=${categorygrpVO.categorygrp_no }" class='title_link'>${categorygrpVO.categorygrp_name }</A> >
-  <A href="./list_by_category_no.do?category_no=${categoryVO.category_no }" class='title_link'>${categoryVO.category_name }</A>
+  <A href="./list_by_categoryno_search_paging.do?category_no=${categoryVO.category_no }" class='title_link'>${categoryVO.category_name }</A>
 </DIV>
 
 <DIV class='content_body'>
