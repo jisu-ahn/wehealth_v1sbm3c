@@ -14,6 +14,22 @@
  
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<script type="text/javascript">
+    window.onload = function() {
+
+    }
+
+    function recommend_exercise(){
+      var url = '/tensorflow/recommend_exercise/start.do';
+      var win = window.open(url, 'AI 서비스', 'width=1600px, height=560px');
+
+      var x = (screen.width - 1600) / 2;
+      var y = (screen.height - 560) / 2;
+
+      win.moveTo(x, y); // 화면 중앙으로 이동
+    }
+</script>
     
 </head>
 <body>
@@ -35,6 +51,17 @@
   </DIV>  
  
 <jsp:include page="./menu/bottom.jsp" flush='false' />
+
+<DIV style='width: 100%; margin: 30px auto; text-align: center;'>
+<UL style="margin-left: 50px;">
+      <OL style="center;">
+          <!-- 추천 시스템 프로젝트 -->
+          <A href="javascript: recommend_exercise()">🦾맞춤형 운동 추천 시스템🦾</A>
+      </OL>
+</UL>
+<H2 style="text-align: center; font-size:17px;">Tensorflow 2 model + Python + Django + Ajax + JSon 요청 처리</H2>
+
+</DIV>
  
 </body>
 </html>
