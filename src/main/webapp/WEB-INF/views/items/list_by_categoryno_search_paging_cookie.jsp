@@ -92,6 +92,7 @@
             alert('로그인 성공');
             $('#login_yn').val('YES');  // 로그인 성공 기록
             cart_ajax_post();  // 쇼핑카트에 insert 처리 Ajax 호출
+            document.location.reload();
             
           } else {
             alert('로그인에 실패했습니다. \n잠시후 다시 시도해주세요.');
@@ -180,7 +181,152 @@
 </DIV>
 
 <DIV class='content_body'>
-  <ASIDE class="aside_right">
+  <c:choose>
+    <c:when test = "${sessionScope.id == null || sessionScope.grade  >= 11}">
+      <ASIDE class="aside_right">
+        <A href="javascript:location.reload();">새로고침</A>
+        <span class='menu_divide' >│</span>
+        <A href="./list_by_categoryno_grid.do?category_no=${categoryVO.category_no }">갤러리형</A>
+      </ASIDE> 
+    
+      <DIV style="text-align: right; clear: both;">  
+        <form name='frm' id='frm' method='get' action='./list_by_categoryno_search_paging.do'>
+          <input type='hidden' name='category_no' value='${categoryVO.category_no }'>
+          <input type='text' name='search_word' id='search_word' value='${param.search_word }' style='width: 20%;'>
+          <button type='submit'>검색</button>
+          <c:if test="${param.search_word.length() > 0 }">
+            <button type='button' 
+                         onclick="location.href='./list_by_categoryno_search_paging.do?category_no=${categoryVO.category_no}&search_word='">검색 취소</button>  
+          </c:if>    
+        </form>
+      </DIV>
+      
+      <DIV class='menu_line'></DIV>
+      
+        <%-- ******************** Ajax 기반 로그인 폼 시작 ******************** --%>
+      <DIV id='div_login' style='width: 80%; margin: 0px auto; display: none;'>
+        <FORM name='frm_login' id='frm_login' method='POST' action='/member/login_ajax.do' class="form-horizontal">
+          <input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
+          <input type="hidden" name="itemsno" id="itemsno" value="itemsno">
+          <input type="hidden" name="login_yn" id="login_yn" value="NO">
+    
+          <div class="form-group">
+            <label class="col-md-4 control-label" style='font-size: 0.8em;'>아이디</label>    
+            <div class="col-md-8">
+              <input type='text' class="form-control" name='id' id='id' 
+                         value='${ck_id }' required="required" 
+                         style='width: 30%;' placeholder="아이디" autofocus="autofocus">
+              <Label>   
+                <input type='checkbox' name='id_save' value='Y' 
+                          ${ck_id_save == 'Y' ? "checked='checked'" : "" }> 저장
+              </Label>                   
+            </div>
+       
+          </div>   
+       
+          <div class="form-group">
+            <label class="col-md-4 control-label" style='font-size: 0.8em;'>패스워드</label>    
+            <div class="col-md-8">
+              <input type='password' class="form-control" name='passwd' id='passwd' 
+                        value='${ck_passwd }' required="required" style='width: 30%;' placeholder="패스워드">
+              <Label>
+                <input type='checkbox' name='passwd_save' value='Y' 
+                          ${ck_passwd_save == 'Y' ? "checked='checked'" : "" }> 저장
+              </Label>
+            </div>
+          </div>   
+       
+          <div class="form-group">
+            <div class="col-md-offset-4 col-md-8">
+              <button type="button" id='btn_login' class="btn btn-primary btn-md">로그인</button>
+              <button type='button' onclick="location.href='/member/create.do'" class="btn btn-primary btn-md">회원가입</button>
+              <!-- <button type='button' id='btn_loadDefault' class="btn btn-primary btn-md">테스트 계정</button> -->
+              <button type='button' id='btn_cancel' class="btn btn-primary btn-md"
+                          onclick="$('#div_login').hide();">취소</button>
+            </div>
+          </div>   
+          
+        </FORM>
+      </DIV>
+      <%-- ******************** Ajax 기반 로그인 폼 종료 ******************** --%>
+      
+      
+      <table class="table table-striped" style='width: 100%;'>
+        <colgroup>
+          <col style="width: 10%;"></col>
+          <col style="width: 60%;"></col>
+          <col style="width: 20%;"></col>
+        </colgroup>
+        <%-- table 컬럼 --%>
+    <!--     <thead>
+          <tr>
+            <th style='text-align: center;'>파일</th>
+            <th style='text-align: center;'>상품명</th>
+            <th style='text-align: center;'>정가, 할인률, 판매가, 포인트</th>
+            <th style='text-align: center;'>기타</th>
+          </tr>
+        
+        </thead> -->
+        
+        <%-- table 내용 --%>
+        <tbody>
+          <c:forEach var="itemsVO" items="${list }" varStatus="status">
+            <c:set var="itemsno" value="${itemsVO.itemsno }" />
+            <c:set var="category_no" value="${itemsVO.category_no }" />
+            <c:set var="item_name" value="${itemsVO.item_name }" />
+            <c:set var="content" value="${itemsVO.content }" />
+            <c:set var="recom" value="${itemsVO.recom_cnt }" />
+            
+            <c:set var="file1" value="${itemsVO.file1 }" />
+            <c:set var="thumb1" value="${itemsVO.thumb1 }" />
+            
+            <c:set var="item_price" value="${itemsVO.item_price }" />
+            <c:set var="discount" value="${itemsVO.discount }" />
+            <c:set var="total_price" value="${itemsVO.total_price }" />
+            <c:set var="item_point" value="${itemsVO.item_point }" />
+            
+            <tr> 
+              <td style='vertical-align: middle; text-align: center;'>
+                <c:choose>
+                  <c:when test="${thumb1.endsWith('jpg') || thumb1.endsWith('png') || thumb1.endsWith('gif')}">
+                    <%-- /static/contents/storage/ --%>
+                    <a href="./read.do?itemsno=${itemsno}&now_page=${param.now_page }"><IMG src="/items/storage/${thumb1 }" style="width: 120px; height: 80px;"></a> 
+                  </c:when>
+                  <c:otherwise> <!-- 기본 이미지 출력 -->
+                    <IMG src="/items/images/none1.png" style="width: 120px; height: 80px;">
+                  </c:otherwise>
+                </c:choose>
+              </td>  
+              <td style='vertical-align: middle;'>
+                <a href="./read.do?itemsno=${itemsno}&now_page=${param.now_page }&search_word=${param.search_word}"><strong>${item_name}</strong> ${content}</a> 
+              </td> 
+              <td style='vertical-align: middle; text-align: center;'>
+                <del><fmt:formatNumber value="${item_price}" pattern="#,###" /></del><br>
+                <span style="color: #FF0000; font-size: 1.2em;">${discount} %</span>
+                <strong><fmt:formatNumber value="${total_price}" pattern="#,###" /></strong><br>
+                <span style="font-size: 0.8em;">포인트: <fmt:formatNumber value="${item_point}" pattern="#,###" /></span>
+                <span><A id="recom_${status.count }" href="javascript:recom_ajax(${itemsno }, ${status.count })" class="recom_link">♥(${recom })</A></span>
+    
+                <%-- <span id="span_animation_${status.count }"></span> --%>
+                <br>
+                <button type='button' id='btn_cart' class="btn btn-info" style='margin-bottom: 2px;'
+                            onclick="cart_ajax(${itemsno })">장바 구니</button><br>
+                <button type='button' id='btn_ordering' class="btn btn-info" 
+                            onclick="cart_ajax(${itemsno })">바로 구매</button>  
+                                        
+              </td>
+            </tr>
+          </c:forEach>
+          
+        </tbody>
+      </table>
+      
+      <!-- 페이지 목록 출력 부분 시작 -->
+      <DIV class='bottom_menu'>${paging }</DIV> <%-- 페이지 리스트 --%>
+      <!-- 페이지 목록 출력 부분 종료 -->
+    </c:when>
+    <c:otherwise>
+        <ASIDE class="aside_right">
     <A href="./create.do?category_no=${categoryVO.category_no }">등록</A>
     <span class='menu_divide' >│</span>
     <A href="javascript:location.reload();">새로고침</A>
@@ -239,7 +385,7 @@
         <div class="col-md-offset-4 col-md-8">
           <button type="button" id='btn_login' class="btn btn-primary btn-md">로그인</button>
           <button type='button' onclick="location.href='/member/create.do'" class="btn btn-primary btn-md">회원가입</button>
-          <button type='button' id='btn_loadDefault' class="btn btn-primary btn-md">테스트 계정</button>
+          <!-- <button type='button' id='btn_loadDefault' class="btn btn-primary btn-md">테스트 계정</button> -->
           <button type='button' id='btn_cancel' class="btn btn-primary btn-md"
                       onclick="$('#div_login').hide();">취소</button>
         </div>
@@ -328,7 +474,8 @@
   <!-- 페이지 목록 출력 부분 시작 -->
   <DIV class='bottom_menu'>${paging }</DIV> <%-- 페이지 리스트 --%>
   <!-- 페이지 목록 출력 부분 종료 -->
-  
+    </c:otherwise>
+  </c:choose>
 </DIV>
 
  

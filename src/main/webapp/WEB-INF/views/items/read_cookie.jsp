@@ -198,19 +198,30 @@
 
 <DIV class='content_body'>
   <ASIDE class="aside_right">
-    <A href="./create.do?category_no=${categoryVO.category_no }">등록</A>
-    <span class='menu_divide' >│</span>
-    <A href="javascript:location.reload();">새로고침</A>
-    <span class='menu_divide' >│</span>
-    <A href="./list_by_categoryno_search_paging.do?category_no=${categoryVO.category_no }&now_page=${param.now_page}&search_word=${param.search_word }">기본 목록형</A>    
-    <span class='menu_divide' >│</span>
-    <A href="./list_by_categoryno_grid.do?category_no=${categoryVO.category_no }">갤러리형</A>
-    <span class='menu_divide' >│</span>
-    <A href="./update_text.do?itemsno=${itemsno}&now_page=${param.now_page}">수정</A>
-    <span class='menu_divide' >│</span>
-    <A href="./update_file.do?itemsno=${itemsno}&now_page=${param.now_page}">파일 수정</A>  
-    <span class='menu_divide' >│</span>
-    <A href="./delete.do?itemsno=${itemsno}&now_page=${param.now_page}&category_no=${category_no}">삭제</A>  
+    <c:choose>
+        <c:when test = "${sessionScope.id == null || sessionScope.grade  >= 11}">
+            <A href="javascript:location.reload();">새로고침</A>
+            <span class='menu_divide' >│</span>
+            <A href="./list_by_categoryno_search_paging.do?category_no=${categoryVO.category_no }&now_page=${param.now_page}&search_word=${param.search_word }">기본 목록형</A>    
+            <span class='menu_divide' >│</span>
+            <A href="./list_by_categoryno_grid.do?category_no=${categoryVO.category_no }">갤러리형</A>
+        </c:when>
+        <c:otherwise>
+            <A href="./create.do?category_no=${categoryVO.category_no }">등록</A>
+            <span class='menu_divide' >│</span>
+            <A href="javascript:location.reload();">새로고침</A>
+            <span class='menu_divide' >│</span>
+            <A href="./list_by_categoryno_search_paging.do?category_no=${categoryVO.category_no }&now_page=${param.now_page}&search_word=${param.search_word }">기본 목록형</A>    
+            <span class='menu_divide' >│</span>
+            <A href="./list_by_categoryno_grid.do?category_no=${categoryVO.category_no }">갤러리형</A>
+            <span class='menu_divide' >│</span>
+            <A href="./update_text.do?itemsno=${itemsno}&now_page=${param.now_page}">수정</A>
+            <span class='menu_divide' >│</span>
+            <A href="./update_file.do?itemsno=${itemsno}&now_page=${param.now_page}">파일 수정</A>  
+            <span class='menu_divide' >│</span>
+            <A href="./delete.do?itemsno=${itemsno}&now_page=${param.now_page}&category_no=${category_no}">삭제</A> 
+        </c:otherwise>
+    </c:choose>
   </ASIDE> 
   
   <DIV style="text-align: right; clear: both;">  
@@ -271,7 +282,6 @@
       <div class="col-md-offset-4 col-md-8">
         <button type="button" id='btn_login' class="btn btn-primary btn-md">로그인</button>
         <button type='button' onclick="location.href='./create.do'" class="btn btn-primary btn-md">회원가입</button>
-        <button type='button' id='btn_loadDefault' class="btn btn-primary btn-md">테스트 계정</button>
         <button type='button' id='btn_cancel' class="btn btn-primary btn-md"
                     onclick="$('#div_login').hide();">취소</button>
       </div>

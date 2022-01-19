@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import dev.mvc.categorygrp.CategorygrpVO;
 import dev.mvc.tool.Tool;
 
 @Component("dev.mvc.items.ItemsProc")
@@ -283,6 +284,14 @@ public class ItemsProc implements ItemsProcInter {
       int cnt = this.itemsDAO.count_by_all_category_no(category_nos);
       return cnt;
     }
+    
+    @Override
+    public List<ItemsVO> main_list() {
+      List<ItemsVO> list = this.itemsDAO.main_list();
+      return list;
+    }
+    
+    
 }
 
 

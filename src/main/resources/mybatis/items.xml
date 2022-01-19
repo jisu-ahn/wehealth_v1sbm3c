@@ -172,6 +172,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </foreach>
   </select>
   
+  <!-- 인덱스 페이지에 출력할 추천수 내림차순 정렬 -->
+  <select id="main_list" resultType="dev.mvc.items.ItemsVO" >
+  SELECT *
+  FROM items 
+  ORDER BY recom_cnt DESC
+  </select>
+  
 </mapper> 
 
 

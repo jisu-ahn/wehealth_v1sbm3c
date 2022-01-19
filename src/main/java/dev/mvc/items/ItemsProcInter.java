@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import dev.mvc.category.CategoryVO;
+
 public interface ItemsProcInter {
     /**
      * 등록
@@ -114,6 +116,16 @@ public interface ItemsProcInter {
      * @return
      */
     public int count_by_all_category_no(Map<String, Object> category_nos);
+    
+    /**
+     * 인덱스 페이지에 출력할 추천수 내림차순 정렬
+     * select id="main_list" resultType="dev.mvc.items.ItemsVO"
+     * @return
+     */
+    public List<ItemsVO> main_list();
+    
+
+    
 }
 
 

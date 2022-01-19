@@ -34,34 +34,24 @@
 </head>
 <body>
 <jsp:include page="./menu/top.jsp" flush='false' />
-  
+
   <DIV style='width: 100%; margin: 30px auto; text-align: center;'>
     <%-- /static/images/resort01.jpg --%>
-    <IMG src='/images/wehealth.jpg' style='width: 50%;'>
+    <IMG src='/images/wehealth.jpg' style='width: 100%;'>
   </DIV>
   
-  <DIV style='margin: 0px auto; width: 90%;'>
-    <DIV style='float: left; width: 50%;'>
-     </DIV>
-     <DIV style='float: left; width: 50%;'>
-    </DIV>  
-  </DIV>
- 
-  <DIV style='width: 94.8%; margin: 0px auto;'>
-  </DIV>  
- 
-<jsp:include page="./menu/bottom.jsp" flush='false' />
+  <DIV style='width: 100%; margin: 30px auto; text-align: center;'>
+ <jsp:include page="./items/main_list.jsp" flush='false' />
+ </DIV>
 
-<DIV style='width: 100%; margin: 30px auto; text-align: center;'>
-<UL style="margin-left: 50px;">
-      <OL style="center;">
-          <!-- 추천 시스템 프로젝트 -->
-          <A href="javascript: recommend_exercise()">🦾맞춤형 운동 추천 시스템🦾</A>
-      </OL>
-</UL>
-<H2 style="text-align: center; font-size:17px;">Tensorflow 2 model + Python + Django + Ajax + JSon 요청 처리</H2>
-
+<DIV style='width: 100%; margin: 30px auto; text-align: center; clear:both;'>
+    <!-- 추천 시스템 프로젝트 -->
+    <br><br>
+    <A href="javascript: recommend_exercise()">🦾맞춤형 운동 추천 시스템🦾</A>
+    <H2 style="text-align: center; font-size:17px;">Tensorflow 2 model + Python + Django + Ajax + JSon 요청 처리</H2>
 </DIV>
+
+<jsp:include page="./menu/bottom.jsp" flush='false' />
  
 </body>
 </html>

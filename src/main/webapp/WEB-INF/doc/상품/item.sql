@@ -252,4 +252,9 @@ UPDATE items
 SET recom_cnt = recom_cnt + 1
 WHERE itemsno = 2;
 
+-- 추천수 내림차순
+SELECT * FROM items ORDER BY recom_cnt DESC;
+
+DELETE FROM items WHERE itemsno=12;
+
 commit;

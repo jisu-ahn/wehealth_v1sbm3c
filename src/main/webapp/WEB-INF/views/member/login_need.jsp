@@ -28,7 +28,7 @@
 <jsp:include page="../menu/top.jsp" flush='false' />
  
   <DIV class='message'>
-    <H3>로그인이 필요한 페이지입니다.</H3>
+    <H3>[관리자 로그인]이 필요한 페이지입니다.</H3>
     <BR><BR>
     <button type='button' 
                  onclick="location.href='/member/login.do'" 

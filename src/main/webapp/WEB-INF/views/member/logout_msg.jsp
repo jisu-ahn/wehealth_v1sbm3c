@@ -33,7 +33,7 @@
   <DIV class='message'>
     <fieldset class='fieldset_basic'>
       <ul>
-        <li class='li_none'>이용해 주셔서감사합니다.</li>
+        <li class='li_none'>이용해 주셔서 감사합니다.</li>
         <li class='li_none'>
           <button type="button" id="btn_home" class="btn btn-primary btn-md" style="background-color: #202052;color: white;">확인</button>
         </li>

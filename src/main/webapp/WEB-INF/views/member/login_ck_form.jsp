@@ -64,7 +64,7 @@
         <div class="col-md-offset-4 col-md-8">
           <button type="submit" class="btn btn-info btn-md">로그인</button>
           <button type='button' onclick="location.href='./create.do'" class="btn btn-info btn-md">회원가입</button>
-          <button type='button' onclick="loadDefault();" class="btn btn-info btn-md">테스트 계정</button>
+          <!-- <button type='button' onclick="loadDefault();" class="btn btn-info btn-md">테스트 계정</button> -->
         </div>
       </div>   
       

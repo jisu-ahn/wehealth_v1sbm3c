@@ -13,6 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import dev.mvc.categorygrp.CategorygrpProcInter;
 import dev.mvc.categorygrp.CategorygrpVO;
+import dev.mvc.category.CategoryVO;
+import dev.mvc.items.ItemsProcInter;
 
 @Controller
 public class CategoryCont {
@@ -23,6 +25,10 @@ public class CategoryCont {
     @Autowired
     @Qualifier("dev.mvc.category.CategoryProc")
     private CategoryProcInter categoryProc;
+    
+    @Autowired
+    @Qualifier("dev.mvc.items.ItemsProc")
+    private ItemsProcInter itemsProc;
 
     public CategoryCont() {
         System.out.println("-> CategoryCont created.");
@@ -41,18 +47,18 @@ public class CategoryCont {
       return mav; // forward
     }
     
-    /**
-     * 등록폼 http://localhost:9091/category/create.do?categorygrp_no=2
-     * 
-     * @return
-     */
-    @RequestMapping(value = "/category/create.do", method = RequestMethod.GET)
-    public ModelAndView create() {
-      ModelAndView mav = new ModelAndView();
-      mav.setViewName("/category/create"); // /webapp/WEB-INF/views/category/create.jsp
-
-      return mav;
-    }
+//    /**
+//     * 등록폼 http://localhost:9091/category/create.do?categorygrp_no=2
+//     * 
+//     * @return
+//     */
+//    @RequestMapping(value = "/category/create.do", method = RequestMethod.GET)
+//    public ModelAndView create() {
+//      ModelAndView mav = new ModelAndView();
+//      mav.setViewName("/category/create"); // /webapp/WEB-INF/views/category/create.jsp
+//
+//      return mav;
+//    }
     
     /**
      * 등록처리
@@ -89,21 +95,21 @@ public class CategoryCont {
       return mav;
     }
     
-    /**
-     * 전체 목록
-     * http://localhost:9091/category/list_all.do 
-     * @return
-     */
-    @RequestMapping(value="/category/list_all.do", method=RequestMethod.GET )
-    public ModelAndView list_all() {
-      ModelAndView mav = new ModelAndView();
-      
-      List<CategoryVO> list = this.categoryProc.list_all();
-      mav.addObject("list", list); // request.setAttribute("list", list);
-
-      mav.setViewName("/category/list_all"); // /category/list_all.jsp
-      return mav;
-    }
+//    /**
+//     * 전체 목록
+//     * http://localhost:9091/category/list_all.do 
+//     * @return
+//     */
+//    @RequestMapping(value="/category/list_all.do", method=RequestMethod.GET )
+//    public ModelAndView list_all() {
+//      ModelAndView mav = new ModelAndView();
+//      
+//      List<CategoryVO> list = this.categoryProc.list_all();
+//      mav.addObject("list", list); // request.setAttribute("list", list);
+//
+//      mav.setViewName("/category/list_all"); // /category/list_all.jsp
+//      return mav;
+//    }
     
     /**
      * 카테고리 그룹별 전체 목록
@@ -124,21 +130,21 @@ public class CategoryCont {
       return mav;
     }
     
-    /**
-     * Categorygrp + Category join, 연결 목록
-     * http://localhost:9091/category/list_all_join.do 
-     * @return
-     */
-    @RequestMapping(value="/category/list_all_join.do", method=RequestMethod.GET )
-    public ModelAndView list_all_join() {
-      ModelAndView mav = new ModelAndView();
-      
-      List<Categorygrp_CategoryVO> list = this.categoryProc.list_all_join();
-      mav.addObject("list", list); // request.setAttribute("list", list);
-
-      mav.setViewName("/category/list_all_join"); // /WEB-INF/views/category/list_all_join.jsp
-      return mav;
-    }
+//    /**
+//     * Categorygrp + Category join, 연결 목록
+//     * http://localhost:9091/category/list_all_join.do 
+//     * @return
+//     */
+//    @RequestMapping(value="/category/list_all_join.do", method=RequestMethod.GET )
+//    public ModelAndView list_all_join() {
+//      ModelAndView mav = new ModelAndView();
+//      
+//      List<Categorygrp_CategoryVO> list = this.categoryProc.list_all_join();
+//      mav.addObject("list", list); // request.setAttribute("list", list);
+//
+//      mav.setViewName("/category/list_all_join"); // /WEB-INF/views/category/list_all_join.jsp
+//      return mav;
+//    }
     
     /**
      * 조회 + 수정폼 http://localhost:9091/category/read_update.do
@@ -282,5 +288,7 @@ public class CategoryCont {
       return json.toString();
       
     }
+    
+    
     
 }

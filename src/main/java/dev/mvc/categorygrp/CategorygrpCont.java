@@ -29,19 +29,19 @@ public class CategorygrpCont {
         System.out.println("-> CategorygrpCont created.");
     }
     
- // http://localhost:9091/categorygrp/create.do
-    /**
-     * 등록 폼
-     * 
-     * @return
-     */
-    @RequestMapping(value = "/categorygrp/create.do", method = RequestMethod.GET)
-    public ModelAndView create() {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/categorygrp/create"); // webapp/WEB-INF/views/categorygrp/create.jsp
-
-        return mav; // forward
-    }
+// // http://localhost:9091/categorygrp/create.do
+//    /**
+//     * 등록 폼
+//     * 
+//     * @return
+//     */
+//    @RequestMapping(value = "/categorygrp/create.do", method = RequestMethod.GET)
+//    public ModelAndView create() {
+//        ModelAndView mav = new ModelAndView();
+//        mav.setViewName("/categorygrp/create"); // webapp/WEB-INF/views/categorygrp/create.jsp
+//
+//        return mav; // forward
+//    }
 
     // http://localhost:9091/categorygrp/create.do
     /**
@@ -109,28 +109,28 @@ public class CategorygrpCont {
         return mav;
     }
     
-    // http://localhost:9091/categorygrp/read_update.do?categorygrpno=1
-    /**
-     * 조회 + 수정폼
-     * 
-     * @param categorygrp_no 조회할 카테고리 번호
-     * @return
-     */
-    @RequestMapping(value="/categorygrp/read_update.do", method=RequestMethod.GET )
-    public ModelAndView read_update(int categorygrp_no) {
-      // request.setAttribute("categorygrp_no", int categorygrp_no) 작동 안됨.
-      
-      ModelAndView mav = new ModelAndView();
-      
-      CategorygrpVO categorygrpVO = this.categorygrpProc.read(categorygrp_no);
-      mav.addObject("categorygrpVO", categorygrpVO);  // request 객체에 저장
-      
-      List<CategorygrpVO> list = this.categorygrpProc.list_categorygrpno_asc();
-      mav.addObject("list", list);  // request 객체에 저장
-
-      mav.setViewName("/categorygrp/read_update"); // /WEB-INF/views/categorygrp/read_update.jsp 
-      return mav; // forward
-    }
+//    // http://localhost:9091/categorygrp/read_update.do?categorygrpno=1
+//    /**
+//     * 조회 + 수정폼
+//     * 
+//     * @param categorygrp_no 조회할 카테고리 번호
+//     * @return
+//     */
+//    @RequestMapping(value="/categorygrp/read_update.do", method=RequestMethod.GET )
+//    public ModelAndView read_update(int categorygrp_no) {
+//      // request.setAttribute("categorygrp_no", int categorygrp_no) 작동 안됨.
+//      
+//      ModelAndView mav = new ModelAndView();
+//      
+//      CategorygrpVO categorygrpVO = this.categorygrpProc.read(categorygrp_no);
+//      mav.addObject("categorygrpVO", categorygrpVO);  // request 객체에 저장
+//      
+//      List<CategorygrpVO> list = this.categorygrpProc.list_categorygrpno_asc();
+//      mav.addObject("list", list);  // request 객체에 저장
+//
+//      mav.setViewName("/categorygrp/read_update"); // /WEB-INF/views/categorygrp/read_update.jsp 
+//      return mav; // forward
+//    }
     
     /**
      * 조회 + 수정폼 + Ajax, , VO에서 각각의 필드를 JSON으로 변환하는경우
@@ -234,26 +234,26 @@ public class CategorygrpCont {
       return mav;
     }
     
-    // http://localhost:9091/categorygrp/read_delete.do
-    /**
-     * 조회 + 삭제폼
-     * 
-     * @param categorygrpno 조회할 카테고리 번호
-     * @return
-     */
-    @RequestMapping(value="/categorygrp/read_delete.do", method=RequestMethod.GET )
-    public ModelAndView read_delete(int categorygrp_no) {
-      ModelAndView mav = new ModelAndView();
-      
-      CategorygrpVO categorygrpVO = this.categorygrpProc.read(categorygrp_no); // 삭제할 자료 읽기
-      mav.addObject("categorygrpVO", categorygrpVO);  // request 객체에 저장
-      
-      List<CategorygrpVO> list = this.categorygrpProc.list_seqno_asc();
-      mav.addObject("list", list);  // request 객체에 저장
-
-      mav.setViewName("/categorygrp/read_delete"); // read_delete.jsp
-      return mav;
-    }
+//    // http://localhost:9091/categorygrp/read_delete.do
+//    /**
+//     * 조회 + 삭제폼
+//     * 
+//     * @param categorygrpno 조회할 카테고리 번호
+//     * @return
+//     */
+//    @RequestMapping(value="/categorygrp/read_delete.do", method=RequestMethod.GET )
+//    public ModelAndView read_delete(int categorygrp_no) {
+//      ModelAndView mav = new ModelAndView();
+//      
+//      CategorygrpVO categorygrpVO = this.categorygrpProc.read(categorygrp_no); // 삭제할 자료 읽기
+//      mav.addObject("categorygrpVO", categorygrpVO);  // request 객체에 저장
+//      
+//      List<CategorygrpVO> list = this.categorygrpProc.list_seqno_asc();
+//      mav.addObject("list", list);  // request 객체에 저장
+//
+//      mav.setViewName("/categorygrp/read_delete"); // read_delete.jsp
+//      return mav;
+//    }
     
    // http://localhost:9091/categorygrp/delete.do
     /**

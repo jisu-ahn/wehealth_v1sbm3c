@@ -67,6 +67,11 @@ INSERT INTO member(memberno, id, passwd, mname, tel, zipcode,
                                 address1, address2, mdate, grade)
 VALUES (member_seq.nextval, 'crm', '1234', '고객관리자', '000-0000-0000', '12345',
              '서울시 종로구', '관철동', sysdate, 1);
+             
+INSERT INTO member(memberno, id, passwd, mname, tel, zipcode,
+                                address1, address2, mdate, grade)
+VALUES (member_seq.nextval, 'admin_notice', '1234', '공지사항관리자', '000-0000-0000', '12345',
+             '서울시 종로구', '관철동', sysdate, 1);
  
 -- 개인 회원 테스트 계정
 INSERT INTO member(memberno, id, passwd, mname, tel, zipcode, address1, address2, mdate, grade)
@@ -119,6 +124,9 @@ WHERE memberno=1;
 
 COMMIT;
 
+UPDATE member
+SET id = 'admin_n'
+WHERE memberno=15;
  
 5. 삭제
 1) 모두 삭제

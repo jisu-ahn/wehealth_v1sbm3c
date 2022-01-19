@@ -227,156 +227,190 @@ function delete_category_by_categorygrpno() {
 <DIV class='title_line'>카테고리 그룹</DIV>
 
 <DIV class='content_body'>
-  <!-- 신규 등록 -->
-  <DIV id='panel_create' style='padding: 10px 0px 10px 0px; background-color: #F9F9F9; width: 100%; text-align: center;'>
-    <FORM name='frm_create' id='frm_create' method='POST' action='./create.do'>
-      <input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">      
-    
-      <label>그룹 이름</label>
-      <input type='text' name='categorygrp_name' id='categorygrp_name' value='' required="required" style='width: 25%;'
-                 autofocus="autofocus">
-  
-      <label>순서</label>
-      <input type='number' name='seq_no' id='seq_no' value='1' required="required" 
-                min='1' max='1000' step='1' style='width: 5%;'>
-  
-      <label>형식</label>
-      <select name='print_mode' id='print_mode'>
-        <option value='Y' selected="selected">Y</option>
-        <option value='N'>N</option>
-      </select>
+  <c:choose>
+    <c:when test = "${sessionScope.id == null || sessionScope.grade  >= 11}">
+      <TABLE class='table table-striped'>
+        <colgroup>
+          <col style='width: 10%;'/>
+          <col style='width: 40%;'/>
+        </colgroup>
        
-      <button type="submit" id='submit' class='btn btn-xs' style="height: 22px; margin-bottom: 3px; background-color: #202052;color: white;">등록</button>
-      <button type="button" onclick="cancel();" class='btn btn-xs' style="height: 22px; margin-bottom: 3px; background-color: #202052;color: white;">취소</button>
-    </FORM>
-  </DIV>
-   
-  <!-- 수정 -->
-  <DIV id='panel_update' 
-          style='padding: 10px 0px 10px 0px; background-color: #F9F9F9; width: 100%; 
-                    text-align: center; display: none;'>
-    <FORM name='frm_update' id='frm_update' method='POST' action='./update.do'>
-      <input type='hidden' name='categorygrp_no' id='categorygrp_no' value=''>
-      <input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">      
-
-      <label>그룹 이름</label>
-      <input type='text' name='categorygrp_name' id='categorygrp_name' value='' required="required" style='width: 25%;'
-                 autofocus="autofocus">
-  
-      <label>순서</label>
-      <input type='number' name='seq_no' id='seq_no' value='1' required="required" 
-                min='1' max='1000' step='1' style='width: 5%;'>
-  
-      <label>형식</label>
-      <select name='print_mode' id='print_mode'>
-        <option value='Y' selected="selected">Y</option>
-        <option value='N'>N</option>
-      </select>
-       
-      <button type="submit" id='submit' class='btn btn-xs' style="height: 22px; margin-bottom: 3px; background-color: #202052;color: white;">저장</button>
-      <button type="button" id='btn_update_cancel' class='btn btn-xs' style="height: 22px; margin-bottom: 3px; background-color: #202052;color: white;">취소</button>
-    </FORM>
-  </DIV>
-  
-  <%-- 삭제 --%>
-  <DIV id='panel_delete' style='padding: 10px 0px 10px 0px; background-color: #F9F9F9; 
-          width: 100%; text-align: center; display: none;'>
-    <div class="msg_warning">카테고리 그룹을 삭제하면 복구 할 수 없습니다.</div>
-    <FORM name='frm_delete' id='frm_delete' method='POST' action='./delete.do'>
-      <input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
-      <input type='hidden' name='categorygrp_no' id='categorygrp_no' value=''>
+        <thead>  
+        <TR>
+          <TH class="th_bs">출력 순서</TH>
+          <TH class="th_bs">이름</TH>
+        </TR>
+        </thead>
         
-      <label>그룹 이름</label>: <span id='frm_delete_categorygrp_name'></span>  
-      <label>순서</label>: <span id='frm_delete_seq_no'></span>
-      <label>출력 형식</label>: <span id='frm_delete_print_mode'></span>
+        <tbody>
+        <c:forEach var="categorygrpVO" items="${list}">
+          <c:set var="categorygrp_no" value="${categorygrpVO.categorygrp_no }" />
+          <c:set var="seq_no" value="${categorygrpVO.seq_no }" />
+          <c:set var="categorygrp_name" value="${categorygrpVO.categorygrp_name }" />
+          <TR>
+            <TD class="td_bs">${seq_no }</TD>
+            <TD class="td_bs_left"><A href="../category/list_by_categorygrpno.do?categorygrp_no=${categorygrp_no }">${categorygrp_name }</A></TD>   
+          </TR>   
+        </c:forEach> 
+        </tbody>
+       
+      </TABLE>
+    </c:when>
+    <c:otherwise>
+        <%-- 신규 등록 --%>
+      <DIV id='panel_create' style='padding: 10px 0px 10px 0px; background-color: #F9F9F9; width: 100%; text-align: center;'>
+        <FORM name='frm_create' id='frm_create' method='POST' action='./create.do'>
+          <input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">      
+        
+          <label>그룹 이름</label>
+          <input type='text' name='categorygrp_name' id='categorygrp_name' value='' required="required" style='width: 25%;'
+                     autofocus="autofocus">
       
-      <%-- 자식 레코드 갯수 출력 --%>
-      <div id='frm_delete_count_by_categorygrpno' 
-             style='color: #FF0000; font-weight: bold; display: none; margin: 10px auto;'>
-        <span id='frm_delete_count_by_categorygrpno_panel'></span>     
-        <br>
-        <span id='count_by_all_categoryno'>『관련 카테고리의 글이 존재합니다 모두 삭제해주세요.』</span>
-              
-        <%-- 『<A id='a_list_by_categrpno' href="" target='_blank'>관련 자료 삭제하기</A>』 --%>
-        <A id='a_list_by_categorygrpno' href="javascript:list_by_categorygrpno();" data-pk='' >『관련 카테고리 확인』</A>
-        
-        <A id='a_delete_category_by_categorygrpno' 
-              href="javascript:delete_category_by_categorygrpno();" data-pk='' >『관련 카테고리 삭제(복구 안됨)』</A>
-        
-
-      </div>
+          <label>순서</label>
+          <input type='number' name='seq_no' id='seq_no' value='1' required="required" 
+                    min='1' max='1000' step='1' style='width: 5%;'>
+      
+          <label>형식</label>
+          <select name='print_mode' id='print_mode'>
+            <option value='Y' selected="selected">Y</option>
+            <option value='N'>N</option>
+          </select>
+           
+          <button type="submit" id='submit' class='btn btn-xs' style="height: 22px; margin-bottom: 3px; background-color: #202052;color: white;">등록</button>
+          <button type="button" onclick="cancel();" class='btn btn-xs' style="height: 22px; margin-bottom: 3px; background-color: #202052;color: white;">취소</button>
+        </FORM>
+      </DIV>
        
-      <button type="submit" id='submit' class='btn btn-xs' style="height: 22px; margin-bottom: 3px; background-color: #202052;color: white;">삭제</button>
-      <button type="button" id='btn_delete_cancel' class='btn btn-xs' style="height: 22px; margin-bottom: 3px; background-color: #202052;color: white;">취소</button>
-    </FORM>
-  </DIV>
+      <%-- 수정 --%>
+      <DIV id='panel_update' 
+              style='padding: 10px 0px 10px 0px; background-color: #F9F9F9; width: 100%; 
+                        text-align: center; display: none;'>
+        <FORM name='frm_update' id='frm_update' method='POST' action='./update.do'>
+          <input type='hidden' name='categorygrp_no' id='categorygrp_no' value=''>
+          <input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">      
     
-  <TABLE class='table table-striped'>
-    <colgroup>
-      <col style='width: 10%;'/>
-      <col style='width: 40%;'/>
-      <col style='width: 20%;'/>
-      <col style='width: 10%;'/>    
-      <col style='width: 20%;'/>
-    </colgroup>
-   
-    <thead>  
-    <TR>
-      <TH class="th_bs">출력 순서</TH>
-      <TH class="th_bs">이름</TH>
-      <TH class="th_bs">그룹 생성일</TH>
-      <TH class="th_bs">출력 모드</TH>
-      <TH class="th_bs">기타</TH>
-    </TR>
-    </thead>
+          <label>그룹 이름</label>
+          <input type='text' name='categorygrp_name' id='categorygrp_name' value='' required="required" style='width: 25%;'
+                     autofocus="autofocus">
+      
+          <label>순서</label>
+          <input type='number' name='seq_no' id='seq_no' value='1' required="required" 
+                    min='1' max='1000' step='1' style='width: 5%;'>
+      
+          <label>형식</label>
+          <select name='print_mode' id='print_mode'>
+            <option value='Y' selected="selected">Y</option>
+            <option value='N'>N</option>
+          </select>
+           
+          <button type="submit" id='submit' class='btn btn-xs' style="height: 22px; margin-bottom: 3px; background-color: #202052;color: white;">저장</button>
+          <button type="button" id='btn_update_cancel' class='btn btn-xs' style="height: 22px; margin-bottom: 3px; background-color: #202052;color: white;">취소</button>
+        </FORM>
+      </DIV>
+      
+      <%-- 삭제 --%>
+      <DIV id='panel_delete' style='padding: 10px 0px 10px 0px; background-color: #F9F9F9; 
+              width: 100%; text-align: center; display: none;'>
+        <div class="msg_warning">카테고리 그룹을 삭제하면 복구 할 수 없습니다.</div>
+        <FORM name='frm_delete' id='frm_delete' method='POST' action='./delete.do'>
+          <input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
+          <input type='hidden' name='categorygrp_no' id='categorygrp_no' value=''>
+            
+          <label>그룹 이름</label>: <span id='frm_delete_categorygrp_name'></span>  
+          <label>순서</label>: <span id='frm_delete_seq_no'></span>
+          <label>출력 형식</label>: <span id='frm_delete_print_mode'></span>
+          
+          <%-- 자식 레코드 갯수 출력 --%>
+          <div id='frm_delete_count_by_categorygrpno' 
+                 style='color: #FF0000; font-weight: bold; display: none; margin: 10px auto;'>
+            <span id='frm_delete_count_by_categorygrpno_panel'></span>     
+            <br>
+            <span id='count_by_all_categoryno'>『관련 카테고리의 글이 존재합니다 모두 삭제해주세요.』</span>
+                  
+            <%-- 『<A id='a_list_by_categrpno' href="" target='_blank'>관련 자료 삭제하기</A>』 --%>
+            <A id='a_list_by_categorygrpno' href="javascript:list_by_categorygrpno();" data-pk='' >『관련 카테고리 확인』</A>
+            
+            <A id='a_delete_category_by_categorygrpno' 
+                  href="javascript:delete_category_by_categorygrpno();" data-pk='' >『관련 카테고리 삭제(복구 안됨)』</A>
+            
     
-    <tbody>
-    <%
-    // Scriptlet
-    // List<CategrpVO> list = (List<CategrpVO>)(request.getAttribute("list"));
-    // for (CategrpVO categrpVO: list) {
-    //    out.println(categrpVO.getName() + "<br>");
-    // }
-    %>
-    <c:forEach var="categorygrpVO" items="${list}">
-      <c:set var="categorygrp_no" value="${categorygrpVO.categorygrp_no }" />
-      <c:set var="seq_no" value="${categorygrpVO.seq_no }" />
-      <c:set var="categorygrp_name" value="${categorygrpVO.categorygrp_name }" />
-      <c:set var="cdate" value="${categorygrpVO.cdate.substring(0, 10) }" />
-      <c:set var="print_mode" value="${categorygrpVO.print_mode }" />
-      <TR>
-        <TD class="td_bs">${seq_no }</TD>
-        <TD class="td_bs_left"><A href="../category/list_by_categorygrpno.do?categorygrp_no=${categorygrp_no }">${categorygrp_name }</A></TD>
-        <TD class="td_bs">${cdate}</TD>
-        <TD class="td_bs">
-          <c:choose>
-            <c:when test="${print_mode == 'Y'}">
-              <A href="./update_visible.do?categorygrp_no=${categorygrp_no }&print_mode=${print_mode }"><IMG src="/categorygrp/images/open.png" style='width: 18px;'></A>
-            </c:when>
-            <c:otherwise>
-              <A href="./update_visible.do?categorygrp_no=${categorygrp_no }&print_mode=${print_mode }"><IMG src="/categorygrp/images/close.png" style='width: 18px;'></A>
-            </c:otherwise>
-          </c:choose>
-        </TD>   
+          </div>
+           
+          <button type="submit" id='submit' class='btn btn-xs' style="height: 22px; margin-bottom: 3px; background-color: #202052;color: white;">삭제</button>
+          <button type="button" id='btn_delete_cancel' class='btn btn-xs' style="height: 22px; margin-bottom: 3px; background-color: #202052;color: white;">취소</button>
+        </FORM>
+      </DIV>
         
-        <TD class="td_bs">
-          <%-- <A href="./read_update.do?categrpno=${categrpno }" title="수정"><span class="glyphicon glyphicon-pencil"></span></A> --%>
-          <%-- Ajax 기반 수정폼--%>
-          <A href="javascript: read_update_ajax(${categorygrp_no })" title="수정"><span class="glyphicon glyphicon-pencil"></span></A>
-          
-          <%-- <A href="./read_delete.do?categrpno=${categrpno }" title="삭제"><span class="glyphicon glyphicon-trash"></span></A> --%>
-          <%-- Ajax 기반 Delete폼--%>
-          <A href="javascript: read_delete_ajax(${categorygrp_no })" title="삭제"><span class="glyphicon glyphicon-trash"></span></A>
-          
-          <A href="./update_seqno_up.do?categorygrp_no=${categorygrp_no }" title="우선순위 상향"><span class="glyphicon glyphicon-arrow-up"></span></A>
-          <A href="./update_seqno_down.do?categorygrp_no=${categorygrp_no }" title="우선순위 하향"><span class="glyphicon glyphicon-arrow-down"></span></A>         
-        </TD>   
-      </TR>   
-    </c:forEach> 
-    </tbody>
-   
-  </TABLE>
+      <TABLE class='table table-striped'>
+        <colgroup>
+          <col style='width: 10%;'/>
+          <col style='width: 40%;'/>
+          <col style='width: 20%;'/>
+          <col style='width: 10%;'/>    
+          <col style='width: 20%;'/>
+        </colgroup>
+       
+        <thead>  
+        <TR>
+          <TH class="th_bs">출력 순서</TH>
+          <TH class="th_bs">이름</TH>
+          <TH class="th_bs">그룹 생성일</TH>
+          <TH class="th_bs">출력 모드</TH>
+          <TH class="th_bs">기타</TH>
+        </TR>
+        </thead>
+        
+        <tbody>
+        <%
+        // Scriptlet
+        // List<CategrpVO> list = (List<CategrpVO>)(request.getAttribute("list"));
+        // for (CategrpVO categrpVO: list) {
+        //    out.println(categrpVO.getName() + "<br>");
+        // }
+        %>
+        <c:forEach var="categorygrpVO" items="${list}">
+          <c:set var="categorygrp_no" value="${categorygrpVO.categorygrp_no }" />
+          <c:set var="seq_no" value="${categorygrpVO.seq_no }" />
+          <c:set var="categorygrp_name" value="${categorygrpVO.categorygrp_name }" />
+          <c:set var="cdate" value="${categorygrpVO.cdate.substring(0, 10) }" />
+          <c:set var="print_mode" value="${categorygrpVO.print_mode }" />
+          <TR>
+            <TD class="td_bs">${seq_no }</TD>
+            <TD class="td_bs_left"><A href="../category/list_by_categorygrpno.do?categorygrp_no=${categorygrp_no }">${categorygrp_name }</A></TD>
+            <TD class="td_bs">${cdate}</TD>
+            <TD class="td_bs">
+              <c:choose>
+                <c:when test="${print_mode == 'Y'}">
+                  <A href="./update_visible.do?categorygrp_no=${categorygrp_no }&print_mode=${print_mode }"><IMG src="/categorygrp/images/open.png" style='width: 18px;'></A>
+                </c:when>
+                <c:otherwise>
+                  <A href="./update_visible.do?categorygrp_no=${categorygrp_no }&print_mode=${print_mode }"><IMG src="/categorygrp/images/close.png" style='width: 18px;'></A>
+                </c:otherwise>
+              </c:choose>
+            </TD>   
+            
+            <TD class="td_bs">
+              <%-- <A href="./read_update.do?categrpno=${categrpno }" title="수정"><span class="glyphicon glyphicon-pencil"></span></A> --%>
+              <%-- Ajax 기반 수정폼--%>
+              <A href="javascript: read_update_ajax(${categorygrp_no })" title="수정"><span class="glyphicon glyphicon-pencil"></span></A>
+              
+              <%-- <A href="./read_delete.do?categrpno=${categrpno }" title="삭제"><span class="glyphicon glyphicon-trash"></span></A> --%>
+              <%-- Ajax 기반 Delete폼--%>
+              <A href="javascript: read_delete_ajax(${categorygrp_no })" title="삭제"><span class="glyphicon glyphicon-trash"></span></A>
+              
+              <A href="./update_seqno_up.do?categorygrp_no=${categorygrp_no }" title="우선순위 상향"><span class="glyphicon glyphicon-arrow-up"></span></A>
+              <A href="./update_seqno_down.do?categorygrp_no=${categorygrp_no }" title="우선순위 하향"><span class="glyphicon glyphicon-arrow-down"></span></A>         
+            </TD>   
+          </TR>   
+        </c:forEach> 
+        </tbody>
+       
+      </TABLE>
+    </c:otherwise>
+  </c:choose>
 </DIV>
+
+
 
  
 <jsp:include page="../menu/bottom.jsp" />
