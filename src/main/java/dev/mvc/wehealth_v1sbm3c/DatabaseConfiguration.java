@@ -21,7 +21,7 @@ import com.zaxxer.hikari.HikariDataSource;
 @MapperScan(basePackages= {"dev.mvc.wehealth_v1sbm3c", "dev.mvc.categorygrp"
                                             , "dev.mvc.category", "dev.mvc.items",
                                             "dev.mvc.member", "dev.mvc.cart", "dev.mvc.tensorflow",
-                                            "dev.mvc.notice"})
+                                            "dev.mvc.notice", "dev.mvc.order_pay", "dev.mvc.order_item"})
 
 public class DatabaseConfiguration {
     

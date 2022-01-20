@@ -33,7 +33,7 @@ VALUES(categorygrp_seq.nextval, '근력 운동', 2, 'Y', sysdate);
 
 INSERT INTO categorygrp(categorygrp_no, categorygrp_name, seq_no, print_mode, cdate)
 VALUES(categorygrp_seq.nextval, '유연성 운동', 3, 'Y', sysdate);
-
+commit;
 -- 조회
 SELECT categorygrp_no, categorygrp_name, seq_no, print_mode, cdate 
 FROM categorygrp 

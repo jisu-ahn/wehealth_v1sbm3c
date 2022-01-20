@@ -37,7 +37,7 @@ VALUES(category_seq.nextval, 1, '워킹 머신', sysdate, 0);
 
 INSERT INTO category(category_no, categorygrp_no, category_name, cdate, product_cnt)
 VALUES(category_seq.nextval, 1, '실내 자전거', sysdate, 0);
-
+commit;
 -- 조회
 SELECT category_no, categorygrp_no, category_name, cdate, product_cnt
 FROM category

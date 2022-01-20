@@ -32,10 +32,10 @@ SELECT itemsno, item_name, item_price FROM items;
 SELECT memberno, mname FROM member; 
 
 INSERT INTO cart(cartno, itemsno, memberno, cnt, rdate)
-VALUES(cart_seq.nextval, 9, 4, 1, sysdate);
+VALUES(cart_seq.nextval, 1, 4, 1, sysdate);
 
 INSERT INTO cart(cartno, itemsno, memberno, cnt, rdate)
-VALUES(cart_seq.nextval, 12, 4, 2, sysdate);
+VALUES(cart_seq.nextval, 2, 4, 2, sysdate);
 commit;
 
 -- LIST
