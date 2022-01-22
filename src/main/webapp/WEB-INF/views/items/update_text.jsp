@@ -26,9 +26,15 @@
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     
-<script type="text/javascript">
-  $(function(){
+<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
  
+<script type="text/JavaScript">
+  // window.onload=function(){
+  //  CKEDITOR.replace('content');  // <TEXTAREA>태그 id 값
+  // };
+
+  $(function() {
+    CKEDITOR.replace('content');  // <TEXTAREA>태그 id 값
   });
 </script>
  

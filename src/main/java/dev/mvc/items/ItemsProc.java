@@ -31,8 +31,8 @@ public class ItemsProc implements ItemsProcInter {
         String item_name = itemsVO.getItem_name();
         String content = itemsVO.getContent();
 
-        item_name = Tool.convertChar(item_name); // 특수 문자 처리
-        content = Tool.convertChar(content);
+//        item_name = Tool.convertChar(item_name); // 특수 문자 처리
+//        content = Tool.convertChar(content);
 
         itemsVO.setItem_name(item_name);
         itemsVO.setContent(content);

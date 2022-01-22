@@ -15,11 +15,18 @@
 
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    
+
+<script type="text/javascript" src="/ckeditor/ckeditor.js"></script> <!-- /static 기준 -->
+
 <script type="text/javascript">
-  $(function(){
- 
+  // window.onload=function(){
+  //  CKEDITOR.replace('content');  // <TEXTAREA>태그 id 값
+  // };
+  
+  $(function() {
+    CKEDITOR.replace('content');  // <TEXTAREA>태그 id 값
   });
+  
 </script>
  
 </head> 
@@ -109,7 +116,7 @@
       <button type="submit" class="btn btn-sm" style="background-color: #202052;color: white;">등록</button>
       <button type="button" onclick="location.href='./list_by_categoryno_search_paging.do?category_no=${categoryVO.category_no }&now_page=${param.now_page}&search_word=${param.search_word }'" class="btn btn-sm" style="background-color: #202052;color: white;">목록</button>
     </div>
-  
+      
   </FORM>
 </DIV>
  

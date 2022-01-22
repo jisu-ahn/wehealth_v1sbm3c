@@ -335,7 +335,7 @@
       <li class="li_none">
         <DIV>
           <c:if test="${file1.trim().length() > 0 }">
-            첨부 파일: <A href='/download?dir=/contents/storage&filename=${file1saved}&downname=${file1}'>${file1}</A> (${size1})  
+            첨부 파일: <A href='/download?dir=/items/storage&filename=${file1saved}&downname=${file1}'>${file1}</A> (${size1})  
           </c:if>
         </DIV>
       </li>   
