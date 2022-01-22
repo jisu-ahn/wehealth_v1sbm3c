@@ -108,7 +108,7 @@ public interface ItemsDAOInter {
      */
     public List<ItemsVO> main_list();
     
-
+    
     
 }
 

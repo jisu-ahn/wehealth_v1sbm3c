@@ -57,8 +57,8 @@
 <DIV style='width: 100%; margin: 30px auto; text-align: center; clear:both;'>
     <!-- 추천 시스템 프로젝트 -->
     <br><br>
-    <A href="javascript: recommend_exercise()">🦾맞춤형 운동 추천 시스템🦾</A>
-    <A href="javascript: chatting()">💬실시간 문의(챗봇)💬</A>
+    <button type="button" onclick="location.href='javascript: recommend_exercise()'" style="font-size: 20px; background-color: yellow;">🦾맞춤형 운동 추천 시스템🦾</button>
+    <button type="button" onclick="location.href='javascript: chatting()'" style="font-size: 20px; background-color: #79ECFF;">💬실시간 문의(챗봇)💬</button>
     <H2 style="text-align: center; font-size:17px;">Tensorflow 2 model + Python + Django + Ajax + JSon 요청 처리</H2>
 </DIV>
 

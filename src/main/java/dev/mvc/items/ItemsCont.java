@@ -24,6 +24,7 @@ import dev.mvc.category.CategoryProcInter;
 import dev.mvc.category.CategoryVO;
 import dev.mvc.categorygrp.CategorygrpProcInter;
 import dev.mvc.categorygrp.CategorygrpVO;
+import dev.mvc.order_item.Order_itemProcInter;
 //import dev.mvc.member.MemberProcInter;
 import dev.mvc.tool.Tool;
 import dev.mvc.tool.Upload;
@@ -41,6 +42,10 @@ public class ItemsCont {
     @Autowired
     @Qualifier("dev.mvc.items.ItemsProc")
     private ItemsProcInter itemsProc;
+    
+    @Autowired
+    @Qualifier("dev.mvc.order_item.Order_itemProc")
+    private Order_itemProcInter order_itemProc;
     
     /** 업로드 파일 절대 경로 */
     private String uploadDir = Items.getUploadDir();
@@ -705,50 +710,65 @@ public class ItemsCont {
         
         int cnt = 0;
         int password_cnt = this.itemsProc.password_check(password_map);
-        if (password_cnt == 1) { // 패스워드 일치 -> 등록된 파일 삭제 -> 신규 파일 등록
-            // -------------------------------------------------------------------
-            // 파일 삭제 코드 시작
-            // -------------------------------------------------------------------
-            // 삭제할 파일 정보를 읽어옴.
-            ItemsVO vo = itemsProc.read(itemsno);
-//            System.out.println("itemsno: " + vo.getItemsno());
-//            System.out.println("file1: " + vo.getFile1());
-            
-            String file1saved = vo.getFile1saved();
-            String thumb1 = vo.getThumb1();
-            long size1 = 0;
-            boolean sw = false;
-            
-            sw = Tool.deleteFile(uploadDir, file1saved);  // Folder에서 1건의 파일 삭제
-            sw = Tool.deleteFile(uploadDir, thumb1);     // Folder에서 1건의 파일 삭제
-            // System.out.println("sw: " + sw);
-            // -------------------------------------------------------------------
-            // 파일 삭제 종료 시작
-            // -------------------------------------------------------------------
-            
-            cnt = this.itemsProc.delete(itemsno); // DBMS 삭제
-            
-            // -------------------------------------------------------------------------------------
-            System.out.println("-> category_no: " + vo.getCategory_no());
-            System.out.println("-> search_word: " + search_word);
-            
-            // 마지막 페이지의 레코드 삭제시의 페이지 번호 -1 처리
-            HashMap<String, Object> page_map = new HashMap<String, Object>();
-            page_map.put("category_no", vo.getCategory_no());
-            page_map.put("search_word", search_word);
-            // 10번째 레코드를 삭제후
-            // 하나의 페이지가 3개의 레코드로 구성되는 경우 현재 9개의 레코드가 남아 있으면
-            // 페이지수를 4 -> 3으로 감소 시켜야함.
-            if (itemsProc.search_count(page_map) % Items.RECORD_PER_PAGE == 0) {
-              now_page = now_page - 1;
-              if (now_page < 1) {
-                now_page = 1; // 시작 페이지
-              }
+        
+        int order_item_cnt = 1;
+        order_item_cnt = this.order_itemProc.order_item_cnt(itemsno);
+        
+        if (password_cnt ==1) { // 패스워드 일치 -> 등록된 파일 삭제 -> 신규 파일 등록
+            try {
+                if(order_item_cnt >= 1) {
+                    mav.addObject("msg", "child_record_found");
+                    mav.setViewName("redirect:/items/msg.do");
+                } else {
+                 // -------------------------------------------------------------------
+                    // 파일 삭제 코드 시작
+                    // -------------------------------------------------------------------
+                    // 삭제할 파일 정보를 읽어옴.
+                    ItemsVO vo = itemsProc.read(itemsno);
+//                    System.out.println("itemsno: " + vo.getItemsno());
+//                    System.out.println("file1: " + vo.getFile1());
+                    
+                    String file1saved = vo.getFile1saved();
+                    String thumb1 = vo.getThumb1();
+                    long size1 = 0;
+                    boolean sw = false;
+                    
+                    sw = Tool.deleteFile(uploadDir, file1saved);  // Folder에서 1건의 파일 삭제
+                    sw = Tool.deleteFile(uploadDir, thumb1);     // Folder에서 1건의 파일 삭제
+                    // System.out.println("sw: " + sw);
+                    // -------------------------------------------------------------------
+                    // 파일 삭제 종료 시작
+                    // -------------------------------------------------------------------
+                    
+                    cnt = this.itemsProc.delete(itemsno); // DBMS 삭제
+                    
+                    // -------------------------------------------------------------------------------------
+                    System.out.println("-> category_no: " + vo.getCategory_no());
+                    System.out.println("-> search_word: " + search_word);
+                    
+                    // 마지막 페이지의 레코드 삭제시의 페이지 번호 -1 처리
+                    HashMap<String, Object> page_map = new HashMap<String, Object>();
+                    page_map.put("category_no", vo.getCategory_no());
+                    page_map.put("search_word", search_word);
+                    // 10번째 레코드를 삭제후
+                    // 하나의 페이지가 3개의 레코드로 구성되는 경우 현재 9개의 레코드가 남아 있으면
+                    // 페이지수를 4 -> 3으로 감소 시켜야함.
+                    if (itemsProc.search_count(page_map) % Items.RECORD_PER_PAGE == 0) {
+                      now_page = now_page - 1;
+                      if (now_page < 1) {
+                        now_page = 1; // 시작 페이지
+                      }
+                    }
+                    // -------------------------------------------------------------------------------------
+                    
+                    mav.addObject("now_page", now_page);
+                    mav.setViewName("redirect:/items/list_by_categoryno_search_paging.do"); 
+                }
+             
+            } catch(Exception e) {
+                mav.addObject("msg", "child_record_found");
+                mav.setViewName("redirect:/items/msg.do");
             }
-            // -------------------------------------------------------------------------------------
-            
-            mav.addObject("now_page", now_page);
-            mav.setViewName("redirect:/items/list_by_categoryno_search_paging.do"); 
 
         } else { // 패스워드 오류
             mav.addObject("cnt", cnt);
@@ -821,11 +841,11 @@ public class ItemsCont {
        */
       @RequestMapping(value="/items/read.do", method=RequestMethod.GET )
       public ModelAndView read_ajax(HttpServletRequest request, int itemsno) {
-        // public ModelAndView read(int itemsno, int now_page) {
-        // System.out.println("-> now_page: " + now_page);
+//         public ModelAndView read(int itemsno, int now_page) {
+//         System.out.println("-> now_page: " + now_page);
         
         ModelAndView mav = new ModelAndView();
-
+        
         ItemsVO itemsVO = this.itemsProc.read(itemsno);
         mav.addObject("itemsVO", itemsVO); // request.setAttribute("contentsVO", contentsVO);
 

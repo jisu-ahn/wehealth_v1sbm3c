@@ -78,6 +78,11 @@
             <span class="span_fail">컨텐츠 삭제에 실패했습니다.</span>
           </LI>                                                                      
         </c:when> 
+        <c:when test="${param.msg == 'child_record_found' }">
+            삭제하려는 상품에 속한 주문 내역이 있습니다.<br>
+            하위 주문 내역이 모두 삭제되어야 상품을 삭제할 수 있습니다.<br>
+            주문 내역을 모두 삭제해주세요.<br>
+        </c:when>
         <c:otherwise>
           <LI class='li_none_left'>
             <span class="span_fail">알 수 없는 에러로 작업에 실패했습니다.</span>

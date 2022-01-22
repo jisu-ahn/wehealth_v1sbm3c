@@ -24,5 +24,11 @@ public class Order_itemProc implements Order_itemProcInter {
     return list;
   } 
   
+  @Override
+  public int order_item_cnt(int itemsno) {
+      int order_item_cnt = this.order_itemDAO.order_item_cnt(itemsno);
+      return order_item_cnt;
+  }
+  
 }
 

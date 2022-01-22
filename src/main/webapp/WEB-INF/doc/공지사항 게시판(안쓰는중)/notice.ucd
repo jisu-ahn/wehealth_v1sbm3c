@@ -40,8 +40,8 @@
       <constraint>
         <height>-1</height>
         <width>-1</width>
-        <x>129</x>
-        <y>132</y>
+        <x>130</x>
+        <y>463</y>
       </constraint>
       <sourceConnections>
         <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
@@ -75,15 +75,14 @@
                 </java.beans.PropertyChangeSupport>
               </listeners>
               <constraint>
-                <height>529</height>
-                <width>572</width>
+                <height>543</height>
+                <width>686</width>
                 <x>212</x>
                 <y>46</y>
               </constraint>
               <sourceConnections/>
               <targetConnections/>
               <children>
-                <net.java.amateras.uml.usecasediagram.model.UsecaseModel reference="../../.."/>
                 <net.java.amateras.uml.usecasediagram.model.UsecaseModel>
                   <backgroundColor reference="../../../../../../../../../backgroundColor"/>
                   <foregroundColor reference="../../../../../../../../../foregroundColor"/>
@@ -101,8 +100,8 @@
                   <constraint>
                     <height>40</height>
                     <width>100</width>
-                    <x>136</x>
-                    <y>323</y>
+                    <x>354</x>
+                    <y>306</y>
                   </constraint>
                   <sourceConnections>
                     <net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel>
@@ -118,16 +117,8 @@
                       </listeners>
                       <source class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../.."/>
                       <target class="net.java.amateras.uml.usecasediagram.model.UsecaseModel">
-                        <backgroundColor>
-                          <red>255</red>
-                          <green>255</green>
-                          <blue>206</blue>
-                        </backgroundColor>
-                        <foregroundColor>
-                          <red>0</red>
-                          <green>0</green>
-                          <blue>0</blue>
-                        </foregroundColor>
+                        <backgroundColor reference="../../../../../../../../../../../../backgroundColor"/>
+                        <foregroundColor reference="../../../../../../../../../../../../foregroundColor"/>
                         <showIcon>true</showIcon>
                         <parent class="net.java.amateras.uml.usecasediagram.model.SystemModel" reference="../../../../../.."/>
                         <listeners serialization="custom">
@@ -140,64 +131,71 @@
                           </java.beans.PropertyChangeSupport>
                         </listeners>
                         <constraint>
-                          <height>40</height>
-                          <width>100</width>
-                          <x>355</x>
-                          <y>247</y>
+                          <height>41</height>
+                          <width>155</width>
+                          <x>490</x>
+                          <y>154</y>
                         </constraint>
                         <sourceConnections>
-                          <net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel>
+                          <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
                             <showIcon>true</showIcon>
                             <listeners serialization="custom">
                               <java.beans.PropertyChangeSupport>
                                 <default>
-                                  <source class="net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel" reference="../../../.."/>
+                                  <source class="net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel" reference="../../../.."/>
                                   <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
                                 </default>
                                 <null/>
                               </java.beans.PropertyChangeSupport>
                             </listeners>
                             <source class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../.."/>
-                            <target class="net.java.amateras.uml.usecasediagram.model.UsecaseModel">
-                              <backgroundColor>
-                                <red>255</red>
-                                <green>255</green>
-                                <blue>206</blue>
-                              </backgroundColor>
-                              <foregroundColor>
-                                <red>0</red>
-                                <green>0</green>
-                                <blue>0</blue>
-                              </foregroundColor>
+                            <target class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../../../../../../../.."/>
+                            <bendpoints/>
+                          </net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
+                        </sourceConnections>
+                        <targetConnections>
+                          <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
+                            <showIcon>true</showIcon>
+                            <listeners serialization="custom">
+                              <java.beans.PropertyChangeSupport>
+                                <default>
+                                  <source class="net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel" reference="../../../.."/>
+                                  <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                                </default>
+                                <null/>
+                              </java.beans.PropertyChangeSupport>
+                            </listeners>
+                            <source class="net.java.amateras.uml.usecasediagram.model.UsecaseActorModel">
+                              <backgroundColor reference="../../../../../../../../../../../../../../../backgroundColor"/>
+                              <foregroundColor reference="../../../../../../../../../../../../../../../foregroundColor"/>
                               <showIcon>true</showIcon>
-                              <parent class="net.java.amateras.uml.usecasediagram.model.SystemModel" reference="../../../../../../../../.."/>
+                              <parent class="net.java.amateras.uml.usecasediagram.model.UsecaseRootModel" reference="../../../../../../../../../../../../../../.."/>
                               <listeners serialization="custom">
                                 <java.beans.PropertyChangeSupport>
                                   <default>
-                                    <source class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../../.."/>
+                                    <source class="net.java.amateras.uml.usecasediagram.model.UsecaseActorModel" reference="../../../.."/>
                                     <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
                                   </default>
                                   <null/>
                                 </java.beans.PropertyChangeSupport>
                               </listeners>
                               <constraint>
-                                <height>39</height>
-                                <width>133</width>
-                                <x>348</x>
-                                <y>313</y>
+                                <height>-1</height>
+                                <width>-1</width>
+                                <x>1025</x>
+                                <y>322</y>
                               </constraint>
-                              <sourceConnections/>
-                              <targetConnections>
-                                <net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel reference="../../.."/>
-                              </targetConnections>
+                              <sourceConnections>
+                                <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel reference="../../.."/>
+                              </sourceConnections>
+                              <targetConnections/>
                               <children/>
                               <filterProperty/>
-                              <name>글 존재여부 검사</name>
-                            </target>
+                              <name>관리자</name>
+                            </source>
+                            <target class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../.."/>
                             <bendpoints/>
-                          </net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel>
-                        </sourceConnections>
-                        <targetConnections>
+                          </net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
                           <net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel>
                             <showIcon>true</showIcon>
                             <listeners serialization="custom">
@@ -226,242 +224,13 @@
                               <constraint>
                                 <height>40</height>
                                 <width>100</width>
-                                <x>131</x>
-                                <y>240</y>
+                                <x>406</x>
+                                <y>55</y>
                               </constraint>
                               <sourceConnections>
                                 <net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel reference="../../.."/>
                               </sourceConnections>
-                              <targetConnections>
-                                <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
-                                  <showIcon>true</showIcon>
-                                  <listeners serialization="custom">
-                                    <java.beans.PropertyChangeSupport>
-                                      <default>
-                                        <source class="net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel" reference="../../../.."/>
-                                        <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
-                                      </default>
-                                      <null/>
-                                    </java.beans.PropertyChangeSupport>
-                                  </listeners>
-                                  <source class="net.java.amateras.uml.usecasediagram.model.UsecaseActorModel">
-                                    <backgroundColor reference="../../../../../../../../../../../../../../../../../../backgroundColor"/>
-                                    <foregroundColor reference="../../../../../../../../../../../../../../../../../../foregroundColor"/>
-                                    <showIcon>true</showIcon>
-                                    <parent class="net.java.amateras.uml.usecasediagram.model.UsecaseRootModel" reference="../../../../../../../../../../../../../../../../../.."/>
-                                    <listeners serialization="custom">
-                                      <java.beans.PropertyChangeSupport>
-                                        <default>
-                                          <source class="net.java.amateras.uml.usecasediagram.model.UsecaseActorModel" reference="../../../.."/>
-                                          <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
-                                        </default>
-                                        <null/>
-                                      </java.beans.PropertyChangeSupport>
-                                    </listeners>
-                                    <constraint>
-                                      <height>-1</height>
-                                      <width>-1</width>
-                                      <x>804</x>
-                                      <y>302</y>
-                                    </constraint>
-                                    <sourceConnections>
-                                      <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel reference="../../.."/>
-                                      <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
-                                        <showIcon>true</showIcon>
-                                        <listeners serialization="custom">
-                                          <java.beans.PropertyChangeSupport>
-                                            <default>
-                                              <source class="net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel" reference="../../../.."/>
-                                              <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
-                                            </default>
-                                            <null/>
-                                          </java.beans.PropertyChangeSupport>
-                                        </listeners>
-                                        <source class="net.java.amateras.uml.usecasediagram.model.UsecaseActorModel" reference="../../.."/>
-                                        <target class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../../../../../../../../../../.."/>
-                                        <bendpoints/>
-                                      </net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
-                                      <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
-                                        <showIcon>true</showIcon>
-                                        <listeners serialization="custom">
-                                          <java.beans.PropertyChangeSupport>
-                                            <default>
-                                              <source class="net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel" reference="../../../.."/>
-                                              <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
-                                            </default>
-                                            <null/>
-                                          </java.beans.PropertyChangeSupport>
-                                        </listeners>
-                                        <source class="net.java.amateras.uml.usecasediagram.model.UsecaseActorModel" reference="../../.."/>
-                                        <target class="net.java.amateras.uml.usecasediagram.model.UsecaseModel">
-                                          <backgroundColor reference="../../../../../../../../../../../../../../../../../../../../../backgroundColor"/>
-                                          <foregroundColor reference="../../../../../../../../../../../../../../../../../../../../../foregroundColor"/>
-                                          <showIcon>true</showIcon>
-                                          <parent class="net.java.amateras.uml.usecasediagram.model.SystemModel" reference="../../../../../../../../../../../../../../.."/>
-                                          <listeners serialization="custom">
-                                            <java.beans.PropertyChangeSupport>
-                                              <default>
-                                                <source class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../../.."/>
-                                                <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
-                                              </default>
-                                              <null/>
-                                            </java.beans.PropertyChangeSupport>
-                                          </listeners>
-                                          <constraint>
-                                            <height>40</height>
-                                            <width>100</width>
-                                            <x>135</x>
-                                            <y>414</y>
-                                          </constraint>
-                                          <sourceConnections/>
-                                          <targetConnections>
-                                            <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel reference="../../.."/>
-                                          </targetConnections>
-                                          <children/>
-                                          <filterProperty/>
-                                          <name>작성</name>
-                                        </target>
-                                        <bendpoints/>
-                                      </net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
-                                      <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
-                                        <showIcon>true</showIcon>
-                                        <listeners serialization="custom">
-                                          <java.beans.PropertyChangeSupport>
-                                            <default>
-                                              <source class="net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel" reference="../../../.."/>
-                                              <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
-                                            </default>
-                                            <null/>
-                                          </java.beans.PropertyChangeSupport>
-                                        </listeners>
-                                        <source class="net.java.amateras.uml.usecasediagram.model.UsecaseActorModel" reference="../../.."/>
-                                        <target class="net.java.amateras.uml.usecasediagram.model.UsecaseModel">
-                                          <backgroundColor reference="../../../../../../../../../../../../../../../../../../../../../backgroundColor"/>
-                                          <foregroundColor reference="../../../../../../../../../../../../../../../../../../../../../foregroundColor"/>
-                                          <showIcon>true</showIcon>
-                                          <parent class="net.java.amateras.uml.usecasediagram.model.SystemModel" reference="../../../../../../../../../../../../../../.."/>
-                                          <listeners serialization="custom">
-                                            <java.beans.PropertyChangeSupport>
-                                              <default>
-                                                <source class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../../.."/>
-                                                <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
-                                              </default>
-                                              <null/>
-                                            </java.beans.PropertyChangeSupport>
-                                          </listeners>
-                                          <constraint>
-                                            <height>40</height>
-                                            <width>100</width>
-                                            <x>136</x>
-                                            <y>107</y>
-                                          </constraint>
-                                          <sourceConnections/>
-                                          <targetConnections>
-                                            <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
-                                              <showIcon>true</showIcon>
-                                              <listeners serialization="custom">
-                                                <java.beans.PropertyChangeSupport>
-                                                  <default>
-                                                    <source class="net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel" reference="../../../.."/>
-                                                    <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
-                                                  </default>
-                                                  <null/>
-                                                </java.beans.PropertyChangeSupport>
-                                              </listeners>
-                                              <source class="net.java.amateras.uml.usecasediagram.model.UsecaseActorModel" reference="../../../../../../../../../../../../../../../../../../../../.."/>
-                                              <target class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../.."/>
-                                              <bendpoints/>
-                                            </net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
-                                            <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
-                                              <showIcon>true</showIcon>
-                                              <listeners serialization="custom">
-                                                <java.beans.PropertyChangeSupport>
-                                                  <default>
-                                                    <source class="net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel" reference="../../../.."/>
-                                                    <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
-                                                  </default>
-                                                  <null/>
-                                                </java.beans.PropertyChangeSupport>
-                                              </listeners>
-                                              <source class="net.java.amateras.uml.usecasediagram.model.UsecaseActorModel">
-                                                <backgroundColor reference="../../../../../../../../../../../../../../../../../../../../../../../../backgroundColor"/>
-                                                <foregroundColor reference="../../../../../../../../../../../../../../../../../../../../../../../../foregroundColor"/>
-                                                <showIcon>true</showIcon>
-                                                <parent class="net.java.amateras.uml.usecasediagram.model.UsecaseRootModel" reference="../../../../../../../../../../../../../../../../../../../../../../../.."/>
-                                                <listeners serialization="custom">
-                                                  <java.beans.PropertyChangeSupport>
-                                                    <default>
-                                                      <source class="net.java.amateras.uml.usecasediagram.model.UsecaseActorModel" reference="../../../.."/>
-                                                      <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
-                                                    </default>
-                                                    <null/>
-                                                  </java.beans.PropertyChangeSupport>
-                                                </listeners>
-                                                <constraint>
-                                                  <height>-1</height>
-                                                  <width>-1</width>
-                                                  <x>136</x>
-                                                  <y>389</y>
-                                                </constraint>
-                                                <sourceConnections>
-                                                  <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
-                                                    <showIcon>true</showIcon>
-                                                    <listeners serialization="custom">
-                                                      <java.beans.PropertyChangeSupport>
-                                                        <default>
-                                                          <source class="net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel" reference="../../../.."/>
-                                                          <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
-                                                        </default>
-                                                        <null/>
-                                                      </java.beans.PropertyChangeSupport>
-                                                    </listeners>
-                                                    <source class="net.java.amateras.uml.usecasediagram.model.UsecaseActorModel" reference="../../.."/>
-                                                    <target class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../../../../../../../../../../../../../../../../../../../.."/>
-                                                    <bendpoints/>
-                                                  </net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
-                                                  <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel reference="../../.."/>
-                                                </sourceConnections>
-                                                <targetConnections/>
-                                                <children/>
-                                                <filterProperty/>
-                                                <name>회원</name>
-                                              </source>
-                                              <target class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../.."/>
-                                              <bendpoints/>
-                                            </net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
-                                            <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel reference="../../.."/>
-                                          </targetConnections>
-                                          <children/>
-                                          <filterProperty/>
-                                          <name>조회</name>
-                                        </target>
-                                        <bendpoints/>
-                                      </net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
-                                      <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
-                                        <showIcon>true</showIcon>
-                                        <listeners serialization="custom">
-                                          <java.beans.PropertyChangeSupport>
-                                            <default>
-                                              <source class="net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel" reference="../../../.."/>
-                                              <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
-                                            </default>
-                                            <null/>
-                                          </java.beans.PropertyChangeSupport>
-                                        </listeners>
-                                        <source class="net.java.amateras.uml.usecasediagram.model.UsecaseActorModel" reference="../../.."/>
-                                        <target class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../../../../../../../../../../../../../.."/>
-                                        <bendpoints/>
-                                      </net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
-                                    </sourceConnections>
-                                    <targetConnections/>
-                                    <children/>
-                                    <filterProperty/>
-                                    <name>관리자</name>
-                                  </source>
-                                  <target class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../.."/>
-                                  <bendpoints/>
-                                </net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
-                              </targetConnections>
+                              <targetConnections/>
                               <children/>
                               <filterProperty/>
                               <name>수정</name>
@@ -470,35 +239,67 @@
                             <bendpoints/>
                           </net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel>
                           <net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel reference="../../.."/>
+                          <net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel>
+                            <showIcon>true</showIcon>
+                            <listeners serialization="custom">
+                              <java.beans.PropertyChangeSupport>
+                                <default>
+                                  <source class="net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel" reference="../../../.."/>
+                                  <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                                </default>
+                                <null/>
+                              </java.beans.PropertyChangeSupport>
+                            </listeners>
+                            <source class="net.java.amateras.uml.usecasediagram.model.UsecaseModel">
+                              <backgroundColor reference="../../../../../../../../../../../../../../../backgroundColor"/>
+                              <foregroundColor reference="../../../../../../../../../../../../../../../foregroundColor"/>
+                              <showIcon>true</showIcon>
+                              <parent class="net.java.amateras.uml.usecasediagram.model.SystemModel" reference="../../../../../../../../.."/>
+                              <listeners serialization="custom">
+                                <java.beans.PropertyChangeSupport>
+                                  <default>
+                                    <source class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../../.."/>
+                                    <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                                  </default>
+                                  <null/>
+                                </java.beans.PropertyChangeSupport>
+                              </listeners>
+                              <constraint>
+                                <height>40</height>
+                                <width>100</width>
+                                <x>499</x>
+                                <y>368</y>
+                              </constraint>
+                              <sourceConnections>
+                                <net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel reference="../../.."/>
+                              </sourceConnections>
+                              <targetConnections/>
+                              <children/>
+                              <filterProperty/>
+                              <name>등록</name>
+                            </source>
+                            <target class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../.."/>
+                            <bendpoints/>
+                          </net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel>
                         </targetConnections>
                         <children/>
                         <filterProperty/>
-                        <name>권한 조회</name>
+                        <name>관리자 로그인</name>
                       </target>
                       <bendpoints/>
                     </net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel>
                   </sourceConnections>
-                  <targetConnections>
-                    <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel reference="../../sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/target/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/source/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel/source/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel[2]"/>
-                  </targetConnections>
+                  <targetConnections/>
                   <children/>
                   <filterProperty/>
                   <name>삭제</name>
                 </net.java.amateras.uml.usecasediagram.model.UsecaseModel>
-                <net.java.amateras.uml.usecasediagram.model.UsecaseModel reference="../net.java.amateras.uml.usecasediagram.model.UsecaseModel[2]/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/target/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/source/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel/source/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel[3]/target"/>
-                <net.java.amateras.uml.usecasediagram.model.UsecaseModel reference="../net.java.amateras.uml.usecasediagram.model.UsecaseModel[2]/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/target/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/source/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel/source/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel[4]/target"/>
-                <net.java.amateras.uml.usecasediagram.model.UsecaseModel reference="../net.java.amateras.uml.usecasediagram.model.UsecaseModel[2]/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/target/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/source"/>
+                <net.java.amateras.uml.usecasediagram.model.UsecaseModel reference="../net.java.amateras.uml.usecasediagram.model.UsecaseModel/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/target/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel[3]/source"/>
+                <net.java.amateras.uml.usecasediagram.model.UsecaseModel reference="../../.."/>
+                <net.java.amateras.uml.usecasediagram.model.UsecaseModel reference="../net.java.amateras.uml.usecasediagram.model.UsecaseModel/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/target/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/source"/>
                 <net.java.amateras.uml.usecasediagram.model.UsecaseModel>
-                  <backgroundColor>
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>206</blue>
-                  </backgroundColor>
-                  <foregroundColor>
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                  </foregroundColor>
+                  <backgroundColor reference="../../../../../../../../../backgroundColor"/>
+                  <foregroundColor reference="../../../../../../../../../foregroundColor"/>
                   <showIcon>true</showIcon>
                   <parent class="net.java.amateras.uml.usecasediagram.model.SystemModel" reference="../../.."/>
                   <listeners serialization="custom">
@@ -513,16 +314,16 @@
                   <constraint>
                     <height>40</height>
                     <width>100</width>
-                    <x>341</x>
-                    <y>0</y>
+                    <x>59</x>
+                    <y>166</y>
                   </constraint>
                   <sourceConnections>
-                    <net.java.amateras.uml.usecasediagram.model.UsecaseGeneralizationModel>
+                    <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
                       <showIcon>true</showIcon>
                       <listeners serialization="custom">
                         <java.beans.PropertyChangeSupport>
                           <default>
-                            <source class="net.java.amateras.uml.usecasediagram.model.UsecaseGeneralizationModel" reference="../../../.."/>
+                            <source class="net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel" reference="../../../.."/>
                             <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
                           </default>
                           <null/>
@@ -531,115 +332,57 @@
                       <source class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../.."/>
                       <target class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../../../../.."/>
                       <bendpoints/>
-                    </net.java.amateras.uml.usecasediagram.model.UsecaseGeneralizationModel>
+                    </net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
                   </sourceConnections>
-                  <targetConnections/>
-                  <children/>
-                  <filterProperty/>
-                  <name>전체 검색</name>
-                </net.java.amateras.uml.usecasediagram.model.UsecaseModel>
-                <net.java.amateras.uml.usecasediagram.model.UsecaseModel>
-                  <backgroundColor>
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>206</blue>
-                  </backgroundColor>
-                  <foregroundColor>
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                  </foregroundColor>
-                  <showIcon>true</showIcon>
-                  <parent class="net.java.amateras.uml.usecasediagram.model.SystemModel" reference="../../.."/>
-                  <listeners serialization="custom">
-                    <java.beans.PropertyChangeSupport>
-                      <default>
-                        <source class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../../.."/>
-                        <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
-                      </default>
-                      <null/>
-                    </java.beans.PropertyChangeSupport>
-                  </listeners>
-                  <constraint>
-                    <height>40</height>
-                    <width>100</width>
-                    <x>345</x>
-                    <y>42</y>
-                  </constraint>
-                  <sourceConnections>
-                    <net.java.amateras.uml.usecasediagram.model.UsecaseGeneralizationModel>
+                  <targetConnections>
+                    <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
                       <showIcon>true</showIcon>
                       <listeners serialization="custom">
                         <java.beans.PropertyChangeSupport>
                           <default>
-                            <source class="net.java.amateras.uml.usecasediagram.model.UsecaseGeneralizationModel" reference="../../../.."/>
+                            <source class="net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel" reference="../../../.."/>
                             <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
                           </default>
                           <null/>
                         </java.beans.PropertyChangeSupport>
                       </listeners>
-                      <source class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../.."/>
-                      <target class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../../../../.."/>
+                      <source class="net.java.amateras.uml.usecasediagram.model.UsecaseActorModel">
+                        <backgroundColor reference="../../../../../../../../../../../../backgroundColor"/>
+                        <foregroundColor reference="../../../../../../../../../../../../foregroundColor"/>
+                        <showIcon>true</showIcon>
+                        <parent class="net.java.amateras.uml.usecasediagram.model.UsecaseRootModel" reference="../../../../../../../../../../../.."/>
+                        <listeners serialization="custom">
+                          <java.beans.PropertyChangeSupport>
+                            <default>
+                              <source class="net.java.amateras.uml.usecasediagram.model.UsecaseActorModel" reference="../../../.."/>
+                              <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+                            </default>
+                            <null/>
+                          </java.beans.PropertyChangeSupport>
+                        </listeners>
+                        <constraint>
+                          <height>-1</height>
+                          <width>-1</width>
+                          <x>132</x>
+                          <y>191</y>
+                        </constraint>
+                        <sourceConnections>
+                          <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel reference="../../.."/>
+                        </sourceConnections>
+                        <targetConnections/>
+                        <children/>
+                        <filterProperty/>
+                        <name>회원</name>
+                      </source>
+                      <target class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../.."/>
                       <bendpoints/>
-                    </net.java.amateras.uml.usecasediagram.model.UsecaseGeneralizationModel>
-                  </sourceConnections>
-                  <targetConnections/>
+                    </net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
+                  </targetConnections>
                   <children/>
                   <filterProperty/>
-                  <name>제목으로 검색</name>
+                  <name>로그인</name>
                 </net.java.amateras.uml.usecasediagram.model.UsecaseModel>
-                <net.java.amateras.uml.usecasediagram.model.UsecaseModel>
-                  <backgroundColor>
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>206</blue>
-                  </backgroundColor>
-                  <foregroundColor>
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                  </foregroundColor>
-                  <showIcon>true</showIcon>
-                  <parent class="net.java.amateras.uml.usecasediagram.model.SystemModel" reference="../../.."/>
-                  <listeners serialization="custom">
-                    <java.beans.PropertyChangeSupport>
-                      <default>
-                        <source class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../../.."/>
-                        <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
-                      </default>
-                      <null/>
-                    </java.beans.PropertyChangeSupport>
-                  </listeners>
-                  <constraint>
-                    <height>40</height>
-                    <width>100</width>
-                    <x>347</x>
-                    <y>82</y>
-                  </constraint>
-                  <sourceConnections>
-                    <net.java.amateras.uml.usecasediagram.model.UsecaseGeneralizationModel>
-                      <showIcon>true</showIcon>
-                      <listeners serialization="custom">
-                        <java.beans.PropertyChangeSupport>
-                          <default>
-                            <source class="net.java.amateras.uml.usecasediagram.model.UsecaseGeneralizationModel" reference="../../../.."/>
-                            <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
-                          </default>
-                          <null/>
-                        </java.beans.PropertyChangeSupport>
-                      </listeners>
-                      <source class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../.."/>
-                      <target class="net.java.amateras.uml.usecasediagram.model.UsecaseModel" reference="../../../../../.."/>
-                      <bendpoints/>
-                    </net.java.amateras.uml.usecasediagram.model.UsecaseGeneralizationModel>
-                  </sourceConnections>
-                  <targetConnections/>
-                  <children/>
-                  <filterProperty/>
-                  <name>내용으로 검색</name>
-                </net.java.amateras.uml.usecasediagram.model.UsecaseModel>
-                <net.java.amateras.uml.usecasediagram.model.UsecaseModel reference="../net.java.amateras.uml.usecasediagram.model.UsecaseModel[2]/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/target"/>
-                <net.java.amateras.uml.usecasediagram.model.UsecaseModel reference="../net.java.amateras.uml.usecasediagram.model.UsecaseModel[2]/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/target/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/target"/>
+                <net.java.amateras.uml.usecasediagram.model.UsecaseModel reference="../net.java.amateras.uml.usecasediagram.model.UsecaseModel/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/target"/>
               </children>
               <filterProperty/>
               <name>team7 - 공지사항</name>
@@ -656,33 +399,29 @@
             <constraint>
               <height>40</height>
               <width>100</width>
-              <x>135</x>
-              <y>35</y>
+              <x>242</x>
+              <y>189</y>
             </constraint>
             <sourceConnections/>
             <targetConnections>
               <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel reference="../../.."/>
-              <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel reference="../../parent/children/net.java.amateras.uml.usecasediagram.model.UsecaseModel[2]/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/target/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/source/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel/source/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel[4]/target/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel[2]/source/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel"/>
-              <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel reference="../../parent/children/net.java.amateras.uml.usecasediagram.model.UsecaseModel[2]/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/target/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/source/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel/source/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel[5]"/>
-              <net.java.amateras.uml.usecasediagram.model.UsecaseGeneralizationModel reference="../../parent/children/net.java.amateras.uml.usecasediagram.model.UsecaseModel[6]/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseGeneralizationModel"/>
-              <net.java.amateras.uml.usecasediagram.model.UsecaseGeneralizationModel reference="../../parent/children/net.java.amateras.uml.usecasediagram.model.UsecaseModel[7]/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseGeneralizationModel"/>
-              <net.java.amateras.uml.usecasediagram.model.UsecaseGeneralizationModel reference="../../parent/children/net.java.amateras.uml.usecasediagram.model.UsecaseModel[8]/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseGeneralizationModel"/>
+              <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel reference="../../parent/children/net.java.amateras.uml.usecasediagram.model.UsecaseModel[5]/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel"/>
+              <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel reference="../../parent/children/net.java.amateras.uml.usecasediagram.model.UsecaseModel/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/target/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel"/>
             </targetConnections>
             <children/>
             <filterProperty/>
-            <name>검색</name>
+            <name>조회</name>
           </target>
           <bendpoints/>
         </net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>
-        <net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel reference="../net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel/target/parent/children/net.java.amateras.uml.usecasediagram.model.UsecaseModel[2]/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/target/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/source/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel/source/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel[4]/target/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel"/>
       </sourceConnections>
       <targetConnections/>
       <children/>
       <filterProperty/>
       <name>비회원</name>
     </net.java.amateras.uml.usecasediagram.model.UsecaseActorModel>
-    <net.java.amateras.uml.usecasediagram.model.UsecaseActorModel reference="../net.java.amateras.uml.usecasediagram.model.UsecaseActorModel/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel/target/parent/children/net.java.amateras.uml.usecasediagram.model.UsecaseModel[2]/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/target/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/source/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel/source/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel[4]/target/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel[2]/source"/>
-    <net.java.amateras.uml.usecasediagram.model.UsecaseActorModel reference="../net.java.amateras.uml.usecasediagram.model.UsecaseActorModel/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel/target/parent/children/net.java.amateras.uml.usecasediagram.model.UsecaseModel[2]/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/target/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/source/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel/source"/>
+    <net.java.amateras.uml.usecasediagram.model.UsecaseActorModel reference="../net.java.amateras.uml.usecasediagram.model.UsecaseActorModel/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel/target/parent/children/net.java.amateras.uml.usecasediagram.model.UsecaseModel[5]/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel/source"/>
+    <net.java.amateras.uml.usecasediagram.model.UsecaseActorModel reference="../net.java.amateras.uml.usecasediagram.model.UsecaseActorModel/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel/target/parent/children/net.java.amateras.uml.usecasediagram.model.UsecaseModel/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel/target/targetConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel/source"/>
     <net.java.amateras.uml.usecasediagram.model.SystemModel reference="../net.java.amateras.uml.usecasediagram.model.UsecaseActorModel/sourceConnections/net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel/target/parent"/>
   </children>
   <filterProperty/>

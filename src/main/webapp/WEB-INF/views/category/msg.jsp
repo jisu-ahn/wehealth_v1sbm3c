@@ -48,6 +48,12 @@
             <span class="span_fail">[${param.categoryname }] 카테고리 삭제에 실패했습니다.</span>
           </LI>                                                                      
         </c:when> 
+        <c:when test="${param.msg == 'child_record_found' }">
+            삭제하려는 카테고리에 속한 상품이 있습니다.<br>
+            하위 상품을 모두 삭제해야 카테고리를 삭제할 수 있습니다.<br>
+            상품을 모두 삭제해주세요.<br>
+            『<A href="../items/list_by_categoryno_search_paging.do?category_no=${param.category_no }">소속된 상품 삭제</A>』
+        </c:when>
         <c:otherwise>
           <LI class='li_none_left'>
             <span class="span_fail">알 수 없는 에러로 작업에 실패했습니다.</span>
@@ -65,7 +71,7 @@
             </c:when>
         </c:choose>
         
-        <button type='button' onclick="location.href='./list.do'" class="btn btn-sm" style="background-color: #202052;color: white;">목록</button>
+        <button type='button' onclick="location.href='./list_by_categorygrpno.do?categorygrp_no=${param.categorygrp_no }'" class="btn btn-sm" style="background-color: #202052;color: white;">목록</button>
       </LI>
     </UL>
   </fieldset>

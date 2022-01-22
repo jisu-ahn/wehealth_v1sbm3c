@@ -245,7 +245,13 @@ public class CategoryCont {
       // 삭제될 레코드 정보를 삭제하기전에 읽음
       CategoryVO categoryVO = this.categoryProc.read(category_no); 
       
-      int cnt = this.categoryProc.delete(category_no);
+      int cnt = 0;
+      
+      try {
+          cnt = this.categoryProc.delete(category_no);
+      } catch(Exception e) {
+          mav.addObject("msg", "child_record_found");
+      }
       
       if (cnt == 1) {
           mav.addObject("categorygrp_no", categoryVO.getCategorygrp_no());

@@ -18,5 +18,11 @@ public interface Order_itemProcInter{
    */
   public List<Order_itemVO> list_by_memberno(HashMap<String, Object> map);
   
+  /**
+   * 상품별 주문 갯수
+   * <select id="order_item_cnt" resultType="int" parameterType="int" >
+   */
+  public int order_item_cnt(int itemsno);
+  
 }
 
