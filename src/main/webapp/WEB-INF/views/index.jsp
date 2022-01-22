@@ -29,6 +29,16 @@
 
       win.moveTo(x, y); // 화면 중앙으로 이동
     }
+
+    function chatting(){
+        var url = '/tensorflow/chatbot/chatting.do/';
+        var win = window.open(url, '챗봇', 'width=700px, height=630px');
+
+        var x = (screen.width - 700) / 2;
+        var y = (screen.height - 630) / 2;
+
+        win.moveTo(x, y); // 화면 중앙으로 이동
+      }
 </script>
     
 </head>
@@ -48,6 +58,7 @@
     <!-- 추천 시스템 프로젝트 -->
     <br><br>
     <A href="javascript: recommend_exercise()">🦾맞춤형 운동 추천 시스템🦾</A>
+    <A href="javascript: chatting()">💬실시간 문의(챗봇)💬</A>
     <H2 style="text-align: center; font-size:17px;">Tensorflow 2 model + Python + Django + Ajax + JSon 요청 처리</H2>
 </DIV>
 
