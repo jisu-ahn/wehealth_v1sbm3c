@@ -15,11 +15,17 @@
 
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    
-<script type="text/javascript">
-  $(function(){
  
-  });
+<script type="text/javascript" src="/ckeditor/ckeditor.js"></script> <!-- /static 기준 -->
+ 
+<script type="text/JavaScript">
+  // window.onload=function(){
+  //  CKEDITOR.replace('content');  // <TEXTAREA>태그 id 값
+  // };
+
+  $(function() {
+    CKEDITOR.replace('content');  // <TEXTAREA>태그 id 값
+  }); 
 </script>
  
 </head> 
@@ -52,14 +58,7 @@
        <div class="col-md-10">
          <input type='text' name='name' value='' required="required" class="form-control" style='width: 50%;'>
        </div>
-    </div>
-<!--     <div class="form-group">
-       <label class="control-label col-md-2">검색어</label>
-       <div class="col-md-10">
-         <input type='text' name='word' value='' required="required" 
-                    class="form-control" style='width: 100%;'>
-       </div>
-    </div> -->    
+    </div>    
     <div class="form-group">
        <label class="control-label col-md-2">패스워드</label>
        <div class="col-md-10">

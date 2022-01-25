@@ -291,6 +291,17 @@ public class ItemsProc implements ItemsProcInter {
       return list;
     }
     
+    @Override
+    public int increaseReplycnt(int itemsno) {
+      int count = itemsDAO.increaseReplycnt(itemsno);
+      return count;
+    }
+
+    @Override
+    public int decreaseReplycnt(int itemsno) {
+      int count = itemsDAO.decreaseReplycnt(itemsno);
+      return count;
+    }
     
     
 }

@@ -8,8 +8,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
   <!-- 등록, 입력: NoticeVO, 리턴: 등록된 레코드 갯수  -->
   <insert id="create" parameterType="dev.mvc.notice.NoticeVO">
-    INSERT INTO notice(noticeno, id, name, title, content, cnt, reply, password, word, rdate)
-    VALUES(notice_seq.nextval,  #{id}, #{name}, #{title}, #{content}, #{cnt}, #{reply}, #{password}, #{word}, sysdate)
+    INSERT INTO notice(noticeno, id, name, title, content, password, rdate)
+    VALUES(notice_seq.nextval,  #{id}, #{name}, #{title}, #{content}, #{password}, sysdate)
   </insert>
   
   <!-- 
@@ -17,14 +17,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   List<NoticeVO> list = new ArrayList<NoticeVO>(); 
   -->
   <select id="list_noticeno_desc" resultType="dev.mvc.notice.NoticeVO">
-    SELECT  noticeno, name, title, cnt, rdate
+    SELECT  noticeno, name, title, rdate
     FROM notice
     ORDER BY noticeno DESC
   </select>
   
   <!-- 일반적인 조회 -->
   <select id="read" resultType="dev.mvc.notice.NoticeVO" parameterType="int">
-    SELECT noticeno, name, title, content, cnt, reply, word, rdate
+    SELECT noticeno, name, title, content, rdate
     FROM notice
     WHERE noticeno = #{noticeno}
   </select>
@@ -39,9 +39,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   <!-- 텍스트 수정 -->
   <update id="update" parameterType="dev.mvc.notice.NoticeVO">
     UPDATE notice
-    SET name=#{name}, 
-          title = #{title}, content= #{content}
-    WHERE noticeno = #{noticeno}
+    SET name=#{name }, title = #{title }, content= #{content }
+    WHERE noticeno = #{noticeno }
   </update>
   
   <!-- 공지사항 개수 -->

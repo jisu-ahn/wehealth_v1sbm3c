@@ -50,7 +50,7 @@
     <IMG src='/images/wehealth.jpg' style='width: 100%;'>
   </DIV>
   
-  <DIV style='width: 100%; margin: 30px auto; text-align: center;'>
+  <DIV style='width: 90%; margin: 30px auto; text-align: center;'>
  <jsp:include page="./items/main_list.jsp" flush='false' />
  </DIV>
 

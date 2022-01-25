@@ -12,10 +12,7 @@ CREATE TABLE notice(
     NAME	        VARCHAR2(30) NOT NULL,
     TITLE	            VARCHAR2(100) NOT NULL,
     CONTENT	    VARCHAR2(4000) NOT NULL,
-    CNT	            NUMBER(10) DEFAULT 0,
-    REPLY           	NUMBER(10) DEFAULT 0,
     PASSWORD	VARCHAR2(20) NOT NULL,
-    WORD	        VARCHAR2(300),
     RDATE	        DATE NOT NULL,
     FOREIGN KEY (id) REFERENCES member (id)
 );
@@ -26,10 +23,7 @@ COMMENT ON COLUMN notice.id is '관리자 아이디';
 COMMENT ON COLUMN notice.name is '글쓴이';
 COMMENT ON COLUMN notice.title is '제목';
 COMMENT ON COLUMN notice.content is '내용';
-COMMENT ON COLUMN notice.cnt is '클릭수';
-COMMENT ON COLUMN notice.reply is '댓글수';
 COMMENT ON COLUMN notice.password is '패스워드';
-COMMENT ON COLUMN notice.word is '검색어';
 COMMENT ON COLUMN notice.rdate is '날짜';
 
 
@@ -41,12 +35,12 @@ CREATE SEQUENCE notice_seq
   NOCYCLE;                      -- 다시 1부터 생성되는 것을 방지
 
 -- 등록
-INSERT INTO notice(noticeno, id, name, title, content, cnt, reply, password, word, rdate)
-VALUES(notice_seq.nextval,  'qnaadmin', '김관리', '공지사항1', '공지사항이 있습니다.', 0, 0, '1234', '', sysdate);
+INSERT INTO notice(noticeno, id, name, title, content, password, rdate)
+VALUES(notice_seq.nextval,  'qnaadmin', '김관리', '공지사항1', '공지사항이 있습니다.','1234', sysdate);
     
 
 -- 조회
-SELECT noticeno, name, title, content, cnt, reply, word, rdate
+SELECT noticeno, name, title, content, rdate
 FROM notice
 WHERE noticeno = 1;
 
@@ -58,6 +52,8 @@ UPDATE notice
 SET name='나관리', 
      title = '???', content= '???', word=''
 WHERE noticeno = 9;
+
+
 
 commit;
 ------------------------------------------------------------------

@@ -18,7 +18,6 @@
 
     $(function() {
         $('#btn_login').on('click', login_ajax);
-        $('#btn_loadDefault').on('click', loadDefault);
       });
 
     <%-- 로그인 --%>
@@ -42,7 +41,6 @@
             console.log('-> login cnt: ' + rdata.cnt);  // 1: 로그인 성공
             
             if (rdata.cnt == 1) {
-              // 쇼핑카트에 insert 처리 Ajax 호출
               $('#div_login').hide();
               alert('로그인 성공');
               document.location.reload();
@@ -143,7 +141,6 @@
         <div class="col-md-offset-4 col-md-8">
           <button type="button" id='btn_login' class="btn btn-primary btn-md">로그인</button>
           <button type='button' onclick="location.href='../member/create.do'" class="btn btn-primary btn-md">회원가입</button>
-          <!-- <button type='button' id='btn_loadDefault' class="btn btn-primary btn-md">테스트 계정</button> -->
           <button type='button' id='btn_cancel' class="btn btn-primary btn-md"
                       onclick="$('#div_login').hide();">취소</button>
         </div>
@@ -157,10 +154,9 @@
     <colgroup>
       <col style='width: 10%;'/>
       <col style='width: 35%;'/>
-      <col style='width: 10%;'/>
-      <col style='width: 15%;'/>    
-      <col style='width: 10%;'/>
       <col style='width: 15%;'/>
+      <col style='width: 15%;'/>    
+      <col style='width: 20%;'/>
     </colgroup>
    
     <thead>  
@@ -169,7 +165,6 @@
       <TH class="th_bs">제목</TH>
       <TH class="th_bs">작성자</TH>
       <TH class="th_bs">등록일</TH>
-      <TH class="th_bs">조회수</TH>
       <TH class="th_bs">기타</TH>
     </TR>
     </thead>
@@ -180,7 +175,6 @@
       <c:set var="title" value="${noticeVO.title }" />
       <c:set var="name" value="${noticeVO.name }" />
       <c:set var="rdate" value="${noticeVO.rdate.substring(0, 10) }" />
-      <c:set var="cnt" value="${noticeVO.cnt }" />
       <c:set var="notice_cnt" value="${notice_cnt }" />
       
       <TR>
@@ -188,7 +182,6 @@
         <TD class="td_bs_left"><A href="./read.do?noticeno=${noticeno}" >${title }</A></TD>
         <TD class="td_bs">${name }</TD>
         <TD class="td_bs">${rdate }</TD>
-        <TD class="td_bs">${cnt }</TD>
         <TD class="td_bs">
           <button type='button' id='update' onclick="notice_ajax(this.id, ${noticeno})" style='padding: 0; border: none; background: none;'><span class="glyphicon glyphicon-pencil"></span></button>
           <button type='button' id='delete' onclick="notice_ajax(this.id, ${noticeno})" style='padding: 0; border: none; background: none;'><span class="glyphicon glyphicon-trash"></span></button>

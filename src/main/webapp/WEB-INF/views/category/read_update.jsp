@@ -54,9 +54,8 @@
     <colgroup>
       <col style='width: 10%;'/>
       <col style='width: 10%;'/>
-      <col style='width: 40%;'/>
-      <col style='width: 15%;'/>    
-      <col style='width: 10%;'/>
+      <col style='width: 45%;'/>
+      <col style='width: 20%;'/>   
       <col style='width: 15%;'/>
     </colgroup>
    
@@ -66,7 +65,6 @@
       <TH class="th_bs">카테고리<br> 그룹 번호</TH>
       <TH class="th_bs">카테고리 이름</TH>
       <TH class="th_bs">등록일</TH>
-      <TH class="th_bs">관련<br> 자료수</TH>
       <TH class="th_bs">기타</TH>
     </TR>
     </thead>
@@ -76,14 +74,12 @@
       <c:set var="category_no" value="${categoryVO.category_no }" />
       <c:set var="categorygrp_no" value="${categoryVO.categorygrp_no }" />
       <c:set var="category_name" value="${categoryVO.category_name }" />
-      <c:set var="cdate" value="${categoryVO.cdate.substring(0, 10) }" />
-      <c:set var="product_cnt" value="${categoryVO.product_cnt }" />
+      <c:set var="cdate" value="${cagoryVO.cdate.substring(0, 10) }" />
       <TR>
         <TD class="td_bs">${category_no }</TD>
         <TD class="td_bs">${categorygrp_no }</TD>
         <TD class="td_bs_left">${category_name }</TD>
         <TD class="td_bs">${cdate }</TD>
-        <TD class="td_bs">${product_cnt }</TD>
         <TD class="td_bs">
           <A href="./read_update.do?category_no=${category_no }&categorygrp_no=${categorygrp_no }" title="수정"><span class="glyphicon glyphicon-pencil"></span></A>
           <A href="./read_delete.do?category_no=${category_no }&categorygrp_no=${categorygrp_no }" title="삭제"><span class="glyphicon glyphicon-trash"></span></A>

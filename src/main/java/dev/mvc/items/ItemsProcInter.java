@@ -124,7 +124,19 @@ public interface ItemsProcInter {
      */
     public List<ItemsVO> main_list();
     
-    
+    /**
+     * 글 수 증가
+     * @param 
+     * @return
+     */ 
+    public int increaseReplycnt(int itemsno);
+   
+    /**
+     * 글 수 감소
+     * @param 
+     * @return
+     */   
+    public int decreaseReplycnt(int itemsno);
     
 }
 

@@ -855,7 +855,17 @@ public class ItemsCont {
         CategorygrpVO categorygrpVO = this.categorygrpProc.read(categoryVO.getCategorygrp_no());
         mav.addObject("categorygrpVO", categorygrpVO); 
         
-        mav.setViewName("/items/read_cookie"); // /WEB-INF/views/items/read_cookie.jsp
+       // 단순 read
+        // mav.setViewName("/items/read"); // /WEB-INF/views/items/read.jsp
+        
+        // 쇼핑 기능 추가
+        // mav.setViewName("/items/read_cookie"); // /WEB-INF/views/items/read_cookie.jsp
+        
+        // 댓글 기능 추가 
+        // mav.setViewName("/items/read_cookie_reply"); // /WEB-INF/views/items/read_cookie_reply.jsp
+
+        // 댓글 + 더보기 버튼 기능 추가 
+        mav.setViewName("/items/read_cookie_reply_add"); // /WEB-INF/views/items/read_cookie_reply_add.jsp
         
         // -------------------------------------------------------------------------------
         // 쇼핑 카트 장바구니에 상품 등록전 로그인 폼 출력 관련 쿠기  

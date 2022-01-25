@@ -24,6 +24,11 @@
   <fieldset class='fieldset_basic'>
     <UL>
       <c:choose>
+        <c:when test="${param.code == 'password_fail'}">
+          <LI class='li_none'>
+            <span class="span_fail">패스워드가 일치하지 않습니다.</span>
+          </LI> 
+        </c:when>
         <c:when test="${code == 'create_success'}"> <%-- Java if --%>
           <LI class='li_none'>
             <span class="span_success">새로운 공지사항 [${noticeVO.title }] 등록했습니다.</span>

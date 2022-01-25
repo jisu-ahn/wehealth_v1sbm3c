@@ -6,12 +6,7 @@
 <c:set var="title" value="${noticeVO.title }" />
 <c:set var="name" value="${noticeVO.name }" />
 <c:set var="content" value="${noticeVO.content }" />
-<c:set var="reply" value="${noticeVO.reply }" />
-<c:set var="word" value="${noticeVO.word }" />
 <c:set var="rdate" value="${noticeVO.rdate.substring(0, 10) }" />
-<c:set var="cnt" value="${noticeVO.cnt }" />
-<c:set var="prevTit" value="${noticeVO.prevTit }" />
-<c:set var="nextTit" value="${noticeVO.nextTit }" />
  
 <!DOCTYPE html> 
 <html lang="ko"> 
@@ -45,15 +40,13 @@
   <ASIDE class="aside_right">
     <A href="javascript:location.reload();">새로고침</A>
     <span class='menu_divide' >│</span>
-    <A href="./list_by_cateno_search_paging.do?cateno=${cateVO.cateno }&now_page=${param.now_page}&word=${param.word }">기본 목록형</A>    
+    <button type='button' id='btn_cart' onclick="location.href='./create.do'" style='padding: 0; border: none; background: none;'>등록</button>
     <span class='menu_divide' >│</span>
-    <A href="./list_by_cateno_grid.do?cateno=${cateVO.cateno }">갤러리형</A>
+    <button type="button" onclick="location.href='././list.do'" style='padding: 0; border: none; background: none;'>목록</button>
     <span class='menu_divide' >│</span>
-    <A href="./update_text.do?contentsno=${contentsno}&now_page=${param.now_page}">수정</A>
+    <A href="./update.do?noticeno=${noticeno }">수정</A>
     <span class='menu_divide' >│</span>
-    <A href="./update_file.do?contentsno=${contentsno}&now_page=${param.now_page}">파일 수정</A>  
-    <span class='menu_divide' >│</span>
-    <A href="./delete.do?contentsno=${contentsno}&now_page=${param.now_page}&cateno=${cateno}">삭제</A>  
+    <A href="./delete.do?noticeno=${noticeno}">삭제</A>  
   </ASIDE> 
   
   
@@ -69,10 +62,6 @@
         </DIV> 
         <DIV><br>${content }<br><hr style="height: 1.5px; background: #444444;"></DIV>
         <DIV>
-<!--         이전글<span class='menu_divide' >│</span>
-        <hr style="height: 0.5px; background: #444444;">
-        다음글<span class='menu_divide' >│</span>
-        <hr style="height: 0.5px; background: #444444;"> -->
         <div class="content_body_bottom" style="padding-right: 50%;">
             <button type="button" onclick="location.href='./list.do'">목록</button>
         </div>

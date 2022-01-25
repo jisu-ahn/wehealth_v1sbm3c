@@ -22,7 +22,7 @@ import com.zaxxer.hikari.HikariDataSource;
                                             , "dev.mvc.category", "dev.mvc.items",
                                             "dev.mvc.member", "dev.mvc.cart", "dev.mvc.tensorflow",
                                             "dev.mvc.notice", "dev.mvc.order_pay", "dev.mvc.order_item",
-                                            "dev.mvc.chatbot"})
+                                            "dev.mvc.chatbot", "dev.mvc.reply"})
 
 public class DatabaseConfiguration {
     

@@ -1,11 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<c:set var="noticeno" value= "${noticeVO.noticeno }" />
 <c:set var="title" value="${noticeVO.title }" />
 <c:set var="name" value= "${noticeVO.name }" />
 <c:set var="content" value="${noticeVO.content }" />
-<c:set var="password" value= "${noticeVO.password }" />
-<c:set var="word" value= "${noticeVO.word }" />
          
 <!DOCTYPE html> 
 <html lang="ko"> 
@@ -22,10 +21,16 @@
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     
-<script type="text/javascript">
-  $(function(){
+<script type="text/javascript" src="/ckeditor/ckeditor.js"></script> <!-- /static 기준 -->
  
-  });
+<script type="text/JavaScript">
+  // window.onload=function(){
+  //  CKEDITOR.replace('content');  // <TEXTAREA>태그 id 값
+  // };
+
+  $(function() {
+    CKEDITOR.replace('content');  // <TEXTAREA>태그 id 값
+  }); 
 </script>
  
 </head> 
@@ -50,7 +55,7 @@
   
   <DIV class='content_body'>
   <FORM name='frm' method='POST' action='./update.do' class="form-horizontal">
-    <input type="hidden" id="id" name="id" value="${sessionScope.id }">
+  <input type='hidden' name='noticeno' value='${noticeno }'>
     <div class="form-group">
        <label class="control-label col-md-2">제목</label>
        <div class="col-md-10">
@@ -80,7 +85,7 @@
     </div>     
     <div class="content_body_bottom">
       <button type="submit" class="btn btn-sm" style="background-color: #202052;color: white;">등록</button>
-      <button type="button" onclick="location.href='././list.do'" class="btn btn-sm" style="background-color: #202052;color: white;">취소</button>
+      <button type="button" onclick="history.back();" class="btn btn-sm" style="background-color: #202052;color: white;">취소</button>
     </div>
   
   </FORM>

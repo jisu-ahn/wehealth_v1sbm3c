@@ -35,10 +35,10 @@ import dev.mvc.tool.Tool;
         String content = noticeVO.getContent();
         
         title = Tool.convertChar(title);  // 특수 문자 처리
-        content = Tool.convertChar(content); 
+//        content = Tool.convertChar(content); 
         
         noticeVO.setTitle(title);
-        noticeVO.setContent(content);  
+//        noticeVO.setContent(content);  
                 
         return noticeVO;
     }

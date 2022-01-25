@@ -133,9 +133,7 @@ public class NoticeCont {
       
       mav.addObject("noticeVO", noticeVO);
       
-      mav.setViewName("/notice/update"); // /WEB-INF/views/items/update_text.jsp
-      // String content = "장소:\n인원:\n준비물:\n비용:\n기타:\n";
-      // mav.addObject("content", content);
+      mav.setViewName("/notice/update");
 
       return mav; // forward
     }
