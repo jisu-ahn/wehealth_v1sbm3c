@@ -40,8 +40,8 @@
       <constraint>
         <height>-1</height>
         <width>-1</width>
-        <x>2037</x>
-        <y>527</y>
+        <x>1838</x>
+        <y>606</y>
       </constraint>
       <sourceConnections/>
       <targetConnections>
@@ -73,8 +73,8 @@
             <constraint>
               <height>-1</height>
               <width>-1</width>
-              <x>1930</x>
-              <y>421</y>
+              <x>1721</x>
+              <y>392</y>
             </constraint>
             <sourceConnections>
               <net.java.amateras.uml.classdiagram.model.AssociationModel reference="../../.."/>
@@ -108,8 +108,8 @@
                   <constraint>
                     <height>-1</height>
                     <width>-1</width>
-                    <x>1906</x>
-                    <y>293</y>
+                    <x>1677</x>
+                    <y>259</y>
                   </constraint>
                   <sourceConnections>
                     <net.java.amateras.uml.classdiagram.model.AssociationModel reference="../../.."/>
@@ -143,8 +143,8 @@
                         <constraint>
                           <height>-1</height>
                           <width>-1</width>
-                          <x>1680</x>
-                          <y>192</y>
+                          <x>1545</x>
+                          <y>156</y>
                         </constraint>
                         <sourceConnections>
                           <net.java.amateras.uml.classdiagram.model.AssociationModel reference="../../.."/>
@@ -178,8 +178,8 @@
                               <constraint>
                                 <height>-1</height>
                                 <width>-1</width>
-                                <x>1085</x>
-                                <y>63</y>
+                                <x>1015</x>
+                                <y>28</y>
                               </constraint>
                               <sourceConnections>
                                 <net.java.amateras.uml.classdiagram.model.AssociationModel reference="../../.."/>
@@ -212,8 +212,8 @@
                                     <constraint>
                                       <height>-1</height>
                                       <width>-1</width>
-                                      <x>793</x>
-                                      <y>492</y>
+                                      <x>723</x>
+                                      <y>457</y>
                                     </constraint>
                                     <sourceConnections>
                                       <net.java.amateras.uml.classdiagram.model.RealizationModel>
@@ -245,8 +245,8 @@
                                           <constraint>
                                             <height>-1</height>
                                             <width>-1</width>
-                                            <x>528</x>
-                                            <y>63</y>
+                                            <x>458</x>
+                                            <y>28</y>
                                           </constraint>
                                           <sourceConnections>
                                             <net.java.amateras.uml.classdiagram.model.AggregationModel>
@@ -278,8 +278,8 @@
                                                 <constraint>
                                                   <height>-1</height>
                                                   <width>-1</width>
-                                                  <x>88</x>
-                                                  <y>444</y>
+                                                  <x>18</x>
+                                                  <y>409</y>
                                                 </constraint>
                                                 <sourceConnections/>
                                                 <targetConnections>
@@ -330,8 +330,8 @@
                                                       <constraint>
                                                         <height>-1</height>
                                                         <width>-1</width>
-                                                        <x>112</x>
-                                                        <y>944</y>
+                                                        <x>42</x>
+                                                        <y>909</y>
                                                       </constraint>
                                                       <sourceConnections>
                                                         <net.java.amateras.uml.classdiagram.model.AssociationModel reference="../../.."/>
@@ -1894,8 +1894,8 @@
       <constraint>
         <height>-1</height>
         <width>-1</width>
-        <x>1405</x>
-        <y>648</y>
+        <x>1335</x>
+        <y>613</y>
       </constraint>
       <sourceConnections/>
       <targetConnections/>

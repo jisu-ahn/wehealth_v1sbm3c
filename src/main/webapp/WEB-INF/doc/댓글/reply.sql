@@ -122,3 +122,20 @@ WHERE replyno=1 AND passwd='1234';
 DELETE FROM reply
 WHERE replyno=1;
 
+SELECT id, replyno, itemsno, memberno, content, passwd, rdate, r
+    FROM (
+        SELECT id, replyno, itemsno, memberno, content, passwd, rdate, rownum as r
+        FROM (
+            SELECT m.id, r.replyno, r.itemsno, r.memberno, r.content, r.passwd, r.rdate
+            FROM member m,  reply r
+            WHERE (m.memberno = r.memberno) AND r.itemsno= 1
+            ORDER BY r.replyno DESC
+        )
+    )
+    WHERE r <= 1000;
+
+SELECT m.id,
+               r.replyno, r.itemsno, r.memberno, r.content, r.passwd, r.rdate
+    FROM member m,  reply r
+    WHERE (m.memberno = r.memberno) AND r.itemsno=1
+    ORDER BY r.replyno DESC;
