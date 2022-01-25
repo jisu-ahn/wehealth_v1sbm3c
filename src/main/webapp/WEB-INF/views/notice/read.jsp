@@ -63,7 +63,7 @@
         <DIV><br>${content }<br><hr style="height: 1.5px; background: #444444;"></DIV>
         <DIV>
         <div class="content_body_bottom" style="padding-right: 50%;">
-            <button type="button" onclick="location.href='./list.do'">목록</button>
+            <button type="button" onclick="location.href='./list.do'" class="btn btn-sm" style="background-color: #202052;color: white;">목록</button>
         </div>
       </li> 
     </ul>
