@@ -36,12 +36,10 @@
     
 <script type="text/javascript">
    let reply_list; // 댓글 목록, 중복 선언 불가능
-
   $(function(){
       $('#btn_recom').on("click", function() { update_recom_ajax(${itemsno}); });
     $('#btn_login').on('click', login_ajax);
     $('#btn_loadDefault').on('click', loadDefault);
-
     //---------------------------------------- 댓글 관련 시작 ----------------------------------------
       var frm_reply = $('#frm_reply');
       $('#content', frm_reply).on('click', check_login);  // 댓글 작성시 로그인 여부 확인
@@ -54,147 +52,148 @@
   });
   
   function update_recom_ajax(itemsno) {
-    // console.log('-> contentsno:' + contentsno);
-    var params = "";
-    // params = $('#frm').serialize(); // 직렬화, 폼의 데이터를 키와 값의 구조로 조합
-    params = 'itemsno=' + itemsno; // 공백이 값으로 있으면 안됨.
-    $.ajax(
-      {
-        url: '/items/update_recom_ajax.do',
-        type: 'post',  // get, post
-        cache: false, // 응답 결과 임시 저장 취소
-        async: true,  // true: 비동기 통신
-        dataType: 'json', // 응답 형식: json, html, xml...
-        data: params,      // 데이터
-        success: function(rdata) { // 응답이 온경우
-          // console.log('-> rdata: '+ rdata);
-          var str = '';
-          if (rdata.cnt == 1) {
-            // console.log('-> btn_recom: ' + $('#btn_recom').val());  // X
-            // console.log('-> btn_recom: ' + $('#btn_recom').html());
-            $('#btn_recom').html('♥('+rdata.recom+')');
-            $('#span_animation').hide();
-          } else {
-            $('#span_animation').html("지금은 추천을 할 수 없습니다.");
-          }
-        },
-        // Ajax 통신 에러, 응답 코드가 200이 아닌경우, dataType이 다른경우 
-        error: function(request, status, error) { // callback 함수
-          console.log(error);
-        }
-      }
-    );  //  $.ajax END
+	    // console.log('-> contentsno:' + contentsno);
+	    var params = "";
+	    // params = $('#frm').serialize(); // 직렬화, 폼의 데이터를 키와 값의 구조로 조합
+	    params = 'itemsno=' + itemsno; // 공백이 값으로 있으면 안됨.
+	    $.ajax(
+	      {
+	        url: '/items/update_recom_ajax.do',
+	        type: 'post',  // get, post
+	        cache: false, // 응답 결과 임시 저장 취소
+	        async: true,  // true: 비동기 통신
+	        dataType: 'json', // 응답 형식: json, html, xml...
+	        data: params,      // 데이터
+	        success: function(rdata) { // 응답이 온경우
+	          // console.log('-> rdata: '+ rdata);
+	          var str = '';
+	          if (rdata.cnt == 1) {
+	            // console.log('-> btn_recom: ' + $('#btn_recom').val());  // X
+	            // console.log('-> btn_recom: ' + $('#btn_recom').html());
+	            $('#btn_recom').html('♥('+rdata.recom+')');
+	            $('#span_animation').hide();
+	          } else {
+	            $('#span_animation').html("지금은 추천을 할 수 없습니다.");
+	          }
+	        },
+	        // Ajax 통신 에러, 응답 코드가 200이 아닌경우, dataType이 다른경우 
+	        error: function(request, status, error) { // callback 함수
+	          console.log(error);
+	        }
+	      }
+	    );  //  $.ajax END
 
-    // $('#span_animation').css('text-align', 'center');
-    $('#span_animation').html("<img src='/items/images/ani04.gif' style='width: 8%;'>");
-    $('#span_animation').show(); // 숨겨진 태그의 출력
-  }
+	    // $('#span_animation').css('text-align', 'center');
+	    $('#span_animation').html("<img src='/items/images/ani04.gif' style='width: 8%;'>");
+	    $('#span_animation').show(); // 숨겨진 태그의 출력
+	  }
 
-  function loadDefault() {
-    $('#id').val('user1');
-    $('#passwd').val('1234');
-  } 
-  
-  <%-- 로그인 --%>
-  function login_ajax() {
-    var params = "";
-    params = $('#frm_login').serialize(); // 직렬화, 폼의 데이터를 키와 값의 구조로 조합
-    // params += '&${ _csrf.parameterName }=${ _csrf.token }';
-    // console.log(params);
-    // return;
-    
-    $.ajax(
-      {
-        url: '/member/login_ajax.do',
-        type: 'post',  // get, post
-        cache: false, // 응답 결과 임시 저장 취소
-        async: true,  // true: 비동기 통신
-        dataType: 'json', // 응답 형식: json, html, xml...
-        data: params,      // 데이터
-        success: function(rdata) { // 응답이 온경우
-          var str = '';
-          console.log('-> login cnt: ' + rdata.cnt);  // 1: 로그인 성공
-          
-          if (rdata.cnt == 1) {
-            // 쇼핑카트에 insert 처리 Ajax 호출
-            $('#div_login').hide();
-            // alert('로그인 성공');
-            $('#login_yn').val('YES'); // 로그인 성공 기록
-            cart_ajax_post(); // 쇼핑카트에 insert 처리 Ajax 호출     
-            
-          } else {
-            alert('로그인에 실패했습니다.\n잠시후 다시 시도해주세요.');
-            
-          }
-        },
-        // Ajax 통신 에러, 응답 코드가 200이 아닌경우, dataType이 다른경우 
-        error: function(request, status, error) { // callback 함수
-          console.log(error);
-        }
-      }
-    );  //  $.ajax END
+	  function loadDefault() {
+	    $('#id').val('user1');
+	    $('#passwd').val('1234');
+	  } 
+	  
+	  <%-- 로그인 --%>
+	  function login_ajax() {
+	    var params = "";
+	    params = $('#frm_login').serialize(); // 직렬화, 폼의 데이터를 키와 값의 구조로 조합
+	    // params += '&${ _csrf.parameterName }=${ _csrf.token }';
+	    // console.log(params);
+	    // return;
+	    
+	    $.ajax(
+	      {
+	        url: '/member/login_ajax.do',
+	        type: 'post',  // get, post
+	        cache: false, // 응답 결과 임시 저장 취소
+	        async: true,  // true: 비동기 통신
+	        dataType: 'json', // 응답 형식: json, html, xml...
+	        data: params,      // 데이터
+	        success: function(rdata) { // 응답이 온경우
+	          var str = '';
+	          console.log('-> login cnt: ' + rdata.cnt);  // 1: 로그인 성공
+	          
+	          if (rdata.cnt == 1) {
+	            // 쇼핑카트에 insert 처리 Ajax 호출
+	            $('#div_login').hide();
+	            // alert('로그인 성공');
+	            $('#login_yn').val('YES'); // 로그인 성공 기록
+	            cart_ajax_post(); // 쇼핑카트에 insert 처리 Ajax 호출     
+	            
+	          } else {
+	            alert('로그인에 실패했습니다.\n잠시후 다시 시도해주세요.');
+	            
+	          }
+	        },
+	        // Ajax 통신 에러, 응답 코드가 200이 아닌경우, dataType이 다른경우 
+	        error: function(request, status, error) { // callback 함수
+	          console.log(error);
+	        }
+	      }
+	    );  //  $.ajax END
 
-  }
+	  }
 
-  <%-- 쇼핑 카트에 상품 추가 --%>
-  function cart_ajax(itemsno) {
-    var f = $('#frm_login');
-    $('#itemsno', f).val(itemsno);  // 쇼핑카트 등록시 사용할 상품 번호를 저장.
-    
-    console.log('-> itemsno: ' + $('#itemsno', f).val()); 
-    
-    // console.log('-> id:' + '${sessionScope.id}');
-    if ('${sessionScope.id}' != '' || $('#login_yn').val() == 'YES') {  // 로그인이 되어 있다면
-      cart_ajax_post();
-    } else { // 로그인 안된 경우
-      $('#div_login').show();
-    }
+	  <%-- 쇼핑 카트에 상품 추가 --%>
+	  function cart_ajax(itemsno) {
+	    var f = $('#frm_login');
+	    $('#itemsno', f).val(itemsno);  // 쇼핑카트 등록시 사용할 상품 번호를 저장.
+	    
+	    console.log('-> itemsno: ' + $('#itemsno', f).val()); 
+	    
+	    // console.log('-> id:' + '${sessionScope.id}');
+	    if ('${sessionScope.id}' != '' || $('#login_yn').val() == 'YES') {  // 로그인이 되어 있다면
+	      cart_ajax_post();
+	    } else { // 로그인 안된 경우
+	      $('#div_login').show();
+	    }
 
-  }
+	  }
 
-  <%-- 쇼핑카트 상품 등록 --%>
-  function cart_ajax_post() {
-    var f = $('#frm_login');
-    var itemsno = $('#itemsno', f).val();  // 쇼핑카트 등록시 사용할 상품 번호.
-    
-    var params = "";
-    // params = $('#frm_login').serialize(); // 직렬화, 폼의 데이터를 키와 값의 구조로 조합
-    params += 'itemsno=' + itemsno;
-    params += '&${ _csrf.parameterName }=${ _csrf.token }';
-    console.log('-> cart_ajax_post: ' + params);
-    // return;
-    
-    $.ajax(
-      {
-        url: '/cart/create.do',
-        type: 'post',  // get, post
-        cache: false, // 응답 결과 임시 저장 취소
-        async: true,  // true: 비동기 통신
-        dataType: 'json', // 응답 형식: json, html, xml...
-        data: params,      // 데이터
-        success: function(rdata) { // 응답이 온경우
-          var str = '';
-          console.log('-> cart_ajax_post cnt: ' + rdata.cnt);  // 1: 쇼핑카트 등록 성공
-          
-          if (rdata.cnt == 1) {
-            var sw = confirm('선택한 상품이 장바구니에 담겼습니다.\n장바구니로 이동하시겠습니까?');
-            if (sw == true) {
-              // 쇼핑카트로 이동
-              location.href='/cart/list_by_memberno.do';
-            }           
-          } else {
-            alert('선택한 상품을 장바구니에 담지못했습니다.<br>잠시후 다시 시도해주세요.');
-          }
-        },
-        // Ajax 통신 에러, 응답 코드가 200이 아닌경우, dataType이 다른경우 
-        error: function(request, status, error) { // callback 함수
-          console.log(error);
-        }
-      }
-    );  //  $.ajax END
+	  <%-- 쇼핑카트 상품 등록 --%>
+	  function cart_ajax_post() {
+	    var f = $('#frm_login');
+	    var itemsno = $('#itemsno', f).val();  // 쇼핑카트 등록시 사용할 상품 번호.
+	    
+	    var params = "";
+	    // params = $('#frm_login').serialize(); // 직렬화, 폼의 데이터를 키와 값의 구조로 조합
+	    params += 'itemsno=' + itemsno;
+	    params += '&${ _csrf.parameterName }=${ _csrf.token }';
+	    console.log('-> cart_ajax_post: ' + params);
+	    // return;
+	    
+	    $.ajax(
+	      {
+	        url: '/cart/create.do',
+	        type: 'post',  // get, post
+	        cache: false, // 응답 결과 임시 저장 취소
+	        async: true,  // true: 비동기 통신
+	        dataType: 'json', // 응답 형식: json, html, xml...
+	        data: params,      // 데이터
+	        success: function(rdata) { // 응답이 온경우
+	          var str = '';
+	          console.log('-> cart_ajax_post cnt: ' + rdata.cnt);  // 1: 쇼핑카트 등록 성공
+	          
+	          if (rdata.cnt == 1) {
+	            var sw = confirm('선택한 상품이 장바구니에 담겼습니다.\n장바구니로 이동하시겠습니까?');
+	            if (sw == true) {
+	              // 쇼핑카트로 이동
+	              location.href='/cart/list_by_memberno.do';
+	            }           
+	          } else {
+	            alert('선택한 상품을 장바구니에 담지못했습니다.<br>잠시후 다시 시도해주세요.');
+	          }
+	        },
+	        // Ajax 통신 에러, 응답 코드가 200이 아닌경우, dataType이 다른경우 
+	        error: function(request, status, error) { // callback 함수
+	          console.log(error);
+	        }
+	      }
+	    );  //  $.ajax END
 
-  }
+	  }
 
+      
 //댓글 작성시 로그인 여부 확인
   function check_login() {
     var frm_reply = $('#frm_reply');
@@ -205,7 +204,6 @@
       return false;  // 실행 종료
     }
   }
-
   // 댓글 등록
   function reply_create() {
     var frm_reply = $('#frm_reply');
@@ -214,7 +212,6 @@
       var params = frm_reply.serialize(); // 직렬화: 키=값&키=값&...
       // alert(params);
       // return;
-
       // 자바스크립트: 영숫자, 한글, 공백, 특수문자: 글자수 1로 인식
       // 오라클: 한글 1자가 3바이트임으로 300자로 제한
       // alert('내용 길이: ' + $('#content', frm_reply).val().length);
@@ -226,7 +223,6 @@
         $('#modal_panel').modal();           // 다이얼로그 출력
         return;  // 실행 종료
       }
-
       $.ajax({
         url: "../reply/create.do", // action 대상 주소
         type: "post",          // get, post
@@ -244,7 +240,6 @@
             msg = "댓글을 등록했습니다.";
             $('#content', frm_reply).val('');
             $('#passwd', frm_reply).val('');
-
             // list_by_itemsno_join(); // 댓글 목록을 새로 읽어옴
             
             $('#reply_list').html(''); // 댓글 목록 패널 초기화, val(''): 안됨
@@ -272,11 +267,9 @@
       });
     }
   }
-
   // itemsno 별 소속된 댓글 목록, 2건만 출력
   function list_by_itemsno_join() {
     var params = 'itemsno=' + ${itemsVO.itemsno };
-
     $.ajax({
       url: "../reply/list_by_itemsno_join.do", // action 대상 주소
       type: "get",           // get, post
@@ -289,7 +282,6 @@
         var msg = '';
         
         $('#reply_list').html(''); // 패널 초기화, val(''): 안됨
-
         // -------------------- 전역 변수에 댓글 목록 추가 --------------------
         reply_list = rdata.list;
         // -------------------- 전역 변수에 댓글 목록 추가 --------------------
@@ -299,7 +291,6 @@
         if (rdata.list.length >= 2 ) { // 글이 2건 이상이라면 2건만 출력
           last_index = 2
         }
-
         for (i=0; i < last_index; i++) {
           // alert('i: ' + i); 
           
@@ -334,7 +325,6 @@
     $('#replyno', frm_reply_delete).val(replyno); // 삭제할 댓글 번호 저장
     $('#modal_panel_delete').modal();             // 삭제폼 다이얼로그 출력
   }
-
   // 댓글 삭제 처리
   function reply_delete_proc(replyno) {
     // alert('replyno: ' + replyno);
@@ -352,7 +342,6 @@
         
         if (rdata.passwd_cnt ==1) { // 패스워드 일치
           if (rdata.delete_cnt == 1) { // 삭제 성공
-
             $('#btn_frm_reply_delete_close').trigger("click"); // 삭제폼 닫기, click 발생 
             
             $('#' + replyno).remove(); // 태그 삭제
@@ -368,7 +357,6 @@
           
           msg = "패스워드가 일치하지 않습니다.";
           $('#modal_panel_delete_msg').html(msg);
-
           $('#passwd', '#frm_reply_delete').focus();  // frm_reply_delete 폼의 passwd 태그로 focus 설정
           
         }
@@ -379,7 +367,6 @@
       }
     });
   }
-
   // // [더보기] 버튼 처리
   function list_by_itemsno_join_add() {
     // alert('list_by_itemsno_join_add called');
@@ -405,7 +392,6 @@
       msg += "  " + "<br>";
       msg += row.content;
       msg += "</DIV>";
-
       // alert('msg: ' + msg);
       $('#reply_list').append(msg);
     }    
@@ -528,6 +514,7 @@
   <DIV id='div_login' style='width: 80%; margin: 0px auto; display: none;'>
   <FORM name='frm_login' id='frm_login' method='POST' action='/member/login_ajax.do' class="form-horizontal">
     <input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
+    <input type="hidden" name="itemsno" id="itemsno" value="itemsno">
     <input type="hidden" name="login_yn" id="login_yn" value="NO">
           
     <div class="form-group">
@@ -621,6 +608,7 @@
   </fieldset>
 
 </DIV>
+
  <!-- ------------------------------ 댓글 영역 시작 ------------------------------ -->
 <DIV style='width: 80%; margin: 0px auto;'>
     <HR>

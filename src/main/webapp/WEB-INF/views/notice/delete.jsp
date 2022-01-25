@@ -46,10 +46,9 @@
     <colgroup>
       <col style='width: 10%;'/>
       <col style='width: 35%;'/>
-      <col style='width: 10%;'/>
-      <col style='width: 15%;'/>    
-      <col style='width: 10%;'/>
       <col style='width: 15%;'/>
+      <col style='width: 15%;'/>    
+      <col style='width: 20%;'/>
     </colgroup>
    
     <thead>  
@@ -58,7 +57,6 @@
       <TH class="th_bs">제목</TH>
       <TH class="th_bs">작성자</TH>
       <TH class="th_bs">등록일</TH>
-      <TH class="th_bs">조회수</TH>
       <TH class="th_bs">기타</TH>
     </TR>
     </thead>
@@ -69,7 +67,6 @@
       <c:set var="title" value="${noticeVO.title }" />
       <c:set var="name" value="${noticeVO.name }" />
       <c:set var="rdate" value="${noticeVO.rdate.substring(0, 10) }" />
-      <c:set var="cnt" value="${noticeVO.cnt }" />
       <c:set var="notice_cnt" value="${notice_cnt }" />
       
       <TR>
@@ -77,7 +74,6 @@
         <TD class="td_bs_left"><A href="./read.do?noticeno=${noticeno}" >${title }</A></TD>
         <TD class="td_bs">${name }</TD>
         <TD class="td_bs">${rdate }</TD>
-        <TD class="td_bs">${cnt }</TD>
         <TD class="td_bs">
           <button type='button' id='update' onclick="notice_ajax(this.id, ${noticeno})" style='padding: 0; border: none; background: none;'><span class="glyphicon glyphicon-pencil"></span></button>
           <button type='button' id='delete' onclick="notice_ajax(this.id, ${noticeno})" style='padding: 0; border: none; background: none;'><span class="glyphicon glyphicon-trash"></span></button>
